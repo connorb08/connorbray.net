@@ -16,7 +16,7 @@ env:
     # verbosity setting for Terraform logs
     TF_LOG: INFO
     BACKEND_CONF: ${{secrets.BACKEND_CONF}}
-    TFVARS: ${{secrets.TFVARS}}
+    VARS_TFVARS: ${{secrets.VARS_TFVARS}}
 
 jobs:
     terraform:
@@ -55,7 +55,7 @@ jobs:
 
             - name: Fetch terraform variables
               id: tfvars
-              run: echo "$TFVARS" > ./vars.tfvars
+              run: echo "$VARS_TFVARS" > ./vars.tfvars
 
             - name: Terraform plan
               id: plan

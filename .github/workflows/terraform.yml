@@ -16,6 +16,7 @@ env:
     # verbosity setting for Terraform logs
     TF_LOG: INFO
     BACKEND_CONF: ${{secrets.BACKEND_CONF}}
+    TFVARS: ${{secrets.TFVARS}}
 
 jobs:
     terraform:
@@ -52,10 +53,14 @@ jobs:
               id: validate
               run: terraform validate
 
+            - name: Fetch terraform variables
+              id: tfvars
+              run: echo "$TFVARS" > ./vars.tfvars
+
             - name: Terraform plan
               id: plan
               if: github.event_name == 'pull_request'
-              run: terraform plan -no-color -input=false
+              run: terraform plan -no-color -input=false -var-file vars.tfvars
               continue-on-error: true
 
             - uses: actions/github-script@v6
@@ -91,4 +96,4 @@ jobs:
 
             - name: Terraform Apply
               if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-              run: terraform apply -auto-approve -input=false
+              run: terraform apply -auto-approve -input=false -var-file vars.tfvars

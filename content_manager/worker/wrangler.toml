@@ -1,0 +1,11 @@
+name = "content-manager"
+main = "src/index.ts"
+compatibility_date = "2023-05-18"
+
+[[r2_buckets]]
+binding = "CM"
+bucket_name = "content"
+preview_bucket_name = "content-dev"
+
+workers_dev = false
+routes = [{ pattern = "content.connorbray.net", custom_domain = true }]

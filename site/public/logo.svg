@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.6 142.48">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-family: PadyakkeExpandedOne-Regular, 'Padyakke Expanded One';
+        font-size: 85px;
+        stroke-width: 3px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #fff;
+      }
+
+      .cls-2 {
+        fill: #45a757;
+        stroke: #231f20;
+        stroke-width: 5px;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <ellipse class="cls-2" cx="103.3" cy="65.5" rx="100.8" ry="63"/>
+  <ellipse class="cls-3" cx="103.3" cy="65.5" rx="100.8" ry="63"/>
+  <text class="cls-1" transform="translate(27.13 87.6) scale(.97 1)"><tspan x="0" y="0">CB</tspan></text>
+</svg>

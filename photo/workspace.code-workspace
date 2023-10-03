@@ -1,0 +1,15 @@
+{
+    "folders": [{ "path": "./" }],
+    "settings": {
+        "search.exclude": {
+            "**/.yarn": true,
+            "**/.pnp.*": true
+        },
+        "eslint.nodePath": ".yarn/sdks",
+        "typescript.tsdk": ".yarn/sdks/typescript/lib",
+        "typescript.enablePromptUseWorkspaceTsdk": true
+    },
+    "extensions": {
+        "recommendations": ["arcanis.vscode-zipfs"]
+    }
+}

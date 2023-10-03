@@ -1,0 +1,39 @@
+.Hero {
+    @apply min-h-screen;
+    @apply flex flex-col;
+    @apply justify-center items-center;
+    @apply bg-white;
+
+    .Content {
+        @apply w-1/2;
+        @apply flex-1 m-40;
+        @apply flex flex-col;
+        @apply bg-white;
+
+        .Start {
+            @apply flex-1;
+            @apply bg-primary-4;
+            @apply flex;
+            @apply justify-center items-center;
+        }
+
+        .Middle {
+            @apply flex-1;
+            @apply flex;
+            @apply justify-center items-center;
+            @apply bg-primary-6;
+
+            .Button {
+                @apply bg-primary;
+                @apply text-primary-1;
+                @apply rounded;
+                @apply px-4 py-2;
+            }
+        }
+
+        .End {
+            @apply flex-1;
+            @apply bg-primary-8;
+        }
+    }
+}

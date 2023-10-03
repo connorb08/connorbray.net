@@ -1,0 +1,30 @@
+.Page {
+    @apply h-full flex flex-col;
+    @apply bg-primary-2;
+
+    .Wrapper {
+        @apply mx-auto w-full max-w-7xl grow lg:flex xl:px-2 text-center;
+        @apply my-16;
+        @apply gap-3;
+
+        .LeftAndMain {
+            @apply flex flex-1 flex-col xl:flex-row;
+            @apply gap-3;
+
+            .Left {
+                @apply border-b border-gray-200 px-4 py-6 sm:px-6 lg:pl-8 xl:w-64 xl:shrink-0 xl:border-b-0 xl:border-r xl:pl-6;
+                @apply bg-primary-4;
+            }
+
+            .Main {
+                @apply px-4 py-6 sm:px-6 lg:pl-8 xl:flex-1 xl:pl-6;
+                @apply bg-primary-6;
+            }
+        }
+
+        .Right {
+            @apply shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-96 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6;
+            @apply bg-primary-4;
+        }
+    }
+}

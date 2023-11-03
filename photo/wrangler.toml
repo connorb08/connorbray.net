@@ -1,9 +1,9 @@
 name = "photo"
-
-workers_dev = true
 main = "./build/index.js"
-# https://developers.cloudflare.com/workers/platform/compatibility-dates
 compatibility_date = "2023-04-20"
+
+workers_dev = false
+services = [{ binding = "CONTENT", service = "content-manager" }]
 
 [site]
 bucket = "./public"
@@ -13,5 +13,3 @@ command = "yarn build"
 
 # [dev]
 # local_protocol = "https"
-
-services = [{ binding = "CONTENT", service = "content-manager" }]

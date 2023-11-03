@@ -56,10 +56,10 @@ export const About = (props: AboutProps) => {
                         <div className="shadow rounded-xl overflow-hidden">
                             {/* <!-- Start User Block --> */}
                             <div
-                                className="h-32 bg-cover"
+                                className="h-32 bg-cover bg-center"
                                 style={{
                                     backgroundImage:
-                                        "url('https://content.connorbray.net/um_mall.jpeg')",
+                                        "url('https://content.connorbray.net/images/um_mall.jpeg')",
                                 }}
                             ></div>
                             <div className="pt-14 p-7 bg-gray-3 relative">

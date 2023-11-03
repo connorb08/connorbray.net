@@ -1,8 +1,7 @@
-import type { V2_MetaFunction } from "@remix-run/cloudflare";
-import Header from "~/components/Header";
+import type { MetaFunction } from "@remix-run/cloudflare";
 import Hero from "~/components/Hero";
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
     return [{ title: "connorbray.net" }];
 };
 

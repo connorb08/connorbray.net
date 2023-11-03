@@ -1,39 +1,64 @@
 .Hero {
-    @apply min-h-screen;
-    @apply flex flex-col;
-    @apply justify-center items-center;
-    @apply bg-white;
+
+    // Layout
+    @apply min-h-screen flex flex-col justify-center items-center;
 
     .Content {
-        @apply w-1/2;
-        @apply flex-1 m-40;
-        @apply flex flex-col;
-        @apply bg-white;
+
+        // Size
+        @apply w-full flex-1;
+        // Layout
+        @apply flex flex-col md:flex-row;
+
+        // Text
+        @apply text-5xl;
+        @apply font-bold;
 
         .Start {
-            @apply flex-1;
-            @apply bg-primary-4;
-            @apply flex;
-            @apply justify-center items-center;
+            // Layout
+            @apply flex flex-1 justify-center items-center;
+            // Style
+            @apply bg-third-9 text-third-3;;
+
+            
+
+            & a {
+                @apply h-full flex flex-1 justify-center items-center;
+                &:hover {
+                    @apply cursor-pointer;
+                    @apply bg-third-7 text-third-11;
+                }
+            }
         }
 
         .Middle {
-            @apply flex-1;
-            @apply flex;
-            @apply justify-center items-center;
-            @apply bg-primary-6;
+            // Layout
+            @apply flex flex-1 justify-center items-center;
+            // Style
+            @apply bg-primary-9 text-primary-3;
 
-            .Button {
-                @apply bg-primary;
-                @apply text-primary-1;
-                @apply rounded;
-                @apply px-4 py-2;
+            & a {
+                @apply h-full flex flex-1 justify-center items-center;
+                &:hover {
+                    @apply cursor-pointer;
+                    @apply bg-primary-7 text-primary-11;
+                }
             }
         }
 
         .End {
-            @apply flex-1;
-            @apply bg-primary-8;
+            // Layout
+            @apply flex flex-1 justify-center items-center;
+            // Style
+            @apply bg-secondary-9 text-secondary-3;
+
+            & a {
+                @apply h-full flex flex-1 justify-center items-center;
+                &:hover {
+                    @apply bg-secondary-7 text-secondary-11;
+                    @apply cursor-pointer;
+                }
+            }
         }
     }
 }

@@ -2,7 +2,7 @@ import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { useCallback, useState } from "react";
 import photos from "./photos";
-import "./style.css";
+// import "./style.css";
 import GalleryHeader from "./header";
 
 export default function () {

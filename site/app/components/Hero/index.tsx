@@ -5,13 +5,9 @@ export default function Hero() {
     return (
         <div className={style.Hero}>
             <div className={style.Content}>
-                <div className={style.Start}>connorbray.net</div>
-                <div className={style.Middle}>
-                    <Link to="/home" className={style.Button}>
-                        Get Started
-                    </Link>
-                </div>
-                <div className={style.End}></div>
+                <div className={style.Start}><Link to="/about">portfolio</Link></div>
+                <div className={style.Middle}><Link to="/home">home</Link></div>
+                <div className={style.End}><Link to="/gallery">photo gallery</Link></div>
             </div>
         </div>
     );

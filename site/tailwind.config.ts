@@ -10,8 +10,9 @@ import {
     plum,
     plumA,
     amber,
-    amberA
-
+    amberA,
+    iris,
+    irisA
 } from '@radix-ui/colors';
 
 const config: Config = {
@@ -83,34 +84,34 @@ const config: Config = {
                     }
                 },
                 third: {
-                    DEFAULT: amber.amber9,
-                    1: amber.amber1,
-                    2: amber.amber2,
-                    3: amber.amber3,
-                    4: amber.amber4,
-                    5: amber.amber5,
-                    6: amber.amber6,
-                    7: amber.amber7,
-                    8: amber.amber8,
-                    9: amber.amber9,
-                    10: amber.amber10,
-                    11: amber.amber11,
-                    12: amber.amber12,
+                    DEFAULT: iris.iris9,
+                    1: iris.iris1,
+                    2: iris.iris2,
+                    3: iris.iris3,
+                    4: iris.iris4,
+                    5: iris.iris5,
+                    6: iris.iris6,
+                    7: iris.iris7,
+                    8: iris.iris8,
+                    9: iris.iris9,
+                    10: iris.iris10,
+                    11: iris.iris11,
+                    12: iris.iris12,
 
                     a: {
-                        DEFAULT: amberA.amberA9,
-                        1: amberA.amberA1,
-                        2: amberA.amberA2,
-                        3: amberA.amberA3,
-                        4: amberA.amberA4,
-                        5: amberA.amberA5,
-                        6: amberA.amberA6,
-                        7: amberA.amberA7,
-                        8: amberA.amberA8,
-                        9: amberA.amberA9,
-                        10: amberA.amberA10,
-                        11: amberA.amberA11,
-                        12: amberA.amberA12,
+                        DEFAULT: irisA.irisA9,
+                        1: irisA.irisA1,
+                        2: irisA.irisA2,
+                        3: irisA.irisA3,
+                        4: irisA.irisA4,
+                        5: irisA.irisA5,
+                        6: irisA.irisA6,
+                        7: irisA.irisA7,
+                        8: irisA.irisA8,
+                        9: irisA.irisA9,
+                        10: irisA.irisA10,
+                        11: irisA.irisA11,
+                        12: irisA.irisA12,
                     }
                 },
                 gray: {

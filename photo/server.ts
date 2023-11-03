@@ -16,6 +16,7 @@ export default {
     request: Request,
     env: {
       __STATIC_CONTENT: Fetcher;
+      CONTENT: Fetcher;
     },
     ctx: ExecutionContext
   ): Promise<Response> {
@@ -38,7 +39,7 @@ export default {
           },
         }
       );
-    } catch (error) {}
+    } catch (error) { }
 
     try {
       const loadContext: AppLoadContext = {

@@ -1,0 +1,17 @@
+name = "admin"
+main = "./build/index.js"
+compatibility_date = "2023-05-18"
+
+[site]
+    bucket = "./public"
+
+[build]
+    command = "yarn build"
+
+[[routes]]
+    pattern = "admin.connorbray.net"
+    custom_domain = true
+
+[[r2_buckets]]
+    binding = 'CONTENT'
+    bucket_name = 'content'

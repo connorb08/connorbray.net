@@ -14,8 +14,8 @@ const jobs: JobProps[] = [
         location: "Yarmouth, ME",
         start: "July 2023",
         end: "Present",
-        description: "",
-        imgUrl: "https://content.connorbray.net/tylertech.avif",
+        description: "Software Deployment Automation",
+        imgUrl: "https://content.connorbray.net/images/tyler.png",
     },
     {
         title: "President & CEO",
@@ -24,8 +24,8 @@ const jobs: JobProps[] = [
         location: "Orono, ME",
         start: "Feb 2022",
         end: "May 2023",
-        description: "",
-        imgUrl: "https://content.connorbray.net/umsg.avif",
+        description: "Highest ranking executive of a 501(c)(3) non-profit with yearly budget of over $1,000,000. Collaborated with President, Chancellor, Dean of Students, and Provost to develop campus goals.",
+        imgUrl: "https://content.connorbray.net/images/umsg.avif",
     },
     {
         title: "Software Development Intern",
@@ -35,7 +35,7 @@ const jobs: JobProps[] = [
         start: "May 2022",
         end: "May 2023",
         description: "",
-        imgUrl: "https://content.connorbray.net/tylertech.avif",
+        imgUrl: "https://content.connorbray.net/images/tyler.png",
     },
     {
         title: "Vice President & Board Chair",
@@ -44,8 +44,8 @@ const jobs: JobProps[] = [
         location: "Orono, ME",
         start: "May 2022",
         end: "Feb 2023",
-        description: "",
-        imgUrl: "https://content.connorbray.net/umsg.avif",
+        description: "Chaired the board of directors’ meetings with 40+ board members according to Robert’s Rules of Order.",
+        imgUrl: "https://content.connorbray.net/images/umsg.avif",
     },
     {
         title: "Interim Vice President for Financial Affiars",
@@ -55,7 +55,7 @@ const jobs: JobProps[] = [
         start: "Sep 2022",
         end: "Oct 2022",
         description: "",
-        imgUrl: "https://content.connorbray.net/umsg.avif",
+        imgUrl: "https://content.connorbray.net/images/umsg.avif",
     },
     {
         title: "Information Technology Intern",
@@ -64,8 +64,8 @@ const jobs: JobProps[] = [
         location: "Yarmouth, ME",
         start: "May 2021",
         end: "May 2022",
-        description: "",
-        imgUrl: "https://content.connorbray.net/tylertech.avif",
+        description: "Developed enterprise resource planning application using scrum and agile methodologies. Rewrote legacy code to improve application efficiency (run time improvement of 10x+).",
+        imgUrl: "https://content.connorbray.net/images/tyler.png",
     },
     {
         title: "Kitchen Staff",

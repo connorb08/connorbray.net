@@ -1,7 +1,68 @@
 {
-    "folders": [
-        {
-            "path": "."
-        }
-    ]
+	"extensions": {
+		"recommendations": [
+			"tamasfe.even-better-toml",
+			"esbenp.prettier-vscode",
+			"hashicorp.terraform",
+			"bradlc.vscode-tailwindcss"
+		]
+	},
+	"folders": [
+		{
+			"name": "site",
+			"path": "site"
+		},
+		{
+			"name": "content",
+			"path": "content_manager"
+		},
+		{
+			"name": "admin",
+			"path": "admin"
+		},
+		{
+			"name": "infrastructure",
+			"path": "inf"
+		},
+		{
+			"name": "config",
+			"path": "."
+		}
+	],
+	"settings": {
+		// Formatting
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"prettier.requireConfig": true,
+		"prettier.configPath": ".prettierrc.yaml",
+		// Hidden files
+		"files.exclude": {
+			// Workspace folders
+			"content_manager": true,
+			"inf": true,
+			"site": true,
+			"admin": true,
+			// Terraform
+			"**/.terraform*": true,
+			// Javascript config files
+			"**/node_modules": true,
+			"**/build": true,
+			"**/.wrangler": true,
+			"**/.cache": true,
+			//   Yarn files
+			"**/.yarn": true,
+			"**/yarn.lock": true,
+			"**/.yarnrc.yml": true,
+			//   Git
+			"**/.gitignore": true,
+			// Other excludes
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true
+		},
+		"typescript.tsdk": "site/node_modules/typescript/lib"
+	}
 }

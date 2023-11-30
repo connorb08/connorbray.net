@@ -68,14 +68,14 @@ export const About = (props: AboutProps) => {
                                 />
                                 <span>
                                     <picture>
-                                        <source
+                                        {/* <source
                                             srcSet={CONTENT.headshot1.avif}
                                             type="image/avif"
                                         />
                                         <source
                                             srcSet={CONTENT.headshot1.webp}
                                             type="image/webp"
-                                        />
+                                        /> */}
                                         <img
                                             style={{
                                                 objectPosition: "center top",
@@ -86,7 +86,7 @@ export const About = (props: AboutProps) => {
                                             className="user-photo"
                                             decoding="async"
                                             loading="lazy"
-                                            src={CONTENT.headshot1.jpeg}
+                                            src="https://content.connorbray.net/images/headshot.jpeg"
                                             alt="Avatar"
                                         />
                                     </picture>

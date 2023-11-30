@@ -1,0 +1,11 @@
+.Header {
+	@apply flex flex-row items-center justify-between;
+	@apply p-6;
+	@apply bg-gray-800 text-white;
+}
+
+.Navbar {
+	@apply w-[10%];
+	@apply bg-gray-500;
+	@apply text-white;
+}

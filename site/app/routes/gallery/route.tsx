@@ -1,49 +1,68 @@
-import Gallery from "react-photo-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
-import { useCallback, useState } from "react";
-import photos from "./photos";
-// import "./style.css";
-import GalleryHeader from "./header";
+import type { LoaderFunctionArgs } from '@remix-run/cloudflare';
+import { useLoaderData } from '@remix-run/react';
+import { useState } from 'react';
+import PhotoAlbum, { Photo } from 'react-photo-album';
 
-export default function () {
-    const [currentImage, setCurrentImage] = useState(0);
-    const [viewerIsOpen, setViewerIsOpen] = useState(false);
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
+// import optional lightbox plugins
+import {
+	Fullscreen,
+	Slideshow,
+	Thumbnails,
+	Zoom,
+} from 'yet-another-react-lightbox/plugins';
+import 'yet-another-react-lightbox/plugins/thumbnails.css';
+import { Env } from 'remix.env';
 
-    const openLightbox = useCallback((event: any, { photo, index }: any) => {
-        setCurrentImage(index);
-        setViewerIsOpen(true);
-    }, []);
+export const loader = async ({ context }: LoaderFunctionArgs) => {
+	const env = context.env as Env;
 
-    const closeLightbox = () => {
-        setCurrentImage(0);
-        setViewerIsOpen(false);
-    };
-    return (
-        <>
-            <GalleryHeader />
-            <div className="w-full h-full bg-black">
-                <Gallery
-                    photos={photos}
-                    direction={"row"}
-                    onClick={openLightbox}
-                    targetRowHeight={500}
-                />
-            </div>
-            <div className="m-auto">
-                {/* @ts-ignore */}
-                <ModalGateway>
-                    {viewerIsOpen ? (
-                        <Modal onClose={closeLightbox}>
-                            <Carousel
-                                currentIndex={currentImage}
-                                views={photos.map((x) => ({
-                                    ...x,
-                                }))}
-                            />
-                        </Modal>
-                    ) : null}
-                </ModalGateway>
-            </div>
-        </>
-    );
+	const images = await env.CONTENT.list({
+		prefix: "gallery/",
+		include: ['customMetadata']
+	})
+	const files = images.objects;
+
+	if (files) {
+		const data = files.filter((file) => {
+			return file.size;
+		}).map((file, index, files) => {
+			return {
+				src: `https://content.connorbray.net/${file.key}`,
+				height: Number(file.customMetadata?.height) || undefined,
+				width: Number(file.customMetadata?.width) || undefined
+			}
+		});
+		return data as Photo[];
+	} else {
+		return [];
+	}
+};
+
+export default function Gallery() {
+	const data = useLoaderData() as any as Photo[];
+	const [index, setIndex] = useState(-1);
+
+	return (
+		<div className="h-full p-4">
+							<PhotoAlbum
+								layout="rows"
+								photos={data}
+								onClick={({ index }) => setIndex(index)}
+							/>
+							<Lightbox
+								slides={data}
+								open={index >= 0}
+								index={index}
+								close={() => setIndex(-1)}
+								plugins={[
+									Fullscreen,
+									Slideshow,
+									Thumbnails,
+									Zoom,
+								]}
+							/>
+		</div>
+	);
 }

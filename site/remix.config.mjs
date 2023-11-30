@@ -2,9 +2,9 @@
 export default {
     postcss: true,
     tailwind: true,
-    ignoredRouteFiles: ["**/.*"],
-    server: "./server.ts",
-    serverConditions: ["workerd", "worker", "browser"],
+    ignoredRouteFiles: ['**/.*'],
+    server: './server.ts',
+    serverConditions: ['workerd', 'worker', 'browser'],
     serverDependenciesToBundle: [
         // bundle verything except the virtual module for the static content manifest provided by wrangler
         /^(?!.*\b__STATIC_CONTENT_MANIFEST\b).*$/,
@@ -12,10 +12,10 @@ export default {
     serverNodeBuiltinsPolyfill: {
         modules: {},
     },
-    serverMainFields: ["browser", "module", "main"],
+    serverMainFields: ['browser', 'module', 'main'],
     serverMinify: true,
-    serverModuleFormat: "esm",
-    serverPlatform: "neutral",
+    serverModuleFormat: 'esm',
+    serverPlatform: 'neutral',
     // appDirectory: "app",
     // assetsBuildDirectory: "public/build",
     // serverBuildPath: "build/index.js",

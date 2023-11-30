@@ -1,4 +1,4 @@
-import type { LinksFunction, V2_MetaFunction } from "@remix-run/cloudflare";
+import type { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import {
     Links,
@@ -8,7 +8,7 @@ import {
     Scripts,
     ScrollRestoration,
 } from "@remix-run/react";
-import stylesheet from "~/tailwind.css";
+import stylesheet from "./tailwind.css";
 
 export const links: LinksFunction = () => [
     ...(cssBundleHref
@@ -19,7 +19,7 @@ export const links: LinksFunction = () => [
         : [{ rel: "stylesheet", href: stylesheet }]),
 ];
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
     return [
         { title: "Connor Bray" },
         {
@@ -31,7 +31,7 @@ export const meta: V2_MetaFunction = () => {
 
 export default function App() {
     return (
-        <html lang="en" className="min-h-[100vh] flex flex-col">
+        <html lang="en" className="h-full">
             <head>
                 <meta charSet="utf-8" />
                 <meta
@@ -51,7 +51,7 @@ export default function App() {
                 <Meta />
                 <Links />
             </head>
-            <body className="bg-primary-1 flex-1 overscroll-none">
+            <body className="h-full bg-primary-1 overscroll-none flex flex-col">
                 <Outlet />
                 <ScrollRestoration />
                 <Scripts />

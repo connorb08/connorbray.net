@@ -34,7 +34,6 @@
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"prettier.requireConfig": true,
-		"prettier.configPath": ".prettierrc.yaml",
 		// Hidden files
 		"files.exclude": {
 			// Workspace folders

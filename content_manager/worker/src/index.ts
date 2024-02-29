@@ -1,6 +1,6 @@
 import { Router } from '@tsndr/cloudflare-worker-router'
-import { GetAllImages, GetImageByKey as GetGalleryImageByKey } from "./gallery";
-import { GetImageByKey } from "./images";
+import { GetGalleryImage } from "./gallery";
+import { GetImage } from "./images";
 
 export interface Env {
 	CM: R2Bucket;
@@ -8,9 +8,8 @@ export interface Env {
 
 const router = new Router<Env, ExecutionContext, Request>()
 
-router.get("/gallery", GetAllImages);
-router.get("/gallery/:key", GetGalleryImageByKey);
-router.get("/images/:key", GetImageByKey);
+router.get("/gallery/:key", GetGalleryImage);
+router.get("/images/:key", GetImage);
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {

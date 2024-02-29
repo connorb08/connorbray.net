@@ -1,1 +1,5 @@
-# CONNORBRAY.NET Source Code
+# connorbray.net Source Code
+
+Site
+Content Manager
+Admin Dashboard

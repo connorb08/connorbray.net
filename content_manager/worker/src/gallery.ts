@@ -1,41 +1,7 @@
 import { RouterHandler } from "@tsndr/cloudflare-worker-router";
 import { Env } from ".";
-import { Image } from "./models";
 
-export const GetAllImages: RouterHandler<Env, ExecutionContext, Request<unknown, CfProperties<unknown>>> = async ({ req, env, ctx }) => {
-
-    try {
-
-        const url = new URL(req.url)
-        const images = await env.CM.list({
-            prefix: "gallery/",
-            include: ['customMetadata']
-        })
-        const files = images.objects;
-
-        if (files) {
-            const body = JSON.stringify(files.map((file, index, files) => {
-                return {
-                    src: `https://${url.host}/${file.key}`,
-                    height: Number(file.customMetadata?.height) || undefined,
-                    width: Number(file.customMetadata?.width) || undefined
-                }
-            }));
-            return new Response(body)
-        } else {
-            return new Response("Error", { status: 500 });
-        }
-
-        
-
-    } catch (error) {
-        console.log("error");
-        console.log(error);
-        return new Response("Error", { status: 500 });
-    }
-}
-
-export const GetImageByKey: RouterHandler<Env, ExecutionContext, Request<unknown, CfProperties<unknown>>> = async ({ env, ctx, req }) => {
+export const GetGalleryImage: RouterHandler<Env, ExecutionContext, Request<unknown, CfProperties<unknown>>> = async ({ env, ctx, req }) => {
 
     try {
 

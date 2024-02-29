@@ -1,4 +1,4 @@
-import type { LinksFunction } from '@remix-run/cloudflare';
+import type { LinksFunction, MetaFunction } from '@remix-run/cloudflare';
 import { cssBundleHref } from '@remix-run/css-bundle';
 import {
 	Links,
@@ -18,6 +18,10 @@ export const links: LinksFunction = () => [
 	...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ];
 
+export const meta: MetaFunction = () => {
+	return [{ title: 'Admin Dashboard' }];
+};
+
 export default function App() {
 	return (
 		<html lang="en" className="h-full">
@@ -30,14 +34,17 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
+
 			<body className="h-full">
 				<Theme
-					className="h-full"
 					appearance="dark"
 					accentColor="iris"
 					grayColor="mauve"
+					asChild
 				>
-					<Outlet />
+					<div className="h-full">
+						<Outlet />
+					</div>
 				</Theme>
 				<ScrollRestoration />
 				<Scripts />

@@ -2,7 +2,7 @@ import { RouterHandler } from "@tsndr/cloudflare-worker-router";
 import { Env } from ".";
 import { Image } from "./models";
 
-export const GetImageByKey: RouterHandler<Env, ExecutionContext, Request<unknown, CfProperties<unknown>>> = async ({ env, ctx, req }) => {
+export const GetImage: RouterHandler<Env, ExecutionContext, Request<unknown, CfProperties<unknown>>> = async ({ env, ctx, req }) => {
 
     try {
 

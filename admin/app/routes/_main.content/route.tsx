@@ -9,6 +9,26 @@ import { Box, Tabs } from '@radix-ui/themes';
 import Toolbar from '~/components/Toolbar';
 import { byteFormatter } from './utils';
 
+const columnDefs = [
+	{ field: 'key', headerName: 'File', flex: 1 },
+	{
+		field: 'customMetadata.height',
+		headerName: 'Height',
+		flex: 1,
+	},
+	{
+		field: 'customMetadata.width',
+		headerName: 'Width',
+		flex: 1,
+	},
+	{
+		field: 'size',
+		flex: 1,
+		valueFormatter: byteFormatter,
+	},
+	{ field: 'uploaded', flex: 1 },
+];
+
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
 	const bucket = env.CONTENT.list({ include: ['customMetadata'] });
@@ -16,30 +36,30 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 	return objects;
 };
 
-export const action = async ({ request }: LoaderFunctionArgs) => {};
+export const action = async ({ request, context }: LoaderFunctionArgs) => {
+	const env = context.env as Env;
+
+	if (request.method === 'POST') {
+		// const bucket = env.CONTENT.createMultipartUpload('');
+		return new Response('OK', { status: 200 });
+	} else {
+		return new Response('Method not allowed', { status: 405 });
+	}
+};
 
 export default function () {
 	const objects = useLoaderData<typeof loader>();
 
-	const columnDefs = [
-		{ field: 'key', headerName: 'File', flex: 1 },
-		{
-			field: 'customMetadata.height',
-			headerName: 'Height',
-			flex: 1,
-		},
-		{
-			field: 'customMetadata.width',
-			headerName: 'Width',
-			flex: 1,
-		},
-		{
-			field: 'size',
-			flex: 1,
-			valueFormatter: byteFormatter,
-		},
-		{ field: 'uploaded', flex: 1 },
-	];
+	const galleryData: typeof objects = [];
+	const imagesData: typeof objects = [];
+
+	objects.forEach((row) => {
+		if (row.key.startsWith('gallery/') && row.key !== 'gallery/') {
+			galleryData.push(row);
+		} else if (row.key.startsWith('images/') && row.key !== 'images/') {
+			imagesData.push(row);
+		}
+	});
 
 	return (
 		<Tabs.Root defaultValue="gallery" asChild>
@@ -49,33 +69,27 @@ export default function () {
 					<Tabs.Trigger value="images">Images</Tabs.Trigger>
 				</Tabs.List>
 
-				<Box px="4" pt="0" pb="2" className="flex-1">
+				<Box px="4" pt="0" pb="2" className="flex flex-col flex-1">
 					<Tabs.Content value="gallery" asChild>
-						<div className="ag-theme-alpine h-full">
+						<div className="ag-theme-alpine flex-1 flex flex-col">
 							<Toolbar />
 							<AgGridReact
+								className="flex-1"
 								// @ts-ignore
 								columnDefs={columnDefs}
-								rowData={objects.filter(
-									(row) =>
-										row.key.startsWith('gallery/') &&
-										row.size > 0
-								)}
+								rowData={galleryData}
 							/>{' '}
 						</div>
 					</Tabs.Content>
 
 					<Tabs.Content value="images" asChild>
-						<div className="ag-theme-alpine h-full">
+						<div className="ag-theme-alpine flex-1 flex flex-col">
 							<Toolbar />
 							<AgGridReact
+								className="flex-1"
 								// @ts-ignore
 								columnDefs={columnDefs}
-								rowData={objects.filter(
-									(row) =>
-										row.key.startsWith('images/') &&
-										row.size > 0
-								)}
+								rowData={imagesData}
 							/>{' '}
 						</div>
 					</Tabs.Content>

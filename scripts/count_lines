@@ -2,4 +2,4 @@
 
 cd "$(dirname "$(readlink -f "$0")")"
 cd ../
-cloc --exclude-dir=.cache,.yarn,node_modules $(git ls-files)
+cloc --exclude-dir=.cache,.yarn,node_modules --exclude-content=".pnp" $(git ls-files)

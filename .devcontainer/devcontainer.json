@@ -10,8 +10,11 @@
 				"tamasfe.even-better-toml",
 				"esbenp.prettier-vscode",
 				"hashicorp.terraform",
-				"bradlc.vscode-tailwindcss"
+				"bradlc.vscode-tailwindcss",
+				"GitHub.copilot",
+				"GitHub.copilot-chat"
 			]
 		}
-	}
+	},
+	"postCreateCommand": "sudo ./scripts/link_scripts.sh"
 }

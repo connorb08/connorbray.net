@@ -63,6 +63,6 @@
 			"**/Thumbs.db": true
 		},
 		// "typescript.tsdk": "site/node_modules/typescript/lib"
-		"typescript.tsdk": "admin/.yarn/sdks/typescript/lib"
+		"typescript.tsdk": "site/.yarn/sdks/typescript/lib"
 	}
 }

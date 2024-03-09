@@ -1,4 +1,7 @@
-import { LoaderFunctionArgs } from '@remix-run/cloudflare';
+import {
+	LoaderFunctionArgs,
+	unstable_parseMultipartFormData,
+} from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 import { Env } from 'remix.env';
 import { AgGridReact } from 'ag-grid-react';
@@ -40,7 +43,27 @@ export const action = async ({ request, context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
 
 	if (request.method === 'POST') {
-		// const bucket = env.CONTENT.createMultipartUpload('');
+		const formData = await request.formData();
+
+		for await (const index of formData) {
+			const [key, value] = index;
+			const file = value;
+
+			if (typeof file === 'object') {
+				if (file.type === 'image/jpeg') {
+					const uploadResult = await env.CONTENT.put(
+						`gallery/${file.name}`,
+						file
+					);
+					if (uploadResult) {
+						console.log('uploaded!');
+					} else {
+						console.log('error');
+					}
+				}
+			}
+		}
+
 		return new Response('OK', { status: 200 });
 	} else {
 		return new Response('Method not allowed', { status: 405 });

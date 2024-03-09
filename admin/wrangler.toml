@@ -15,3 +15,4 @@ compatibility_date = "2023-05-18"
 [[r2_buckets]]
     binding = 'CONTENT'
     bucket_name = 'content'
+    preview_bucket_name = 'content-preview'

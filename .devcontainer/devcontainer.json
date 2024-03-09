@@ -1,6 +1,17 @@
 {
-    "name": "connorbray.net",
-    "build": {
-        "dockerfile": "./Dockerfile"
-    }
+	"name": "connorbray.net",
+	"build": {
+		"dockerfile": "./Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"arcanis.vscode-zipfs",
+				"tamasfe.even-better-toml",
+				"esbenp.prettier-vscode",
+				"hashicorp.terraform",
+				"bradlc.vscode-tailwindcss"
+			]
+		}
+	}
 }

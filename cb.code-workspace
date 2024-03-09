@@ -62,6 +62,7 @@
 			"**/.DS_Store": true,
 			"**/Thumbs.db": true
 		},
-		"typescript.tsdk": "site/node_modules/typescript/lib"
+		// "typescript.tsdk": "site/node_modules/typescript/lib"
+		"typescript.tsdk": "admin/.yarn/sdks/typescript/lib"
 	}
 }

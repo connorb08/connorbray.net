@@ -15,11 +15,23 @@ const columnDefs = [
 		field: 'customMetadata.height',
 		headerName: 'Height',
 		flex: 1,
+		editable: true,
+		onCellValueChanged: async ({ oldValue, newValue, data: { key } }) => {
+			console.log(
+				`Height changed from ${oldValue} to ${newValue} for ${key}`
+			);
+		},
 	},
 	{
 		field: 'customMetadata.width',
 		headerName: 'Width',
 		flex: 1,
+		editable: true,
+		onCellValueChanged: async ({ oldValue, newValue, data: { key } }) => {
+			console.log(
+				`Height changed from ${oldValue} to ${newValue} for ${key}`
+			);
+		},
 	},
 	{
 		field: 'size',
@@ -61,6 +73,8 @@ export const action = async ({ request, context }: LoaderFunctionArgs) => {
 			}
 		}
 
+		return new Response('OK', { status: 200 });
+	} else if (request.method === 'PATCH') {
 		return new Response('OK', { status: 200 });
 	} else {
 		return new Response('Method not allowed', { status: 405 });

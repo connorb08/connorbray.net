@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs } from '@remix-run/cloudflare';
-import { useLoaderData } from '@remix-run/react';
-import { useState } from 'react';
+import { Await, useLoaderData } from '@remix-run/react';
+import { Suspense, useState } from 'react';
 import PhotoAlbum, { Photo } from 'react-photo-album';
 
 import Lightbox from 'yet-another-react-lightbox';
@@ -34,11 +34,12 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 			.map((file, index, files) => {
 				return {
 					src: `https://content.connorbray.net/${file.key}`,
-					height: Number(file.customMetadata?.height) || undefined,
-					width: Number(file.customMetadata?.width) || undefined,
+					height: Number(file.customMetadata?.height) || 0,
+					width: Number(file.customMetadata?.width) || 0,
 				};
 			});
 		shuffleArray(data);
+		console.log(data);
 		return data as Photo[];
 	} else {
 		return [];
@@ -47,12 +48,13 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 
 export default function Gallery() {
 	const data = useLoaderData() as any as Photo[];
+	console.log(data);
 	const [index, setIndex] = useState(-1);
 
 	return (
-		<div className="min-h-full flex flex-col">
+		<div className="flex-1 min-h-full flex flex-col">
 			<Header />
-			<div className="p-4">
+			<div className="p-4 flex-1">
 				<PhotoAlbum
 					layout="rows"
 					targetRowHeight={(containerWidth) => {

@@ -49,7 +49,7 @@ const RAW_RUNTIME_STATE =
           ["prop-types", "npm:15.8.1"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:18.2.0"],\
-          ["react-photo-album", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.3.0"],\
+          ["react-photo-album", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.3.1"],\
           ["sass", "npm:1.69.5"],\
           ["tailwindcss", "npm:3.3.5"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
@@ -9680,17 +9680,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["react-photo-album", [\
-      ["npm:2.3.0", {\
-        "packageLocation": "../../../home/vscode/.yarn/berry/cache/react-photo-album-npm-2.3.0-9b6bc44f8e-10c0.zip/node_modules/react-photo-album/",\
+      ["npm:2.3.1", {\
+        "packageLocation": "../../../home/vscode/.yarn/berry/cache/react-photo-album-npm-2.3.1-504bc5e65a-10c0.zip/node_modules/react-photo-album/",\
         "packageDependencies": [\
-          ["react-photo-album", "npm:2.3.0"]\
+          ["react-photo-album", "npm:2.3.1"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.3.0", {\
-        "packageLocation": "./.yarn/__virtual__/react-photo-album-virtual-9b0bfdff18/4/home/vscode/.yarn/berry/cache/react-photo-album-npm-2.3.0-9b6bc44f8e-10c0.zip/node_modules/react-photo-album/",\
+      ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.3.1", {\
+        "packageLocation": "./.yarn/__virtual__/react-photo-album-virtual-72f2d3702a/4/home/vscode/.yarn/berry/cache/react-photo-album-npm-2.3.1-504bc5e65a-10c0.zip/node_modules/react-photo-album/",\
         "packageDependencies": [\
-          ["react-photo-album", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.3.0"],\
+          ["react-photo-album", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.3.1"],\
           ["@types/react", "npm:18.2.37"],\
           ["react", "npm:18.2.0"]\
         ],\
@@ -10175,7 +10175,7 @@ const RAW_RUNTIME_STATE =
           ["prop-types", "npm:15.8.1"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:18.2.0"],\
-          ["react-photo-album", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.3.0"],\
+          ["react-photo-album", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.3.1"],\
           ["sass", "npm:1.69.5"],\
           ["tailwindcss", "npm:3.3.5"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\

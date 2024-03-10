@@ -1,7 +1,11 @@
 import type { LoaderFunctionArgs } from '@remix-run/cloudflare';
-import { Await, useLoaderData } from '@remix-run/react';
-import { Suspense, useState } from 'react';
-import PhotoAlbum, { Photo } from 'react-photo-album';
+import { useLoaderData } from '@remix-run/react';
+import { useState } from 'react';
+import PhotoAlbum, { type Photo } from 'react-photo-album';
+
+import { Env } from 'remix.env';
+import Header from '../../components/Gallery/Header';
+import { shuffleArray } from '../../components/Gallery/utils';
 
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
@@ -13,9 +17,6 @@ import {
 	Zoom,
 } from 'yet-another-react-lightbox/plugins';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
-import { Env } from 'remix.env';
-import Header from './Header';
-import { shuffleArray } from './utils';
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
@@ -29,7 +30,11 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 	if (files) {
 		const data = files
 			.filter((file) => {
-				return file.size;
+				return (
+					file.size &&
+					file.customMetadata?.height &&
+					file.customMetadata?.width
+				);
 			})
 			.map((file, index, files) => {
 				return {
@@ -39,7 +44,6 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 				};
 			});
 		shuffleArray(data);
-		console.log(data);
 		return data as Photo[];
 	} else {
 		return [];
@@ -48,13 +52,12 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 
 export default function Gallery() {
 	const data = useLoaderData() as any as Photo[];
-	console.log(data);
 	const [index, setIndex] = useState(-1);
 
 	return (
 		<div className="flex-1 min-h-full flex flex-col">
 			<Header />
-			<div className="p-4 flex-1">
+			<div className="flex flex-col flex-1 p-4">
 				<PhotoAlbum
 					layout="rows"
 					targetRowHeight={(containerWidth) => {

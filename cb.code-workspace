@@ -52,6 +52,7 @@
 			"**/.yarn": true,
 			"**/yarn.lock": true,
 			"**/.yarnrc.yml": true,
+			"**/.pnp*": true,
 			//   Git
 			"**/.gitignore": true,
 			// Other excludes

@@ -25,7 +25,7 @@ const jobs: JobProps[] = [
 		start: 'Feb 2022',
 		end: 'May 2023',
 		description:
-			'Highest ranking executive of a 501(c)(3) non-profit with yearly budget of over $1,000,000. Collaborated with President, Chancellor, Dean of Students, and Provost to develop campus goals.',
+			'Highest ranking executive of a 501(c)(3) non-profit with yearly budget of over $1,000,000. Collaborated with President, Chancellor, Dean of Students, Board of Trustees, and Provost to develop campus goals.',
 		imgUrl: 'https://content.connorbray.net/images/umsg.avif',
 	},
 	{

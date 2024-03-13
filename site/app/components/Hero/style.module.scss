@@ -1,64 +1,59 @@
 .Hero {
+	// Layout
+	@apply min-h-screen flex flex-col justify-center items-center;
 
-    // Layout
-    @apply min-h-screen flex flex-col justify-center items-center;
+	.Content {
+		// Size
+		@apply w-full flex-1;
+		// Layout
+		@apply flex flex-col md:flex-row;
 
-    .Content {
+		// Text
+		@apply text-5xl;
+		@apply font-bold;
 
-        // Size
-        @apply w-full flex-1;
-        // Layout
-        @apply flex flex-col md:flex-row;
+		.Start {
+			@apply bg-third-9 text-third-3;
 
-        // Text
-        @apply text-5xl;
-        @apply font-bold;
+			& a {
+				&:hover {
+					@apply bg-third-7 text-third-11;
+				}
+			}
+		}
 
-        .Start {
-            // Layout
-            @apply flex flex-1 justify-center items-center;
-            // Style
-            @apply bg-third-9 text-third-3;;
+		.Middle {
+			@apply bg-primary-9 text-primary-3;
 
-            
+			& a {
+				&:hover {
+					@apply bg-primary-7 text-primary-11;
+				}
+			}
+		}
 
-            & a {
-                @apply h-full flex flex-1 justify-center items-center;
-                &:hover {
-                    @apply cursor-pointer;
-                    @apply bg-third-7 text-third-11;
-                }
-            }
-        }
+		.End {
+			@apply bg-secondary-9 text-secondary-3;
 
-        .Middle {
-            // Layout
-            @apply flex flex-1 justify-center items-center;
-            // Style
-            @apply bg-primary-9 text-primary-3;
+			& a {
+				&:hover {
+					@apply bg-secondary-7 text-secondary-11;
+				}
+			}
+		}
+	}
 
-            & a {
-                @apply h-full flex flex-1 justify-center items-center;
-                &:hover {
-                    @apply cursor-pointer;
-                    @apply bg-primary-7 text-primary-11;
-                }
-            }
-        }
+	.Link {
+		@apply flex-1 w-full;
+		@apply flex flex-col;
+		@apply justify-center items-center;
 
-        .End {
-            // Layout
-            @apply flex flex-1 justify-center items-center;
-            // Style
-            @apply bg-secondary-9 text-secondary-3;
+		&:hover {
+			@apply cursor-pointer;
+		}
+	}
 
-            & a {
-                @apply h-full flex flex-1 justify-center items-center;
-                &:hover {
-                    @apply bg-secondary-7 text-secondary-11;
-                    @apply cursor-pointer;
-                }
-            }
-        }
-    }
+	.Container {
+		@apply flex flex-1 flex-col justify-center items-center;
+	}
 }

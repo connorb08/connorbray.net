@@ -12,7 +12,6 @@
 			@apply flex flex-1 flex-col-reverse xl:flex-row;
 			@apply justify-end;
 			@apply gap-3;
-			// @apply mb- xl:mb-0;
 
 			.Left {
 				@apply border-b border-gray-200 px-4 py-6 sm:px-6 lg:pl-8 xl:w-64 xl:shrink-0 xl:border-b-0 xl:border-r xl:pl-6;

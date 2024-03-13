@@ -1,24 +1,24 @@
 .Header {
-    @apply px-10;
-    @apply py-4;
-    @apply bg-primary;
-    @apply flex;
-    @apply justify-between items-center;
+	@apply px-10;
+	@apply py-4;
+	@apply bg-primary;
+	@apply flex;
+	@apply justify-between items-center;
 
-    .Start {
-    }
+	.Start {
+	}
 
-    .Center {
-        font-family: "Chakra Petch";
-        @apply text-primary-2;
-        @apply text-3xl;
-        @apply font-semibold;
-        @apply flex-1;
-        @apply text-center;
-        @apply sm:flex-none;
-    }
+	.Center {
+		font-family: 'Chakra Petch';
+		@apply text-primary-2;
+		@apply text-3xl;
+		@apply font-semibold;
+		@apply flex-1;
+		@apply text-center;
+		@apply sm:flex-none;
+	}
 
-    .End {
-        @apply hidden sm:block;
-    }
+	.End {
+		@apply hidden sm:block;
+	}
 }

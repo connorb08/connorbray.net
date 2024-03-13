@@ -53,6 +53,9 @@
 			"**/yarn.lock": true,
 			"**/.yarnrc.yml": true,
 			"**/.pnp*": true,
+			// Generated css files
+			"app/**/*.module.css": true,
+			"app/**/*.module.css.map": true,
 			//   Git
 			"**/.gitignore": true,
 			// Other excludes

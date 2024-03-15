@@ -17,9 +17,18 @@ import {
 	Zoom,
 } from 'yet-another-react-lightbox/plugins';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
+import { dev_data } from './dev_data';
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
+
+	// Return test data if in dev mode
+	// @ts-ignore
+	if (process.env.NODE_ENV === 'development') {
+		return dev_data;
+	}
+
+	// if (process.env.NODE_ENV === "development")
 
 	const images = await env.CONTENT.list({
 		prefix: 'gallery/',
@@ -60,16 +69,10 @@ export default function Gallery() {
 			<div className="flex flex-col flex-1 p-4">
 				<PhotoAlbum
 					layout="rows"
-					targetRowHeight={(containerWidth) => {
-						if (containerWidth >= 1200) {
-							return containerWidth / 5;
-						} else if (containerWidth >= 600) {
-							return containerWidth / 4;
-						} else if (containerWidth >= 300) {
-							return containerWidth / 5;
-						} else {
-							return containerWidth / 2;
-						}
+					columns={(containerWidth) => {
+						if (containerWidth < 400) return 2;
+						if (containerWidth < 800) return 3;
+						return 4;
 					}}
 					photos={data}
 					onClick={({ index }) => setIndex(index)}

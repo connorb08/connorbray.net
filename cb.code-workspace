@@ -66,6 +66,10 @@
 			"**/.DS_Store": true,
 			"**/Thumbs.db": true
 		},
+		"search.exclude": {
+			"**/.yarn": true,
+			"**/.pnp.*": true
+		},
 		// "typescript.tsdk": "site/node_modules/typescript/lib"
 		"typescript.tsdk": "site/.yarn/sdks/typescript/lib"
 	}

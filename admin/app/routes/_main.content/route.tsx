@@ -75,6 +75,8 @@ export const action = async ({ request, context }: LoaderFunctionArgs) => {
 
 		return new Response('OK', { status: 200 });
 	} else if (request.method === 'PATCH') {
+		// const data = request.body();
+
 		return new Response('OK', { status: 200 });
 	} else {
 		return new Response('Method not allowed', { status: 405 });

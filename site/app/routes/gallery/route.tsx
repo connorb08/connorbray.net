@@ -1,15 +1,12 @@
-import type { LoaderFunctionArgs } from '@remix-run/cloudflare';
-import { useLoaderData } from '@remix-run/react';
+/**
+ * Library Imports
+ */
 import { useState } from 'react';
+import { json, type LoaderFunctionArgs } from '@remix-run/cloudflare';
+import { useLoaderData } from '@remix-run/react';
 import PhotoAlbum, { type Photo } from 'react-photo-album';
-
-import { Env } from 'remix.env';
-import Header from '../../components/Gallery/Header';
-import { shuffleArray } from '../../components/Gallery/utils';
-
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-// import optional lightbox plugins
 import {
 	Fullscreen,
 	Slideshow,
@@ -17,26 +14,36 @@ import {
 	Zoom,
 } from 'yet-another-react-lightbox/plugins';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
-import { dev_data } from './dev_data';
 
+/**
+ * Component Imports
+ */
+import Header from '../../components/Gallery/Header';
+import { dev_data } from '../../components/Gallery/dev_data';
+
+/**
+ *  Type Imports
+ */
+import type { Env } from 'remix.env';
+
+/**
+ * Loader
+ */
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
 
 	// Return test data if in dev mode
 	// @ts-ignore
 	if (process.env.NODE_ENV === 'development') {
-		return dev_data;
+		return json({ data: dev_data });
 	}
 
-	// if (process.env.NODE_ENV === "development")
-
-	const images = await env.CONTENT.list({
-		prefix: 'gallery/',
-		include: ['customMetadata'],
-	});
-	const files = images.objects;
-
-	if (files) {
+	try {
+		const images = await env.CONTENT.list({
+			prefix: 'gallery/',
+			include: ['customMetadata'],
+		});
+		const files = images.objects;
 		const data = files
 			.filter((file) => {
 				return (
@@ -45,22 +52,31 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 					file.customMetadata?.width
 				);
 			})
-			.map((file, index, files) => {
+			.map((file) => {
 				return {
-					src: `https://content.connorbray.net/${file.key}`,
+					// src: `https://content.connorbray.net/${file.key}`,
+					src: `/content/${file.key}`,
 					height: Number(file.customMetadata?.height) || 0,
 					width: Number(file.customMetadata?.width) || 0,
 				};
 			});
-		shuffleArray(data);
-		return data as Photo[];
-	} else {
-		return [];
+		return json(
+			{ data },
+			{
+				headers: { 'Cache-Control': 'public, max-age=3600' },
+			}
+		);
+	} catch (error) {
+		return new Response('Server Error', { status: 500 });
 	}
 };
 
 export default function Gallery() {
-	const data = useLoaderData() as any as Photo[];
+	const { data } = useLoaderData<typeof loader>() as unknown as {
+		data: Photo[];
+	};
+	console.log(typeof data);
+	console.log(data);
 	const [index, setIndex] = useState(-1);
 
 	return (

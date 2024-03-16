@@ -3,7 +3,7 @@ main = "./build/index.js"
 compatibility_date = "2023-04-20"
 
 r2_buckets  = [
-  { binding = "CONTENT", bucket_name = "content", preview_bucket_name="content-dev"}
+  { binding = "CONTENT", bucket_name = "content", preview_bucket_name="content-dev" }
 ]
 
 [site]

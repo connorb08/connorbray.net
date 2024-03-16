@@ -43,6 +43,7 @@ export default function MobileMenu() {
 								key={link.label}
 								to={link.href}
 								className={style.MenuItem}
+								prefetch="render"
 							>
 								{link.label}
 							</Link>

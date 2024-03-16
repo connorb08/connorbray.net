@@ -82,6 +82,7 @@ export default function Navigation(props: {
 											{!item.children ? (
 												<Link
 													to={item.href}
+													prefetch="render"
 													className={
 														(item.href ===
 														location.pathname
@@ -161,6 +162,7 @@ export default function Navigation(props: {
 																				to={
 																					subItem.href
 																				}
+																				prefetch="render"
 																				className={
 																					(item.current
 																						? style.Selected

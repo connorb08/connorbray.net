@@ -7,19 +7,20 @@ export const loader: LoaderFunction = async ({
 	params,
 }: LoaderFunctionArgs) => {
 	try {
+		// Get context
 		const env = context.env as Env;
 		const ctx = context.ctx as ExecutionContext;
 		const cache = context.cf_cache as Cache;
 
+		// Check cache
 		const url = new URL(request.url);
 		const cacheKey = new Request(url.toString(), request);
-
 		const cachedResponse = await cache.match(cacheKey);
 		if (cachedResponse) {
-			console.log('cache hit');
 			return cachedResponse;
 		}
 
+		// Get object
 		const objectKey = params['*'];
 		if (!objectKey) {
 			return new Response('Bad Request', { status: 400 });
@@ -43,14 +44,11 @@ export const loader: LoaderFunction = async ({
 		});
 
 		if (ctx) {
-			console.log('wait until');
 			ctx.waitUntil(cache.put(cacheKey, response.clone()));
 		} else {
 			console.log('await');
 			await cache.put(cacheKey, response.clone());
 		}
-		console.log('cache miss');
-		// await cache.put(cacheKey, response.clone());
 
 		return response;
 	} catch (error) {

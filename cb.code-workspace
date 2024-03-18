@@ -1,12 +1,4 @@
 {
-	"extensions": {
-		"recommendations": [
-			"tamasfe.even-better-toml",
-			"esbenp.prettier-vscode",
-			"hashicorp.terraform",
-			"bradlc.vscode-tailwindcss"
-		]
-	},
 	"folders": [
 		{
 			"name": "site",
@@ -34,7 +26,6 @@
 		"editor.formatOnSave": true,
 		"editor.formatOnPaste": true,
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		// "prettier.requireConfig": true,
 		// Hidden files
 		"files.exclude": {
 			// Workspace folders
@@ -69,9 +60,10 @@
 		},
 		"search.exclude": {
 			"**/.yarn": true,
-			"**/.pnp.*": true
+			"**/.pnp.*": true,
+			"**/node_modules": true
 		},
-		// "typescript.tsdk": "site/node_modules/typescript/lib"
+		// Use site typescript version
 		"typescript.tsdk": "site/.yarn/sdks/typescript/lib"
 	}
 }

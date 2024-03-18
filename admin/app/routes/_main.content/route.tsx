@@ -1,136 +1,67 @@
-import { LoaderFunctionArgs } from '@remix-run/cloudflare';
-import { useLoaderData } from '@remix-run/react';
+import { EyeOpenIcon, Pencil1Icon, TrashIcon } from '@radix-ui/react-icons';
+import { IconButton, Table } from '@radix-ui/themes';
+import { LoaderFunctionArgs, json } from '@remix-run/cloudflare';
+import { Link, useLoaderData } from '@remix-run/react';
 import { Env } from 'remix.env';
-import { AgGridReact } from 'ag-grid-react';
-
-import 'ag-grid-community/styles/ag-grid.css';
-import 'ag-grid-community/styles/ag-theme-alpine.css';
-import { Box, Tabs } from '@radix-ui/themes';
-import Toolbar from '~/components/Toolbar';
-import { byteFormatter } from './utils';
-
-const columnDefs = [
-	{ field: 'key', headerName: 'File', flex: 1 },
-	{
-		field: 'customMetadata.height',
-		headerName: 'Height',
-		flex: 1,
-		editable: true,
-		onCellValueChanged: async ({ oldValue, newValue, data: { key } }) => {
-			console.log(
-				`Height changed from ${oldValue} to ${newValue} for ${key}`
-			);
-		},
-	},
-	{
-		field: 'customMetadata.width',
-		headerName: 'Width',
-		flex: 1,
-		editable: true,
-		onCellValueChanged: async ({ oldValue, newValue, data: { key } }) => {
-			console.log(
-				`Height changed from ${oldValue} to ${newValue} for ${key}`
-			);
-		},
-	},
-	{
-		field: 'size',
-		flex: 1,
-		valueFormatter: byteFormatter,
-	},
-	{ field: 'uploaded', flex: 1 },
-];
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
 	const bucket = env.CONTENT.list({ include: ['customMetadata'] });
 	const objects = (await bucket).objects;
-	return objects;
+	return json({ objects });
 };
 
-export const action = async ({ request, context }: LoaderFunctionArgs) => {
-	const env = context.env as Env;
-
-	if (request.method === 'POST') {
-		const formData = await request.formData();
-
-		for await (const index of formData) {
-			const [key, value] = index;
-			const file = value;
-
-			if (typeof file === 'object') {
-				if (file.type === 'image/jpeg') {
-					const uploadResult = await env.CONTENT.put(
-						`gallery/${file.name}`,
-						file
-					);
-					if (uploadResult) {
-						console.log('uploaded!');
-					} else {
-						console.log('error');
-					}
-				}
-			}
-		}
-
-		return new Response('OK', { status: 200 });
-	} else if (request.method === 'PATCH') {
-		// const data = request.body();
-
-		return new Response('OK', { status: 200 });
-	} else {
-		return new Response('Method not allowed', { status: 405 });
-	}
-};
-
-export default function () {
-	const objects = useLoaderData<typeof loader>();
-
-	const galleryData: typeof objects = [];
-	const imagesData: typeof objects = [];
-
-	objects.forEach((row) => {
-		if (row.key.startsWith('gallery/') && row.key !== 'gallery/') {
-			galleryData.push(row);
-		} else if (row.key.startsWith('images/') && row.key !== 'images/') {
-			imagesData.push(row);
-		}
-	});
+export default function Content() {
+	const { objects } = useLoaderData<typeof loader>();
+	console.log(objects);
 
 	return (
-		<Tabs.Root defaultValue="gallery" asChild>
-			<div className="flex-1 flex flex-col">
-				<Tabs.List>
-					<Tabs.Trigger value="gallery">Gallery</Tabs.Trigger>
-					<Tabs.Trigger value="images">Images</Tabs.Trigger>
-				</Tabs.List>
+		<Table.Root>
+			<Table.Header>
+				<Table.Row>
+					<Table.ColumnHeaderCell>File</Table.ColumnHeaderCell>
+					<Table.ColumnHeaderCell>Height</Table.ColumnHeaderCell>
+					<Table.ColumnHeaderCell>Width</Table.ColumnHeaderCell>
+					<Table.ColumnHeaderCell></Table.ColumnHeaderCell>
+				</Table.Row>
+			</Table.Header>
 
-				<Box px="4" pt="0" pb="2" className="flex flex-col flex-1">
-					<Tabs.Content value="gallery" asChild>
-						<div className="ag-theme-alpine flex-1 flex flex-col">
-							<Toolbar />
-							<AgGridReact
-								className="flex-1"
-								// @ts-ignore
-								columnDefs={columnDefs}
-								rowData={galleryData}
-							/>{' '}
-						</div>
-					</Tabs.Content>
-
-					<Tabs.Content value="images" asChild>
-						<div className="ag-theme-alpine flex-1 flex flex-col">
-							<Toolbar />
-							<AgGridReact
-								className="flex-1"
-								// @ts-ignore
-								columnDefs={columnDefs}
-								rowData={imagesData}
-							/>{' '}
-						</div>
-					</Tabs.Content>
-				</Box>
-			</div>
-		</Tabs.Root>
+			<Table.Body>
+				{objects.map((object) => {
+					return (
+						<Table.Row key={object.key}>
+							<Table.RowHeaderCell>
+								{object.key}
+							</Table.RowHeaderCell>
+							<Table.Cell>
+								{object.customMetadata?.height}
+							</Table.Cell>
+							<Table.Cell>
+								{object.customMetadata?.width}
+							</Table.Cell>
+							<Table.Cell width={0}>
+								<span className="flex justify-end gap-2">
+									<IconButton color="amber" asChild>
+										<Link
+											to={`https://content.connorbray.net/${object.key}`}
+											target="_blank"
+											rel="noreferrer noopener"
+										>
+											<EyeOpenIcon />
+										</Link>
+									</IconButton>
+									<IconButton color="blue">
+										<Pencil1Icon />
+									</IconButton>
+									<IconButton color="ruby">
+										<TrashIcon />
+									</IconButton>
+								</span>
+							</Table.Cell>
+						</Table.Row>
+					);
+				})}
+			</Table.Body>
+		</Table.Root>
 	);
 }

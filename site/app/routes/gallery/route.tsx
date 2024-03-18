@@ -75,8 +75,6 @@ export default function Gallery() {
 	const { data } = useLoaderData<typeof loader>() as unknown as {
 		data: Photo[];
 	};
-	console.log(typeof data);
-	console.log(data);
 	const [index, setIndex] = useState(-1);
 
 	return (

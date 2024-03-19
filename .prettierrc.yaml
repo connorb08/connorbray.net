@@ -4,7 +4,7 @@ semi: true
 singleQuote: true
 useTabs: true
 overrides:
-  - files: '*.yaml'
+  - files: ['*.yaml', '*.yml']
     options:
       tabWidth: 2
   - files: '*.json'

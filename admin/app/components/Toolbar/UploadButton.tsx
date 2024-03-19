@@ -3,7 +3,7 @@ import { IconButton, Flex, Button, Dialog } from '@radix-ui/themes';
 import { Form } from '@remix-run/react';
 import { useState } from 'react';
 
-export default function () {
+export default function UploadButton() {
 	const [dialogOpen, setDialogOpen] = useState(false);
 
 	return (

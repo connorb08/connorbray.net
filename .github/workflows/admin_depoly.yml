@@ -1,0 +1,50 @@
+name: 'Deploy Admin Site'
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - admin/**
+
+env:
+  CLOUDFLARE_API_TOKEN: ${{secrets.CLOUDFLARE_API_TOKEN}}
+
+jobs:
+  checks:
+    name: 'Deploy Admin Site'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./admin
+
+    steps:
+      - name: Checkout the repository to the runner
+        uses: actions/checkout@v4
+
+      - name: Set Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Enable corepack
+        id: corepack
+        run: corepack enable
+
+      - name: Run install
+        id: install
+        run: yarn install
+
+      - name: Run typecheck
+        id: typecheck
+        run: yarn typecheck
+
+      - name: Run lint
+        id: lint
+        run: yarn lint
+
+      - name: Run deploy
+        if: steps.typecheck.outcome == 'success' && steps.lint.outcome == 'success' && steps.install.outcome == 'success'
+        id: deploy
+        run: yarn deploy

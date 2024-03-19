@@ -1,8 +1,9 @@
 import { EyeOpenIcon, Pencil1Icon, TrashIcon } from '@radix-ui/react-icons';
 import { IconButton, Table } from '@radix-ui/themes';
-import { LoaderFunctionArgs, json } from '@remix-run/cloudflare';
+import type { LoaderFunctionArgs } from '@remix-run/cloudflare';
+import { json } from '@remix-run/cloudflare';
 import { Link, useLoaderData } from '@remix-run/react';
-import { Env } from 'remix.env';
+import type { Env } from 'remix.env';
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
@@ -10,6 +11,8 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const objects = (await bucket).objects;
 	return json({ objects });
 };
+
+export { action } from './action';
 
 export default function Content() {
 	const { objects } = useLoaderData<typeof loader>();

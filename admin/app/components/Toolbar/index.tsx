@@ -1,9 +1,4 @@
-import {
-	EyeOpenIcon,
-	Pencil1Icon,
-	TrashIcon,
-	UploadIcon,
-} from '@radix-ui/react-icons';
+import { EyeOpenIcon, Pencil1Icon, TrashIcon } from '@radix-ui/react-icons';
 import style from './style.module.css';
 import { IconButton } from '@radix-ui/themes';
 import UploadButton from './UploadButton';

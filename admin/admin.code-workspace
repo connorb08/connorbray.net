@@ -2,7 +2,7 @@
 	"folders": [
 		{
 			"path": ".",
-			"name": "root"
+			"name": "admin"
 		},
 		{
 			"path": "../",
@@ -11,9 +11,13 @@
 	],
 	"settings": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"typescript.tsdk": "root/.yarn/sdks/typescript/lib",
-		"prettier.configPath": "../.prettierrc.yaml",
-		"eslint.nodePath": "../.yarn/sdks/eslint/bin/eslint.js",
+		"typescript.tsdk": "admin/.yarn/sdks/typescript/lib",
+		"prettier.configPath": ".prettierrc.yaml",
+		"eslint.nodePath": ".yarn/sdks",
+		"eslint.codeActionsOnSave.mode": "all",
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": "explicit"
+		},
 		"editor.formatOnSave": true,
 		"editor.formatOnPaste": true,
 		"files.exclude": {

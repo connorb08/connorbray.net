@@ -1,4 +1,3 @@
-import { Box } from '@radix-ui/themes';
 import style from './style.module.css';
 import React from 'react';
 

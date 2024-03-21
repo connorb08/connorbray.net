@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import type { AboutProps, JobProps } from './types';
 
 const Resume = ({ jobs }: { jobs: AboutProps['jobs'] }) => {

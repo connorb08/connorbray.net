@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import CONTENT from './content';
 import type { AboutProps } from './types';
 import Information from './information';
 import Leadership from './leadership';
@@ -8,6 +7,7 @@ import Experience from './experience';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 import './style.css';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const EmploymentStatus = ({
 	employmentStatus,
 }: {

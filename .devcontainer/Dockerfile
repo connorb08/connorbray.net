@@ -8,4 +8,4 @@ RUN yarn set version stable
 RUN apt install -y cloc
 
 # Don't minimize container
-RUN yes | unminimize
+# RUN yes | unminimize

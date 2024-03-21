@@ -1,5 +1,5 @@
-import { LoaderFunction, LoaderFunctionArgs } from '@remix-run/cloudflare';
-import { Env } from 'remix.env';
+import type { LoaderFunction, LoaderFunctionArgs } from '@remix-run/cloudflare';
+import type { Env } from 'remix.env';
 
 export const loader: LoaderFunction = async ({
 	request,

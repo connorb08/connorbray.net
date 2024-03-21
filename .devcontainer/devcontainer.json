@@ -3,6 +3,10 @@
 	"build": {
 		"dockerfile": "./Dockerfile"
 	},
+	"features": {
+		"ghcr.io/devcontainers/features/go:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -15,7 +19,8 @@
 				"GitHub.copilot-chat",
 				"austenc.tailwind-docs",
 				"dbaeumer.vscode-eslint",
-				"redhat.vscode-yaml"
+				"redhat.vscode-yaml",
+				"ms-vscode.makefile-tools"
 			]
 		}
 	},

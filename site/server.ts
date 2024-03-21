@@ -2,7 +2,7 @@ import { getAssetFromKV } from '@cloudflare/kv-asset-handler';
 import type { AppLoadContext } from '@remix-run/cloudflare';
 import { createRequestHandler, logDevReady } from '@remix-run/cloudflare';
 import * as build from '@remix-run/dev/server-build';
-import { Fetcher } from '@remix-run/react';
+import type { Fetcher } from '@remix-run/react';
 import __STATIC_CONTENT_MANIFEST from '__STATIC_CONTENT_MANIFEST';
 
 const MANIFEST = JSON.parse(__STATIC_CONTENT_MANIFEST);

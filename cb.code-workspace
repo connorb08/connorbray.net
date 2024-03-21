@@ -17,6 +17,10 @@
 			"path": "inf"
 		},
 		{
+			"name": "api",
+			"path": "api"
+		},
+		{
 			"name": "config",
 			"path": "."
 		}
@@ -33,6 +37,7 @@
 			"inf": true,
 			"site": true,
 			"admin": true,
+			"api": true,
 			// Terraform
 			"**/.terraform*": true,
 			// Javascript config files

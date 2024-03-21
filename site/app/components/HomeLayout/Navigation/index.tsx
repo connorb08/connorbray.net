@@ -71,12 +71,9 @@ export default function Navigation(props: {
 			<Collapsible.Content asChild>
 				<div className={style.Sidebar}>
 					<nav className="flex flex-1 flex-col">
-						<ul
-							role="list"
-							className="flex flex-1 flex-col gap-y-7"
-						>
+						<ul className="flex flex-1 flex-col gap-y-7">
 							<li>
-								<ul role="list" className="-mx-2 space-y-1">
+								<ul className="-mx-2 space-y-1">
 									{nav.map((item, index) => (
 										<li key={item.name}>
 											{!item.children ? (

@@ -1,0 +1,68 @@
+[
+	{
+		"company": "Tyler Technologies",
+		"position": "Software Engineer",
+		"description": "Software Deployment Automation",
+		"start_date": "07/2023",
+		"end_date": "09/2023",
+		"location": "Yarmouth, ME",
+		"icon_url": "https://content.connorbray.net/images/tyler.png"
+	},
+	{
+		"position": "President & CEO",
+		"company": "UMSG Inc.",
+		"location": "Orono, ME",
+		"start_date": "Feb 2022",
+		"end_date": "May 2023",
+		"description":
+			"Highest ranking executive of a 501(c)(3) non-profit with yearly budget of over $1,000,000. Collaborated with President, Chancellor, Dean of Students, Board of Trustees, and Provost to develop campus goals.",
+		"icon_url": "https://content.connorbray.net/images/umsg.avif"
+	},
+	{
+		"position": "Software Development Intern",
+		"company": "Tyler Technologies",
+		"location": "Yarmouth, ME",
+		"start_date": "May 2022",
+		"end_date": "May 2023",
+		"description":
+			"Developed large scale enterprise resource planning application using scrum.",
+		"icon_url": "https://content.connorbray.net/images/tyler.png"
+	},
+	{
+		"position": "Vice President & Board Chair",
+		"company": "UMSG Inc.",
+		"location": "Orono, ME",
+		"start_date": "May 2022",
+		"end_date": "Feb 2023",
+		"description":
+			"Chaired the board of directors’ meetings with 40+ board members according to Robert’s Rules of Order.",
+		"icon_url": "https://content.connorbray.net/images/umsg.avif"
+	},
+	{
+		"position": "Interim Vice President for Financial Affiars",
+		"company": "UMSG Inc.",
+		"location": "Orono, ME",
+		"start_date": "Sep 2022",
+		"end_date": "Oct 2022",
+		"description": "",
+		"icon_url": "https://content.connorbray.net/images/umsg.avif"
+	},
+	{
+		"position": "Information Technology Intern",
+		"company": "Tyler Technologies",
+		"location": "Yarmouth, ME",
+		"start_date": "May 2021",
+		"end_date": "May 2022",
+		"description": "Technical support for multi-server client setups.",
+		"icon_url": "https://content.connorbray.net/images/tyler.png"
+	},
+	{
+		"position": "Kitchen Staff",
+		"company": "Cumberland Foodstop",
+		"location": "Cumberland, ME",
+		"start_date": "Feb 2019",
+		"end_date": "May 2021",
+		"description": "",
+		"icon_url": "https://content.connorbray.net/images/fstop.png"
+	}
+]

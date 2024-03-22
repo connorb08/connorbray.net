@@ -2,10 +2,13 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../site"
 		}
 	],
 	"settings": {
-		"typescript.tsdk": "api/.yarn/sdks/typescript/lib",
+		"typescript.tsdk": ".yarn/sdks/typescript/lib",
 		"typescript.enablePromptUseWorkspaceTsdk": true
 	}
 }

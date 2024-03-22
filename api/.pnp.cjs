@@ -26,6 +26,8 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@cloudflare/workers-types", "npm:4.20240320.1"],\
+          ["@types/node", "npm:20.11.30"],\
           ["itty-router", "npm:3.0.12"],\
           ["typescript", "patch:typescript@npm%3A5.4.3#optional!builtin<compat/typescript>::version=5.4.3&hash=5adc0c"],\
           ["wrangler", "virtual:7473a2b7820d54bc9e09e43d07c4d6a37311d3c27cf8d3479124c02c830f39ea1edcd0240ea9cd8892e68b95c71dc40f3562d9221ee2fee4332c0f6b026a8253#npm:3.36.0"]\
@@ -84,6 +86,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/unplugged/@cloudflare-workerd-windows-64-npm-1.20240314.0-ba302883eb/node_modules/@cloudflare/workerd-windows-64/",\
         "packageDependencies": [\
           ["@cloudflare/workerd-windows-64", "npm:1.20240314.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@cloudflare/workers-types", [\
+      ["npm:4.20240320.1", {\
+        "packageLocation": "../../../home/vscode/.yarn/berry/cache/@cloudflare-workers-types-npm-4.20240320.1-12d96c827a-10c0.zip/node_modules/@cloudflare/workers-types/",\
+        "packageDependencies": [\
+          ["@cloudflare/workers-types", "npm:4.20240320.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -554,6 +565,8 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["api", "workspace:."],\
+          ["@cloudflare/workers-types", "npm:4.20240320.1"],\
+          ["@types/node", "npm:20.11.30"],\
           ["itty-router", "npm:3.0.12"],\
           ["typescript", "patch:typescript@npm%3A5.4.3#optional!builtin<compat/typescript>::version=5.4.3&hash=5adc0c"],\
           ["wrangler", "virtual:7473a2b7820d54bc9e09e43d07c4d6a37311d3c27cf8d3479124c02c830f39ea1edcd0240ea9cd8892e68b95c71dc40f3562d9221ee2fee4332c0f6b026a8253#npm:3.36.0"]\
@@ -1927,7 +1940,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["wrangler", "virtual:7473a2b7820d54bc9e09e43d07c4d6a37311d3c27cf8d3479124c02c830f39ea1edcd0240ea9cd8892e68b95c71dc40f3562d9221ee2fee4332c0f6b026a8253#npm:3.36.0"],\
           ["@cloudflare/kv-asset-handler", "npm:0.3.1"],\
-          ["@cloudflare/workers-types", null],\
+          ["@cloudflare/workers-types", "npm:4.20240320.1"],\
           ["@esbuild-plugins/node-globals-polyfill", "virtual:8955114915ca870ebfb3ee88684739da265088a0e52ec1c5889d6c922514e2103d44b2b814a0e35b97d243c703181b88023c4778efdf86e0fdd484dbe603874d#npm:0.2.3"],\
           ["@esbuild-plugins/node-modules-polyfill", "virtual:8955114915ca870ebfb3ee88684739da265088a0e52ec1c5889d6c922514e2103d44b2b814a0e35b97d243c703181b88023c4778efdf86e0fdd484dbe603874d#npm:0.2.2"],\
           ["@types/cloudflare__workers-types", null],\

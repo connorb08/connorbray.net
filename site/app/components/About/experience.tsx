@@ -41,14 +41,14 @@ const Job = (props: JobProps) => {
 				style={{
 					backgroundPosition: 'center',
 					backgroundSize: 'cover',
-					backgroundImage: `url('${props.imgUrl}')`,
+					backgroundImage: `url('${props.icon_url}')`,
 				}}
 			/>
 
 			<div className="w-full space-y-5">
 				<div className="item-header">
 					<div className="space-y-1.5">
-						<div className="font-medium">{props.title}</div>
+						<div className="font-medium">{props.position}</div>
 						<div className="flex space-x-5">
 							<div className="item-header-info">
 								<svg
@@ -93,7 +93,7 @@ const Job = (props: JobProps) => {
 						</div>
 					</div>
 					<div className="space-y-2 sm:text-right">
-						<div className="job-item-badge">{props.type}</div>
+						<div className="job-item-badge">{}</div>
 						<div className="item-header-info">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +110,7 @@ const Job = (props: JobProps) => {
 								/>
 							</svg>
 							<span>
-								{props.start} &ndash; {props.end}
+								{props.start_date} &ndash; {props.end_date}
 							</span>
 						</div>
 					</div>

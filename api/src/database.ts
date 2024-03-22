@@ -1,14 +1,10 @@
-const DATABASE_ENDPOINT =
-	'https://us-east-1.aws.data.mongodb-api.com/app/data-mmwij/endpoint/data/v1';
-const MONGO_API_KEY = '';
-
-const BaseRequest = (action: string, data: {}, context) =>
-	new Request(`${DATABASE_ENDPOINT}/action/${action}`, {
+const BaseRequest = (action: string, data: {}, env: Env) =>
+	new Request(`${env.DATABASE_ENDPOINT}/action/${action}`, {
 		method: 'POST',
 		headers: {
-			apiKey: context.env.MONGO_API_KEY,
+			apiKey: env.MONGO_API_KEY,
 			'Content-Type': 'application/json',
-			Accept: 'application/json',
+			'Access-Control-Request-Headers': '*',
 		},
 		body: JSON.stringify({
 			dataSource: 'Cluster0',
@@ -17,6 +13,27 @@ const BaseRequest = (action: string, data: {}, context) =>
 		}),
 	});
 
-req('findOne', {
-	collection: 'employment',
-});
+export const GetEmploymentHistory = async (env: Env) => {
+	const response = await fetch(
+		BaseRequest(
+			'find',
+			{
+				collection: 'employment',
+				projection: {
+					_id: 1,
+					company: 1,
+					position: 1,
+					description: 1,
+					start_date: 1,
+					end_date: 1,
+					location: 1,
+					icon_url: 1,
+				},
+			},
+			env
+		)
+	);
+	const data: any = await response.json();
+	const documents = data.documents as Employment[];
+	return documents;
+};

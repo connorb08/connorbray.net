@@ -11,7 +11,7 @@
 	],
 	"settings": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"typescript.tsdk": "site/.yarn/sdks/typescript/lib",
+		"typescript.tsdk": "root/.yarn/sdks/typescript/lib",
 		"prettier.configPath": "../.prettierrc.yaml",
 		"eslint.nodePath": "../.yarn/sdks/eslint/bin/eslint.js",
 		"editor.formatOnSave": true,

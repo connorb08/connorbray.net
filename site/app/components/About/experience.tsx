@@ -1,7 +1,13 @@
 import type { PropsWithChildren } from 'react';
-import type { AboutProps, JobProps } from './types';
+import type { AboutProps, JobProps, EducationProps } from './types';
 
-const Resume = ({ jobs }: { jobs: AboutProps['jobs'] }) => {
+const Resume = ({
+	jobs,
+	education,
+}: {
+	jobs: AboutProps['jobs'];
+	education: EducationProps[];
+}) => {
 	const bottomBorder = <div className="border-b border-gray-8 mb-5" />;
 	const len = jobs.length;
 
@@ -9,7 +15,9 @@ const Resume = ({ jobs }: { jobs: AboutProps['jobs'] }) => {
 		<>
 			<div className="p-7 block-section">
 				<h2 className="block-title">Education</h2>
-				<Education description="" />
+				{education.map((data, index) => {
+					return <Education {...data} />;
+				})}
 			</div>
 			<div className="p-7 block-section">
 				<h2 className="block-title">Experience</h2>
@@ -121,9 +129,7 @@ const Job = (props: JobProps) => {
 	);
 };
 
-const Education = (
-	props: PropsWithChildren<{ description: string | undefined }>
-) => {
+const Education = (props: PropsWithChildren<EducationProps>) => {
 	return (
 		<div className="mb-5 item-section">
 			<div
@@ -131,15 +137,14 @@ const Education = (
 				style={{
 					backgroundPosition: 'center',
 					backgroundSize: 'cover',
-					backgroundImage:
-						"url('https://www.logolynx.com/images/logolynx/db/dbf96dc3f17a2f0779337d009e338424.png')",
+					backgroundImage: `url("${props.icon_url}")`,
 				}}
 			/>
 
 			<div className="w-full space-y-5">
 				<div className="item-header items-end">
 					<div className="space-y-1.5">
-						<div className="font-medium">B.S. Computer Science</div>
+						<div className="font-medium">{props.degree}</div>
 						<div className="flex space-x-5">
 							<div className="item-header-info">
 								<svg
@@ -158,7 +163,7 @@ const Education = (
 										d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
 									/>
 								</svg>
-								<span>University of Maine</span>
+								<span>{props.school}</span>
 							</div>
 							<div className="item-header-info">
 								<svg
@@ -181,7 +186,7 @@ const Education = (
 										d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
 									/>
 								</svg>
-								<span>Orono, ME</span>
+								<span>{props.location}</span>
 							</div>
 						</div>
 					</div>
@@ -201,11 +206,13 @@ const Education = (
 									d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
 								/>
 							</svg>
-							<span>August 2019 &ndash; May 2023</span>
+							<span>
+								{props.start_date} &ndash; {props.end_date}
+							</span>
 						</div>
 					</div>
 				</div>
-				{/* <p className="text-gray-600">{props.description}</p> */}
+				<p className="text-gray-600">{props.description}</p>
 			</div>
 		</div>
 	);

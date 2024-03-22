@@ -1,0 +1,10 @@
+{
+	"name": "connorbray.net",
+	"description": "Personal website of Connor Bray",
+	"languages": "TypeScript",
+	"tools": ["React", "Remix", "Tailwind CSS", "Cloudflare"],
+	"links": {
+		"github": "",
+		"website": "https://connorbray.net"
+	}
+}

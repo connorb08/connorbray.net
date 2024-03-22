@@ -1,6 +1,8 @@
 import About from '~/components/About';
 import type {
 	AboutProps,
+	EducationProps,
+	JobProps,
 	LeadershipRoleProps,
 	ProjectProps,
 } from '~/components/About/types';
@@ -31,6 +33,7 @@ const projects: ProjectProps[] = [
 
 const aboutProps: AboutProps = {
 	jobs: [],
+	education: [],
 	employmentStatus: 1,
 	leadership,
 	projects,
@@ -51,11 +54,20 @@ export const loader = async ({}: LoaderFunctionArgs) => {
 };
 
 export default function () {
-	const { employment_data, education_data } = useLoaderData<typeof loader>();
+	const { employment_data, education_data } = useLoaderData<
+		typeof loader
+	>() as unknown as {
+		employment_data: JobProps[];
+		education_data: EducationProps[];
+	};
 
 	return (
 		<div className="w-full bg-primary-1">
-			<About {...aboutProps} jobs={employment_data} />
+			<About
+				{...aboutProps}
+				jobs={employment_data}
+				education={education_data}
+			/>
 		</div>
 	);
 }

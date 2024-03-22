@@ -276,7 +276,10 @@ export const About = (props: AboutProps) => {
 						{/* <!-- End About Me Block --> */}
 
 						{tab === 1 ? (
-							<Experience jobs={props.jobs} />
+							<Experience
+								jobs={props.jobs}
+								education={props.education}
+							/>
 						) : tab === 2 ? (
 							<Portfolio projects={props.projects} />
 						) : tab === 3 ? (

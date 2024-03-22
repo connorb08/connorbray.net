@@ -4,8 +4,8 @@
 		"degree": "B.S. Computer Science",
 		"description": "Student Body President",
 		"location": "Orono, ME",
-		"startdate": "8/2019",
-		"enddate": "5/2023",
-		"iconpath": "https://content.connorbray.net/images/umaine.png"
+		"start_date": "8/2019",
+		"end_date": "5/2023",
+		"icon_url": "https://content.connorbray.net/images/umaine.png"
 	}
 ]

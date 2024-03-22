@@ -37,3 +37,28 @@ export const GetEmploymentHistory = async (env: Env) => {
 	const documents = data.documents as Employment[];
 	return documents;
 };
+
+export const GetEducationHistory = async (env: Env) => {
+	const response = await fetch(
+		BaseRequest(
+			'find',
+			{
+				collection: 'education',
+				projection: {
+					_id: 1,
+					school: 1,
+					degree: 1,
+					description: 1,
+					start_date: 1,
+					end_date: 1,
+					location: 1,
+					icon_url: 1,
+				},
+			},
+			env
+		)
+	);
+	const data: any = await response.json();
+	const documents = data.documents as Employment[];
+	return documents;
+};

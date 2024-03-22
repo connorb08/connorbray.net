@@ -1,5 +1,5 @@
 import { Router } from 'itty-router';
-import { GetEmploymentHistory } from './database';
+import { GetEducationHistory, GetEmploymentHistory } from './database';
 
 // now let's create a router (note the lack of "new")
 const router = Router();
@@ -12,6 +12,14 @@ router.get(
 	'/api/employment',
 	async (request, env: Env, ctx: ExecutionContext) => {
 		const data: Employment[] = await GetEmploymentHistory(env);
+		return new Response(JSON.stringify(data));
+	}
+);
+
+router.get(
+	'/api/education',
+	async (request, env: Env, ctx: ExecutionContext) => {
+		const data: Employment[] = await GetEducationHistory(env);
 		return new Response(JSON.stringify(data));
 	}
 );

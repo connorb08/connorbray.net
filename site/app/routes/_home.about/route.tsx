@@ -30,23 +30,32 @@ const projects: ProjectProps[] = [
 ];
 
 const aboutProps: AboutProps = {
+	jobs: [],
 	employmentStatus: 1,
 	leadership,
 	projects,
 };
 
 export const loader = async ({}: LoaderFunctionArgs) => {
-	const res = await fetch('https://api.connorbray.net/api/employment');
-	const data = await res.json();
-	return json({ data });
+	const employment_data = fetch(
+		'https://api.connorbray.net/api/employment'
+	).then((res) => res.json());
+	const education_data = fetch(
+		'https://api.connorbray.net/api/education'
+	).then((res) => res.json());
+	const result = await Promise.all([employment_data, education_data]);
+	return json(
+		{ employment_data: result[0], education_data: result[1] },
+		{ headers: { 'Cache-Control': 'public, max-age=3600' } }
+	);
 };
 
 export default function () {
-	const { data } = useLoaderData<typeof loader>();
+	const { employment_data, education_data } = useLoaderData<typeof loader>();
 
 	return (
 		<div className="w-full bg-primary-1">
-			<About {...aboutProps} jobs={data} />
+			<About {...aboutProps} jobs={employment_data} />
 		</div>
 	);
 }

@@ -9,18 +9,19 @@ import (
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"github.com/joho/godotenv"
 )
 
 var (
 	dns string
+	db  *mongo.Database
 )
 
 func init() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	// log.Fatal("Error loading .env file")
+	// 	log.Println("Error loading .env file")
+	// }
 
 	dns = os.Getenv("DB_CONNECTION_STRING")
 }
@@ -44,5 +45,6 @@ func Connect() (*mongo.Client, error) {
 	}
 
 	fmt.Println("Connected to MongoDB!")
+	db = client.Database("prod")
 	return client, nil
 }

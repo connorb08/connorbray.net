@@ -9,7 +9,7 @@ GOGET = $(GOCMD) get
 GO111MODULE=on
 
 # Main package name
-MAIN_PACKAGE = ./main.go
+MAIN_PACKAGE = ./cmd/main.go
 
 # Output binary name
 BINARY_NAME = out
@@ -26,3 +26,6 @@ test:
 run:
 	$(GOBUILD) -o $(BINARY_NAME) $(MAIN_PACKAGE)
 	./$(BINARY_NAME)
+
+build_docker:
+	docker build -t go-api .

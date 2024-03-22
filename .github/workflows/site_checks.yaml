@@ -1,20 +1,20 @@
-name: 'Admin Site Checks'
+name: 'Main Site Checks'
 
 on:
   pull_request:
     branches:
       - main
     paths:
-      - admin/**
+      - site/**
 
 jobs:
   checks:
-    name: 'Admin Site Checks'
+    name: ''
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
-        working-directory: ./admin
+        working-directory: ./site
 
     steps:
       - name: Checkout the repository to the runner
@@ -36,10 +36,6 @@ jobs:
       - name: Run typecheck
         id: typecheck
         run: yarn typecheck
-
-      - name: Run lint
-        id: lint
-        run: yarn lint
 
       - name: Run lint
         id: lint

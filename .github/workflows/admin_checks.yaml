@@ -1,0 +1,42 @@
+name: 'Admin Site Checks'
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - admin/**
+
+jobs:
+  checks:
+    name: 'Admin Site Checks'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./admin
+
+    steps:
+      - name: Checkout the repository to the runner
+        uses: actions/checkout@v4
+
+      - name: Set Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Enable corepack
+        id: corepack
+        run: corepack enable
+
+      - name: Run install
+        id: install
+        run: yarn install
+
+      - name: Run typecheck
+        id: typecheck
+        run: yarn typecheck
+
+      - name: Run lint
+        id: lint
+        run: yarn lint

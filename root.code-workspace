@@ -1,6 +1,10 @@
 {
 	"folders": [
 		{
+			"name": "root",
+			"path": "."
+		},
+		{
 			"name": "site",
 			"path": "site"
 		},
@@ -19,10 +23,6 @@
 		{
 			"name": "api",
 			"path": "api"
-		},
-		{
-			"name": "config",
-			"path": "."
 		}
 	],
 	"settings": {
@@ -60,6 +60,9 @@
 			"**/Thumbs.db": true
 		},
 		// Use site typescript version
-		"typescript.tsdk": "site/.yarn/sdks/typescript/lib"
+		"typescript.tsdk": "site/.yarn/sdks/typescript/lib",
+		"yaml.schemas": {
+			"https://json.schemastore.org/github-workflow.json": "file:///workspaces/connorbray.net/.github/workflows/site.yaml"
+		}
 	}
 }

@@ -26,10 +26,6 @@
 		}
 	],
 	"settings": {
-		// Formatting
-		"editor.formatOnSave": true,
-		"editor.formatOnPaste": true,
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		// Hidden files
 		"files.exclude": {
 			// Workspace folders
@@ -62,11 +58,6 @@
 			"**/CVS": true,
 			"**/.DS_Store": true,
 			"**/Thumbs.db": true
-		},
-		"search.exclude": {
-			"**/.yarn": true,
-			"**/.pnp.*": true,
-			"**/node_modules": true
 		},
 		// Use site typescript version
 		"typescript.tsdk": "site/.yarn/sdks/typescript/lib"

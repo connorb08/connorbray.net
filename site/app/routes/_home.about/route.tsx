@@ -39,7 +39,7 @@ const aboutProps: AboutProps = {
 	projects,
 };
 
-export const loader = async ({}: LoaderFunctionArgs) => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
 	const employment_data = fetch(
 		'https://api.connorbray.net/api/employment'
 	).then((res) => res.json());

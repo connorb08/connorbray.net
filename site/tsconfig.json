@@ -1,6 +1,6 @@
 {
 	"include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
-	"exclude": ["node_modules"],
+	"exclude": ["node_modules", "server.ts"],
 	"compilerOptions": {
 		"lib": ["DOM", "DOM.Iterable", "ES2019"],
 		"isolatedModules": true,
@@ -17,7 +17,7 @@
 			"~/*": ["./app/*"]
 		},
 		"types": ["@cloudflare/workers-types/experimental"],
-
+		"skipLibCheck": true,
 		// Remix takes care of building everything in `remix build`.
 		"noEmit": true,
 		"noImplicitAny": true

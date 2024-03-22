@@ -40,7 +40,8 @@
 					"**/.cache": true,
 					"**/build": true,
 					"**/.yarn": true,
-					"**/.pnp.*": true
+					"**/.pnp.*": true,
+					"**/yarn.lock": true
 				},
 				"search.exclude": {
 					"**/.yarn": true,

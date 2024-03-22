@@ -46,7 +46,7 @@ export default {
 			const loadContext: AppLoadContext = {
 				env,
 				ctx,
-				cf_cache: caches.default,
+				cf_cache: caches.default as Cache,
 			};
 			return await handleRemixRequest(request, loadContext);
 		} catch (error) {

@@ -1,42 +1,29 @@
 {
 	"folders": [
 		{
+			"path": "./app",
+			"name": "app"
+		},
+		{
 			"path": ".",
-			"name": "root"
+			"name": "config"
 		},
 		{
 			"path": "../",
-			"name": "connorbray.net"
+			"name": "root"
 		}
 	],
 	"settings": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"typescript.tsdk": "root/.yarn/sdks/typescript/lib",
-		"prettier.configPath": "../.prettierrc.yaml",
-		"eslint.nodePath": "../.yarn/sdks/eslint/bin/eslint.js",
-		"editor.formatOnSave": true,
-		"editor.formatOnPaste": true,
+		"typescript.tsdk": "config/.yarn/sdks/typescript/lib",
+		"eslint.nodePath": "config/.yarn/sdks",
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": "always"
+		},
 		"files.exclude": {
-			//
-			"**/site/": true,
-			//
-			"**/.git": true,
-			"**/.svn": true,
-			"**/.hg": true,
-			"**/CVS": true,
-			"**/.DS_Store": true,
-			"**/Thumbs.db": true,
-			"**/*.css": true,
-			"**/*.css.map": true,
-			//
-			"**/node_modules": true,
-			"**/build": true,
-			"**/.wrangler": true,
-			"**/.cache": true,
-			"**/.pnp*": true,
-			"**/.yarn": true,
-			".yarnrc.yml": true,
-			".gitignore": true
+			"app": true,
+			"site": true,
+			"**/*.module.css": true,
+			"**/*.module.css.map": true
 		}
 	}
 }

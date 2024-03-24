@@ -1,0 +1,17 @@
+name = "dev-connorbray-net"
+main = "./build/index.js"
+compatibility_date = "2023-04-20"
+
+r2_buckets  = [
+  { binding = "CONTENT", bucket_name = "content", preview_bucket_name="content-dev" }
+]
+
+[site]
+    bucket = "./public"
+
+[build]
+    command = "yarn build"
+
+[[routes]]
+    pattern = "dev.connorbray.net"
+    custom_domain = true

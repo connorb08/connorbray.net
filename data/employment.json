@@ -6,7 +6,8 @@
 		"start_date": "07/2023",
 		"end_date": "09/2023",
 		"location": "Yarmouth, ME",
-		"icon_url": "https://content.connorbray.net/images/tyler.png"
+		"icon_url": "https://content.connorbray.net/images/tyler.png",
+		"sort": 0
 	},
 	{
 		"position": "President & CEO",
@@ -14,9 +15,9 @@
 		"location": "Orono, ME",
 		"start_date": "Feb 2022",
 		"end_date": "May 2023",
-		"description":
-			"Highest ranking executive of a 501(c)(3) non-profit with yearly budget of over $1,000,000. Collaborated with President, Chancellor, Dean of Students, Board of Trustees, and Provost to develop campus goals.",
-		"icon_url": "https://content.connorbray.net/images/umsg.avif"
+		"description": "Highest ranking executive of a 501(c)(3) non-profit with yearly budget of over $1,000,000. Collaborated with President, Chancellor, Dean of Students, Board of Trustees, and Provost to develop campus goals.",
+		"icon_url": "https://content.connorbray.net/images/umsg.avif",
+		"sort": 1
 	},
 	{
 		"position": "Software Development Intern",
@@ -24,9 +25,9 @@
 		"location": "Yarmouth, ME",
 		"start_date": "May 2022",
 		"end_date": "May 2023",
-		"description":
-			"Developed large scale enterprise resource planning application using scrum.",
-		"icon_url": "https://content.connorbray.net/images/tyler.png"
+		"description": "Developed large scale enterprise resource planning application using scrum.",
+		"icon_url": "https://content.connorbray.net/images/tyler.png",
+		"sort": 2
 	},
 	{
 		"position": "Vice President & Board Chair",
@@ -34,9 +35,9 @@
 		"location": "Orono, ME",
 		"start_date": "May 2022",
 		"end_date": "Feb 2023",
-		"description":
-			"Chaired the board of directors’ meetings with 40+ board members according to Robert’s Rules of Order.",
-		"icon_url": "https://content.connorbray.net/images/umsg.avif"
+		"description": "Chaired the board of directors’ meetings with 40+ board members according to Robert’s Rules of Order.",
+		"icon_url": "https://content.connorbray.net/images/umsg.avif",
+		"sort": 3
 	},
 	{
 		"position": "Interim Vice President for Financial Affiars",
@@ -45,7 +46,8 @@
 		"start_date": "Sep 2022",
 		"end_date": "Oct 2022",
 		"description": "",
-		"icon_url": "https://content.connorbray.net/images/umsg.avif"
+		"icon_url": "https://content.connorbray.net/images/umsg.avif",
+		"sort": 4
 	},
 	{
 		"position": "Information Technology Intern",
@@ -54,7 +56,8 @@
 		"start_date": "May 2021",
 		"end_date": "May 2022",
 		"description": "Technical support for multi-server client setups.",
-		"icon_url": "https://content.connorbray.net/images/tyler.png"
+		"icon_url": "https://content.connorbray.net/images/tyler.png",
+		"sort": 5
 	},
 	{
 		"position": "Kitchen Staff",
@@ -63,6 +66,7 @@
 		"start_date": "Feb 2019",
 		"end_date": "May 2021",
 		"description": "",
-		"icon_url": "https://content.connorbray.net/images/fstop.png"
+		"icon_url": "https://content.connorbray.net/images/fstop.png",
+		"sort": 6
 	}
 ]

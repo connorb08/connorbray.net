@@ -4,4 +4,5 @@ interface Employment {
 	position: string;
 	description: string;
 	location: string;
+	sort: number;
 }

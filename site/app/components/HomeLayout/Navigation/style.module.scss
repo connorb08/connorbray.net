@@ -1,54 +1,95 @@
 .SidebarRoot {
-    @apply pt-5;
-    @apply h-full;
-    @apply flex flex-col content-center items-center;
-    @apply bg-gray-3;
-    @apply min-w-[50px];
-    @apply border-r border-gray-200;
+	@apply border-r border-gray-200;
+	padding-top: 1.25rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+	min-width: 50px;
+	background-color: var(--gray-3);
 
-    .SidebarToggle {
-        @apply relative;
-        @apply p-2;
-        @apply bg-gray-3;
-        @apply rounded-full;
-        @apply mb-5;
+	.SidebarToggle {
+		position: relative;
+		padding: 0.5rem;
+		background-color: var(--gray-3);
+		border-radius: 100%;
+		margin-bottom: 1.25rem;
+		color: var(--gray-9);
 
-        @apply text-gray;
+		&:hover {
+			background-color: var(--gray-5);
+			color: var(--gray-11);
+		}
 
-        &:hover {
-            @apply bg-gray-5;
-            @apply text-gray-11;
-        }
+		.Icon {
+			height: 1.25rem;
+			width: 1.25rem;
+		}
+	}
 
-        .Icon {
-            @apply h-5 w-5;
-        }
-    }
+	.Sidebar {
+		display: flex;
+		flex-direction: column;
+		overflow-y: auto;
+		flex: 1 1 0%;
+		height: 100%;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		// min-width: 300px;
+		width: 300px;
+		row-gap: 1.25rem;
+		overflow: hidden;
 
-    .Sidebar {
-        @apply flex grow flex-col gap-y-5 overflow-y-auto;
-        @apply flex-1;
-        @apply h-full;
-        @apply px-6;
-        // @apply fixed;
-        // @apply left-0 top-0;
-        @apply min-w-[300px];
+		&[data-state='open'] {
+			animation: slideRight 300ms ease-out;
+		}
+		&[data-state='closed'] {
+			* {
+				display: none;
+			}
+			animation: slideLeft 300ms ease-out;
+		}
 
-        .NavItem {
-            @apply flex items-center w-full text-left rounded-md p-2 gap-x-3 text-sm leading-6 text-primary-12;
+		.NavItem {
+			@apply rounded-md gap-x-3 text-sm leading-6 text-primary-12;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			text-align: left;
+			padding: 0.5rem;
 
-            &.Selected {
-                @apply bg-primary-5;
-                @apply text-primary-12;
-                @apply font-semibold;
-                &:hover {
-                    @apply bg-primary-5;
-                }
-            }
+			&.Selected {
+				@apply font-semibold;
+				background-color: var(--primary-5);
+				color: var(--primary-12);
 
-            &:hover {
-                @apply bg-primary-4;
-            }
-        }
-    }
+				&:hover {
+					background-color: var(--primary-5);
+				}
+			}
+
+			&:hover {
+				background-color: var(--primary-4);
+			}
+		}
+	}
+}
+
+@keyframes slideRight {
+	from {
+		width: 0;
+	}
+	to {
+		width: var(--radix-collapsible-content-width);
+	}
+}
+
+@keyframes slideLeft {
+	from {
+		width: var(--radix-collapsible-content-width);
+	}
+	to {
+		width: 0;
+	}
 }

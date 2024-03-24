@@ -1,0 +1,121 @@
+.Root {
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	background-color: var(--primary-1);
+	color: white;
+
+	.Group {
+		.Database {
+			background-color: var(--teal-9);
+			color: var(--teal-1);
+			&:hover {
+				background-color: var(--teal-10);
+			}
+		}
+
+		.Network {
+			background-color: var(--mint-9);
+			color: var(--mint-12);
+			&:hover {
+				background-color: var(--mint-10);
+			}
+		}
+
+		.API {
+			background-color: var(--tomato-9);
+			color: var(--tomato-1);
+			&:hover {
+				background-color: var(--tomato-10);
+			}
+		}
+
+		.Content {
+			background-color: var(--yellow-9);
+			color: var(--yellow-12);
+			&:hover {
+				background-color: var(--yellow-10);
+			}
+		}
+
+		.Website {
+			background-color: var(--primary);
+			&:hover {
+				background-color: var(--primary-10);
+			}
+		}
+
+		.Terraform {
+			background-color: var(--indigo-9);
+			color: var(--indigo-1);
+			&:hover {
+				background-color: var(--indigo-10);
+			}
+		}
+
+		.Admin {
+			background-color: var(--cyan-9);
+			color: var(--cyan-1);
+			&:hover {
+				background-color: var(--cyan-10);
+			}
+		}
+	}
+}
+
+.Circle {
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+	&:hover {
+		cursor: pointer;
+		transform: scale(1.05);
+		transition: transform 0.3s ease-in-out;
+	}
+}
+
+.Rectangle {
+	width: 250px;
+	height: 250px;
+	border-radius: 15%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+	&:hover {
+		cursor: pointer;
+		transform: scale(1.05);
+		transition: transform 0.3s ease-in-out;
+	}
+}
+
+.Container {
+	height: 80%;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	h1 {
+		font-size: 1.5rem; /* 24px */
+		line-height: 2rem; /* 32px */
+		text-align: center;
+	}
+
+	p {
+		max-width: 80%;
+		margin-top: 10px;
+		text-align: center;
+	}
+}

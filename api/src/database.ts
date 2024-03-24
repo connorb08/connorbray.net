@@ -28,6 +28,7 @@ export const GetEmploymentHistory = async (env: Env) => {
 					end_date: 1,
 					location: 1,
 					icon_url: 1,
+					sort: 1,
 				},
 			},
 			env
@@ -35,7 +36,7 @@ export const GetEmploymentHistory = async (env: Env) => {
 	);
 	const data: any = await response.json();
 	const documents = data.documents as Employment[];
-	return documents;
+	return documents.sort((a, b) => a.sort - b.sort);
 };
 
 export const GetEducationHistory = async (env: Env) => {

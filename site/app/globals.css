@@ -1,0 +1,48 @@
+html {
+	font-family: 'Roboto Flex', sans-serif;
+
+	/* Colors */
+	--primary: var(--grass-9);
+	--primary-1: var(--grass-1);
+	--primary-2: var(--grass-2);
+	--primary-3: var(--grass-3);
+	--primary-4: var(--grass-4);
+	--primary-5: var(--grass-5);
+	--primary-6: var(--grass-6);
+	--primary-7: var(--grass-7);
+	--primary-8: var(--grass-8);
+	--primary-9: var(--grass-9);
+	--primary-10: var(--grass-10);
+	--primary-11: var(--grass-11);
+	--primary-12: var(--grass-12);
+
+	/* Grayscale */
+	--gray: var(--sage-9);
+	--gray-1: var(--sage-1);
+	--gray-2: var(--sage-2);
+	--gray-3: var(--sage-3);
+	--gray-4: var(--sage-4);
+	--gray-5: var(--sage-5);
+	--gray-6: var(--sage-6);
+	--gray-7: var(--sage-7);
+	--gray-8: var(--sage-8);
+	--gray-9: var(--sage-9);
+	--gray-10: var(--sage-10);
+	--gray-11: var(--sage-11);
+	--gray-12: var(--sage-12);
+
+	/* Info Color */
+	--info: var(--blue-9);
+	--info-1: var(--blue-1);
+	--info-2: var(--blue-2);
+	--info-3: var(--blue-3);
+	--info-4: var(--blue-4);
+	--info-5: var(--blue-5);
+	--info-6: var(--blue-6);
+	--info-7: var(--blue-7);
+	--info-8: var(--blue-8);
+	--info-9: var(--blue-9);
+	--info-10: var(--blue-10);
+	--info-11: var(--blue-11);
+	--info-12: var(--blue-12);
+}

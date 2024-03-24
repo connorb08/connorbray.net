@@ -13,26 +13,27 @@ import style from './style.module.css';
 import { Link, useLocation } from '@remix-run/react';
 
 const nav = [
-	{ name: 'Home', href: '/home', icon: HomeIcon, current: true },
-	{ name: 'About Me', href: '/about', icon: PersonIcon, current: false },
+	{ name: 'Home', href: '/home', icon: HomeIcon },
+	{ name: 'About Me', href: '/about', icon: PersonIcon },
 	{
 		name: 'Pages',
 		icon: FileIcon,
-		current: false,
-		children: [{ name: 'This Site', href: '/site' }],
+		children: [
+			{ name: 'Architecture', href: '/architecture' },
+			{ name: 'This Site', href: '/site' },
+		],
 	},
 	{
 		name: 'Projects',
 		icon: FolderIcon,
-		current: false,
 		children: [
 			// { name: "Wonder App", href: "#" },
 			// { name: "Photo Manager", href: "#" },
 			// { name: "connorbray.net", href: "#" },
 		],
 	},
-	{ name: 'Resume', href: '#', icon: FileTextIcon, current: false },
-	{ name: 'Photography', href: '/gallery', icon: CameraIcon, current: false },
+	{ name: 'Resume', href: '#', icon: FileTextIcon },
+	{ name: 'Photography', href: '/gallery', icon: CameraIcon },
 ];
 
 export default function Navigation(props: {
@@ -161,7 +162,8 @@ export default function Navigation(props: {
 																				}
 																				prefetch="render"
 																				className={
-																					(item.current
+																					(subItem.href ===
+																					location.pathname
 																						? style.Selected
 																						: '') +
 																					' ' +

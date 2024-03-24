@@ -8,7 +8,11 @@ import {
 	Scripts,
 	ScrollRestoration,
 } from '@remix-run/react';
+import './globals.css';
 import stylesheet from './tailwind.css';
+import '@radix-ui/colors/grass.css';
+import '@radix-ui/colors/sage.css';
+import '@radix-ui/colors/blue.css';
 
 export const links: LinksFunction = () => [
 	...(cssBundleHref

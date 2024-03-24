@@ -11,9 +11,10 @@
 		// Text
 		@apply text-5xl;
 		@apply font-bold;
+		// @apply text-black;
 
 		.Start {
-			@apply bg-third-9 text-third-3;
+			@apply bg-third-10 text-white;
 
 			& a {
 				&:hover {
@@ -23,7 +24,7 @@
 		}
 
 		.Middle {
-			@apply bg-primary-9 text-primary-3;
+			@apply bg-primary-10 text-white;
 
 			& a {
 				&:hover {
@@ -33,7 +34,7 @@
 		}
 
 		.End {
-			@apply bg-secondary-9 text-secondary-3;
+			@apply bg-secondary-10 text-white;
 
 			& a {
 				&:hover {

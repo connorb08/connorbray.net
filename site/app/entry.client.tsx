@@ -11,10 +11,10 @@ import { hydrate } from 'react-dom';
 
 startTransition(() => {
 	// hydrateRoot(
-	//   document,
-	//   <StrictMode>
-	//     <RemixBrowser />
-	//   </StrictMode>
+	// 	document,
+	// 	<StrictMode>
+	// 		<RemixBrowser />
+	// 	</StrictMode>
 	// );
 	// Reverting to hydrate from react-dom to fix hydration issue. App uses react 17 instead of 18.
 	hydrate(

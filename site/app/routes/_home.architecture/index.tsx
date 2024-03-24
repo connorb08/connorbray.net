@@ -17,7 +17,7 @@ export default function Architecture() {
 	return (
 		<div className={styles.Root}>
 			<div className={styles.Group}>
-				<div className="w-full flex justify-center gap-20">
+				<div className={styles.Section}>
 					<div className={styles.Website + ' ' + styles.Circle}>
 						<div className={styles.Container}>
 							<div className="flex gap-1">
@@ -43,7 +43,7 @@ export default function Architecture() {
 						</div>
 					</div>
 				</div>
-				<div className="w-full flex justify-center gap-20">
+				<div className={styles.Section}>
 					<div className={styles.Database + ' ' + styles.Circle}>
 						<div className={styles.Container}>
 							<div className="flex gap-1">
@@ -70,7 +70,7 @@ export default function Architecture() {
 						</div>
 					</div>
 				</div>
-				<div className="w-full flex justify-center gap-20">
+				<div className={styles.Section}>
 					<div className={styles.Admin + ' ' + styles.Circle}>
 						<div className={styles.Container}>
 							<h1>Admin</h1>

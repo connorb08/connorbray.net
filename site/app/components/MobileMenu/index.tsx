@@ -1,4 +1,4 @@
-import { HamburgerMenuIcon } from '@radix-ui/react-icons';
+import { Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons';
 
 import style from './style.module.css';
 import { useState } from 'react';
@@ -14,6 +14,10 @@ const menuLinks = [
 		href: '/about',
 	},
 	{
+		label: 'Architecture',
+		href: '/architecture',
+	},
+	{
 		label: 'This Site',
 		href: '/site',
 	},
@@ -26,19 +30,39 @@ const menuLinks = [
 export default function MobileMenu() {
 	const [menuOpen, setMenuOpen] = useState(false);
 
+	const openMenu = () => {
+		setMenuOpen(true);
+		const body = document.body;
+		body.style.overflow = 'hidden';
+	};
+	const closeMenu = () => {
+		setMenuOpen(false);
+		const body = document.body;
+		body.style.overflow = 'auto';
+	};
+
 	return (
 		<div>
 			<button
 				className={style.IconButton}
 				aria-label="Navigation menu"
-				onClick={() => setMenuOpen(!menuOpen)}
+				onClick={() => openMenu()}
 			>
 				<HamburgerMenuIcon />
 			</button>
 			{menuOpen && (
 				<div className={style.MenuContent}>
+					<div className={style.Heading}>
+						<button
+							className={style.IconButton}
+							aria-label="Close Menu"
+							onClick={() => closeMenu()}
+						>
+							<Cross1Icon />
+						</button>
+					</div>
 					{menuLinks.map((link, index) => (
-						<button onClick={() => setMenuOpen(false)} key={index}>
+						<button onClick={() => closeMenu()} key={index}>
 							<Link
 								key={link.label}
 								to={link.href}

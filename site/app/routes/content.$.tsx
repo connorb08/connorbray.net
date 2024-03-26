@@ -1,5 +1,4 @@
 import type { LoaderFunction, LoaderFunctionArgs } from '@remix-run/cloudflare';
-import type { Env } from 'remix.env';
 
 export const loader: LoaderFunction = async ({
 	request,
@@ -37,7 +36,9 @@ export const loader: LoaderFunction = async ({
 		object.writeHttpMetadata(headers);
 		headers.set('etag', object.httpEtag);
 		// 1 week cache
-		headers.append('Cache-Control', 's-maxage=604800');
+		// 1 year cache
+		// headers.append('Cache-Control', 'maxage=31536000');
+		headers.append('Cache-Control', 'max-age=31536000, s-maxage=31536000');
 
 		const response = new Response(object.body, {
 			headers,

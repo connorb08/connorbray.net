@@ -3,6 +3,7 @@ import {
 	GlobeAltIcon,
 	PhotoIcon,
 } from '@heroicons/react/24/outline';
+import type { MetaFunction } from '@remix-run/cloudflare';
 import styles from './style.module.css';
 
 // Colors:
@@ -12,6 +13,16 @@ import '@radix-ui/colors/tomato.css';
 import '@radix-ui/colors/yellow.css';
 import '@radix-ui/colors/indigo.css';
 import '@radix-ui/colors/cyan.css';
+
+export const meta: MetaFunction = () => {
+	return [
+		{ title: 'connorbray.net' },
+		{
+			name: 'description',
+			content: 'Architecture of connorbray.net.',
+		},
+	];
+};
 
 export default function Architecture() {
 	return (

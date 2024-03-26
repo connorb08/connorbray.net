@@ -1,48 +1,48 @@
-import { RouterHandler } from "@tsndr/cloudflare-worker-router";
-import { Env } from ".";
-import { Image } from "./models";
+import { RouterHandler } from '@tsndr/cloudflare-worker-router';
+import { Env } from '.';
+import { Image } from './models';
 
-export const GetImage: RouterHandler<Env, ExecutionContext, Request<unknown, CfProperties<unknown>>> = async ({ env, ctx, req }) => {
+export const GetImage: RouterHandler<
+	Env,
+	ExecutionContext,
+	Request<unknown, CfProperties<unknown>>
+> = async ({ env, ctx, req }) => {
+	try {
+		const url = new URL(req.url);
+		const cacheKey = new Request(url.toString(), req);
+		const cache = caches.default;
 
-    try {
+		let response = await cache.match(cacheKey);
+		if (response) {
+			return response;
+		}
 
-        const url = new URL(req.url);
-        const cacheKey = new Request(url.toString(), req);
-        const cache = caches.default;
+		const objectKey = `images/${req.params.key}`;
+		console.log(objectKey);
+		const object = await env.CM.get(objectKey);
+		if (object === null) {
+			return new Response('NOT FOUND', { status: 404 });
+		}
 
-        let response = await cache.match(cacheKey);
-        if (response) {
-            return response;
-        }
+		const headers = new Headers();
+		object.writeHttpMetadata(headers);
+		headers.set('etag', object.httpEtag);
+		// 1 week cache
+		headers.append('Cache-Control', 'max-age=604800, s-maxage=604800');
 
-        const objectKey = `images/${req.params.key}`;
-        console.log(objectKey)
-        const object = await env.CM.get(objectKey);
-        if (object === null) {
-            return new Response('NOT FOUND', { status: 404 });
-        }
+		response = new Response(object.body, {
+			headers,
+		});
 
-        const headers = new Headers();
-        object.writeHttpMetadata(headers);
-        headers.set('etag', object.httpEtag);
-        // 1 week cache
-        headers.append('Cache-Control', 's-maxage=604800');
+		if (ctx) {
+			ctx.waitUntil(cache.put(cacheKey, response.clone()));
+		} else {
+			await cache.put(cacheKey, response.clone());
+		}
 
-        response = new Response(object.body, {
-            headers,
-        });
-
-        if (ctx) {
-            ctx.waitUntil(cache.put(cacheKey, response.clone()));
-        } else {
-            await cache.put(cacheKey, response.clone())
-        }
-
-        return response;
-
-    } catch (e: any) {
-        console.log(e.message);
-        return new Response('Error', { status: 500 });
-    }
-
-}
+		return response;
+	} catch (e: any) {
+		console.log(e.message);
+		return new Response('Error', { status: 500 });
+	}
+};

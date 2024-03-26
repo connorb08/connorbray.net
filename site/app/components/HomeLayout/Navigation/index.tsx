@@ -59,7 +59,10 @@ export default function Navigation(props: {
 				}
 			>
 				<Collapsible.Trigger asChild>
-					<button className={style.SidebarToggle}>
+					<button
+						className={style.SidebarToggle}
+						aria-label="Open Navigation"
+					>
 						<ChevronRightIcon
 							className={
 								style.Icon +

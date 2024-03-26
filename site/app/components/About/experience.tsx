@@ -43,7 +43,7 @@ const Job = (props: JobProps) => {
 				style={{
 					backgroundPosition: 'center',
 					backgroundSize: 'cover',
-					backgroundImage: `url('${props.icon_url}')`,
+					backgroundImage: `url('https://connorbray.net/cdn-cgi/image/format=auto/${props.icon_url}')`,
 				}}
 			/>
 

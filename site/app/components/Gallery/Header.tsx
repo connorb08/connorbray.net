@@ -5,7 +5,7 @@ export default function Header() {
 	return (
 		<div className="flex justify-between items-center p-4 bg-black text-white">
 			<div className="pl-5">
-				<Link to="/">
+				<Link to="/" aria-label="Return home.">
 					<HomeIcon
 						height={32}
 						width={32}

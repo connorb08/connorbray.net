@@ -3,10 +3,10 @@
 /// <reference types="@cloudflare/workers-types" />
 
 declare module '__STATIC_CONTENT_MANIFEST' {
-    const manifest: string;
-    export default manifest;
+	const manifest: string;
+	export default manifest;
 }
 
-export interface Env {
-    CONTENT: R2Bucket;
+interface Env {
+	CONTENT: R2Bucket;
 }

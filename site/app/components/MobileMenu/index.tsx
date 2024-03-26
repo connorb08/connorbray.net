@@ -32,13 +32,12 @@ export default function MobileMenu() {
 
 	const openMenu = () => {
 		setMenuOpen(true);
-		const body = document.body;
-		body.style.overflow = 'hidden';
+		document.body.style.overflow = 'hidden';
 	};
 	const closeMenu = () => {
+		// document.body.style.removeProperty('overflow');
+		document.body.removeAttribute('style');
 		setMenuOpen(false);
-		const body = document.body;
-		body.style.overflow = 'auto';
 	};
 
 	return (
@@ -62,7 +61,11 @@ export default function MobileMenu() {
 						</button>
 					</div>
 					{menuLinks.map((link, index) => (
-						<button onClick={() => closeMenu()} key={index}>
+						<button
+							onClick={() => closeMenu()}
+							key={index}
+							aria-label="Close Menu"
+						>
 							<Link
 								key={link.label}
 								to={link.href}

@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "./worker",
+			"name": "worker"
+		},
+		{
+			"path": ".",
+			"name": "config"
+		},
+		{
+			"path": "../",
+			"name": "root"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "worker/.yarn/sdks/typescript/lib",
+		"eslint.nodePath": "worker/.yarn/sdks",
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": "always"
+		},
+		"files.exclude": {
+			"worker": true,
+			"content_manager": true
+		}
+	}
+}

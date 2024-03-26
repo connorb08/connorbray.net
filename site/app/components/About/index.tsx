@@ -6,6 +6,7 @@ import Portfolio from './portfolio';
 import Experience from './experience';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 import './style.css';
+import { Link } from '@remix-run/react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const EmploymentStatus = ({
@@ -59,7 +60,7 @@ export const About = (props: AboutProps) => {
 								className="h-32 bg-cover bg-center"
 								style={{
 									backgroundImage:
-										"url('https://content.connorbray.net/images/um_mall.jpeg')",
+										"url('https://connorbray.net/cdn-cgi/image/format=auto,quality=50,fit=scale-down,width=960/https://content.connorbray.net/images/um_mall.jpeg')",
 								}}
 							></div>
 							<div className="pt-14 p-7 bg-gray-3 relative">
@@ -68,14 +69,6 @@ export const About = (props: AboutProps) => {
                                 /> */}
 								<span>
 									<picture>
-										{/* <source
-                                            srcSet={CONTENT.headshot1.avif}
-                                            type="image/avif"
-                                        />
-                                        <source
-                                            srcSet={CONTENT.headshot1.webp}
-                                            type="image/webp"
-                                        /> */}
 										<img
 											style={{
 												objectPosition: 'center top',
@@ -84,23 +77,12 @@ export const About = (props: AboutProps) => {
 												height: '90px',
 											}}
 											className="user-photo"
-											decoding="async"
-											loading="lazy"
-											src="https://content.connorbray.net/images/headshot.jpeg"
+											decoding="sync"
+											loading="eager"
+											src="https://connorbray.net/cdn-cgi/image/format=auto,fit=scale-down,width=180/https://content.connorbray.net/images/headshot.jpeg"
 											alt="Avatar"
 										/>
 									</picture>
-									{/* <img
-                                        src={CONTENT.headshot2}
-                                        alt="Avatar"
-                                        style={{
-                                            objectPosition: 'center top',
-                                            objectFit: 'cover',
-                                            width: '90px',
-                                            height: '90px',
-                                        }}
-                                        className="user-photo"
-                                    /> */}
 								</span>
 								<div className="text-lg font-semibold mb-1.5">
 									Connor Bray
@@ -108,16 +90,22 @@ export const About = (props: AboutProps) => {
 								<div className="text-sm text-gray-11 mb-7">
 									Software Engineer
 								</div>
-								<a
-									href="https://content.connorbray.net/resume.pdf"
+								<Link
+									to="https://content.connorbray.net/resume.pdf"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									<div className="flex group">
-										<button className="download-btn">
+										<button
+											className="download-btn"
+											aria-label="Download CV"
+										>
 											Download CV
 										</button>
-										<button className="download-btn-icon">
+										<button
+											className="download-btn-icon"
+											aria-label="Download CV"
+										>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												className="h-6 w-6"
@@ -134,7 +122,7 @@ export const About = (props: AboutProps) => {
 											</svg>
 										</button>
 									</div>
-								</a>
+								</Link>
 							</div>
 						</div>
 						{/* <!-- End User Block --> */}
@@ -168,7 +156,7 @@ export const About = (props: AboutProps) => {
 						{/* <!-- Start About Me Block --> */}
 						<div className="p-7 pb-0 block-section">
 							<h2 className="block-title">About me</h2>
-							<p className="text-gray-11 mb-5">
+							<p className="text-gray-12 mb-5">
 								I am a Software Engineer who has worked on a
 								variety of projects. From small personal ones to
 								large enterprise applications, I have over 8
@@ -192,30 +180,32 @@ export const About = (props: AboutProps) => {
 
 								<ul className="flex space-x-4 ml-1">
 									<li>
-										<a
-											href="https://github.com/connorb08"
+										<Link
+											to="https://github.com/connorb08"
 											target="_blank"
 											rel="nooopener noreferrer"
 											className="social-link-hover"
+											aria-label="GitHub"
 										>
 											<GitHubLogoIcon
 												height={24}
 												width={24}
 											/>
-										</a>
+										</Link>
 									</li>
 									<li>
-										<a
-											href="https://www.linkedin.com/in/connor-bray/"
+										<Link
+											to="https://www.linkedin.com/in/connor-bray/"
 											target="_blank"
 											rel="nooopener noreferrer"
 											className="social-link-hover"
+											aria-label="LinkedIn"
 										>
 											<LinkedInLogoIcon
 												height={24}
 												width={24}
 											/>
-										</a>
+										</Link>
 									</li>
 								</ul>
 							</div>

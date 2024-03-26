@@ -1,36 +1,39 @@
-/**
- * Library Imports
- */
+// Imports
 import { useState } from 'react';
-import { json, type LoaderFunctionArgs } from '@remix-run/cloudflare';
+import {
+	MetaFunction,
+	json,
+	type LoaderFunctionArgs,
+} from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 import PhotoAlbum, { type Photo } from 'react-photo-album';
 import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
 import {
 	Fullscreen,
 	Slideshow,
 	Thumbnails,
 	Zoom,
 } from 'yet-another-react-lightbox/plugins';
+import Header from '~/components/Gallery/Header';
+import { dev_data } from '~/components/Gallery/dev_data';
+
+// CSS imports
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
+import 'yet-another-react-lightbox/styles.css';
 
-/**
- * Component Imports
- */
-import Header from '../../components/Gallery/Header';
-import { dev_data } from '../../components/Gallery/dev_data';
+export const meta: MetaFunction = () => {
+	return [
+		{ title: 'Photo Gallery' },
+		{
+			name: 'description',
+			content: 'Photo Gallery.',
+		},
+	];
+};
 
-/**
- *  Type Imports
- */
-import type { Env } from 'remix.env';
-
-/**
- * Loader
- */
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
+	const ZONE_ID = 'e8496c1028b3218d304c07b74fe48c8d';
 
 	// Return test data if in dev mode
 	// @ts-ignore
@@ -54,10 +57,43 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 			})
 			.map((file) => {
 				return {
+					src: `https://connorbray.net/cdn-cgi/image/format=auto/https://content.connorbray.net/${file.key}`,
+					// src: `https://connorbray.net/cdn-cgi/image/format=auto/https://content.connorbray.net/${file.key}`,
 					// src: `https://content.connorbray.net/${file.key}`,
-					src: `/content/${file.key}`,
+					// src: `/content/${file.key}`,
 					height: Number(file.customMetadata?.height) || 0,
 					width: Number(file.customMetadata?.width) || 0,
+					srcSet: [
+						{
+							src: `https://connorbray.net/cdn-cgi/image/format=auto,fit=scale-down,width=${Math.floor(
+								Math.floor(
+									(Number(file.customMetadata?.width) || 0) /
+										2
+								)
+							)}/https://content.connorbray.net/${file.key}`,
+							height:
+								Math.floor(
+									Number(file.customMetadata?.height) / 2
+								) || 0,
+							width:
+								Math.floor(
+									Number(file.customMetadata?.width) / 2
+								) || 0,
+						},
+						{
+							src: `https://connorbray.net/cdn-cgi/image/format=auto,fit=scale-down,width=${Math.floor(
+								(Number(file.customMetadata?.width) || 0) / 3
+							)}/https://content.connorbray.net/${file.key}`,
+							height:
+								Math.floor(
+									Number(file.customMetadata?.height) / 3
+								) || 0,
+							width:
+								Math.floor(
+									Number(file.customMetadata?.width) / 3
+								) || 0,
+						},
+					],
 				};
 			});
 		return json(
@@ -67,6 +103,8 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 			}
 		);
 	} catch (error) {
+		console.log('Error fetching gallery images:');
+		console.log(error);
 		return new Response('Server Error', { status: 500 });
 	}
 };
@@ -90,6 +128,12 @@ export default function Gallery() {
 					}}
 					photos={data}
 					onClick={({ index }) => setIndex(index)}
+					componentsProps={() => ({
+						imageProps: {
+							loading: 'eager',
+							decoding: 'sync',
+						},
+					})}
 				/>
 				<Lightbox
 					slides={data}

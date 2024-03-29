@@ -1,4 +1,4 @@
-const BaseRequest = (action: string, data: {}, env: Env) =>
+const BaseRequest = (action: string, data: object, env: Env) =>
 	new Request(`${env.DATABASE_ENDPOINT}/action/${action}`, {
 		method: 'POST',
 		headers: {

@@ -1,5 +1,4 @@
-import type { PropsWithChildren } from 'react';
-import { useState } from 'react';
+import { useState, type PropsWithChildren } from 'react';
 import Header from './Header';
 import Navigation from './Navigation';
 
@@ -10,7 +9,7 @@ export default function Layout(props: PropsWithChildren) {
 			<div className="hidden sm:block">
 				<Navigation
 					sidebarOpen={sidebarOpen}
-					setSidebarOpen={setSidebarOpen}
+					setSidebarOpen={() => setSidebarOpen(!sidebarOpen)}
 				/>
 			</div>
 			<div className="flex flex-1 flex-col">

@@ -1,6 +1,11 @@
 name: 'Main Site Checks'
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - site/**
   pull_request:
     branches:
       - main

@@ -1,7 +1,7 @@
 import { test } from 'vitest';
 import { createRemixStub } from '@remix-run/testing';
 import { render, screen, waitFor } from '@testing-library/react';
-import Home from './route';
+import Project from './route';
 
 test('renders loader data', async () => {
 	// ⚠️ This would usually be a component you import from your app code
@@ -9,7 +9,7 @@ test('renders loader data', async () => {
 	const RemixStub = createRemixStub([
 		{
 			path: '/',
-			Component: Home,
+			Component: Project,
 		},
 	]);
 

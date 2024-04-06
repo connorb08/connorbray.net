@@ -9,7 +9,9 @@
 		"typecheck": "tsc",
 		"sass": "sass --watch app/:app/",
 		"lint": "eslint .",
-		"test": "vitest"
+		"test": "vitest",
+		"e2e": "playwright test",
+		"coverage": "vitest --coverage"
 	},
 	"dependencies": {
 		"@cloudflare/kv-asset-handler": "^0.1.3",
@@ -31,6 +33,7 @@
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20231025.0",
 		"@heroicons/react": "^2.0.18",
+		"@playwright/test": "^1.43.0",
 		"@remix-run/dev": "^2.1.0",
 		"@remix-run/eslint-config": "^2.1.0",
 		"@remix-run/testing": "^2.8.1",
@@ -38,6 +41,7 @@
 		"@types/node": "^20.11.30",
 		"@types/react": "^18.0.35",
 		"@types/react-dom": "^18.0.11",
+		"@vitest/coverage-v8": "^1.4.0",
 		"autoprefixer": "^10.4.15",
 		"concurrently": "^8.2.0",
 		"eslint": "^8.57.0",

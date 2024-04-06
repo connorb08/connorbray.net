@@ -1,7 +1,7 @@
 import { useParams } from '@remix-run/react';
 import ProjectOverview from '~/components/Projects/ProjectOverview';
 
-export default function Home() {
+export default function Project() {
 	const { projectId } = useParams();
 	return (
 		<ProjectOverview

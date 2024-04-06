@@ -11,10 +11,10 @@ const Portfolio = ({ projects }: { projects: ProjectProps[] }) => {
 
 				{projects.map((project, index) => {
 					return (
-						<>
-							<Project {...project} key={index} />
+						<div key={index}>
+							<Project {...project} />
 							{index !== len - 1 ? bottomBorder : ''}
-						</>
+						</div>
 					);
 				})}
 			</div>

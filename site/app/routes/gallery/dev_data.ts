@@ -3,6 +3,7 @@ export const dev_data = [
 		src: 'https://content.connorbray.net/gallery/CR7_1800.jpg',
 		height: 2048,
 		width: 1365,
+		alt: 'alt0 text',
 	},
 	{
 		src: 'https://content.connorbray.net/gallery/NZ7_0578.jpg',

@@ -53,7 +53,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 	);
 };
 
-export default function () {
+export default function AboutPage() {
 	const { employment_data, education_data } = useLoaderData<
 		typeof loader
 	>() as unknown as {

@@ -5,11 +5,13 @@ import ProjectOverview from '~/components/Projects/ProjectOverview';
 
 export async function loader({ params }: LoaderFunctionArgs) {
 	const res = await fetch(
-		'https://api.connorbray.net/projects/' + params.projectId
+		'https://api.connorbray.net/api/project/' + params.projectId
 	);
+	const data: Project = await res.json();
 
 	return json(
 		{
+			...data,
 			id: params.projectId,
 		} as Project,
 		{ headers: { 'Cache-Control': 'public, max-age=3600' } }
@@ -17,7 +19,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 }
 
 export default function Project() {
-	// const { name } = useLoaderData<typeof loader>();
+	const project = useLoaderData<typeof loader>();
 	const { projectId } = useParams();
 	return (
 		<ProjectOverview
@@ -26,6 +28,8 @@ export default function Project() {
 			description={''}
 			stats={[]}
 			technologies={[]}
+			about={''}
+			languages={[]}
 		/>
 	);
 }

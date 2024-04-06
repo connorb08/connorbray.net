@@ -14,8 +14,8 @@ import {
 	Thumbnails,
 	Zoom,
 } from 'yet-another-react-lightbox/plugins';
-import Header from '~/components/Gallery/Header';
-import { dev_data } from '~/components/Gallery/dev_data';
+import Header from './Header';
+import { dev_data } from './dev_data';
 
 // CSS imports
 import 'yet-another-react-lightbox/plugins/thumbnails.css';

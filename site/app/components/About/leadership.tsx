@@ -11,10 +11,10 @@ const Leadership = ({ roles }: { roles: LeadershipRoleProps[] }) => {
 
 				{roles.map((role, index) => {
 					return (
-						<>
-							<Role {...role} key={index} />
+						<div key={index}>
+							<Role {...role} />
 							{index !== len - 1 ? bottomBorder : null}
-						</>
+						</div>
 					);
 				})}
 			</div>
@@ -23,10 +23,10 @@ const Leadership = ({ roles }: { roles: LeadershipRoleProps[] }) => {
 
 				{roles.map((role, index) => {
 					return (
-						<>
-							<Award key={index * 10} />
+						<div key={index * 10}>
+							<Award />
 							{index !== len - 1 ? bottomBorder : null}
-						</>
+						</div>
 					);
 				})}
 			</div>

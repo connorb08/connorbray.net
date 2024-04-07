@@ -16,3 +16,20 @@ RUN rm bws-aarch64-unknown-linux-gnu-0.4.0.zip
 
 # Don't minimize container
 # RUN yes | unminimize
+
+# Install mongodb atlas CLI
+RUN apt install gnupg
+RUN wget -qO - https://pgp.mongodb.com/server-7.0.asc | apt-key add -
+RUN touch /etc/apt/sources.list.d/mongodb-org-7.0.list
+RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+RUN apt update
+RUN apt install -y mongodb-atlas
+
+# Install MongoDB Tools
+# https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-arm64-100.9.4.deb
+# WORKDIR /tmp
+# RUN wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-arm64-100.9.4.tgz
+# RUN tar -xzvf ./mongodb-database-tools-*-100.9.0.tgz
+# RUN mv ./mongodb-database-tools-*-100.9.0/bin/* /usr/local/bin
+# RUN rm mongodb-database-tools-*-100.9.0.tgz
+# RUN rm -rf mongodb-database-tools-*-100.9.0

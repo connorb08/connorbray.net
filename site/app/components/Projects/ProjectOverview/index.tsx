@@ -1,32 +1,35 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import style from './style.module.css';
-import { exampleData } from './data';
+import { Link } from '@remix-run/react';
 
 export default function ProjectOverview(props: PropsWithChildren<Project>) {
 	return (
 		<div className={style.Container}>
-			<Info>
-				<Stats />
+			<Info {...props}>
+				<Stats stats={props.stats} />
 				<div className="mb-10" />
-				<Technologies />
+				<Technologies technologies={props.technologies} />
 			</Info>
 		</div>
 	);
 }
 
-function Technologies() {
+function Technologies(
+	props: PropsWithChildren<{ technologies: Project['technologies'] }>
+) {
 	return (
 		<div className={style.Technologies}>
 			<div className={style.TechnologiesContainer}>
 				<div className={style.Grid}>
-					{exampleData.map((item, index) => (
-						<div key={index} className="bg-gray-400/5 p-6 sm:p-10">
+					{props.technologies.map((item, index) => (
+						<div key={index} className="p-6 sm:p-10">
 							<img
-								className="max-h-12 w-full object-contain"
+								className={style.TechnologiesLogo}
 								src={item.logoSrc}
 								alt={item.name}
 								width={158}
 								height={48}
+								draggable={false}
 							/>
 						</div>
 					))}
@@ -36,32 +39,21 @@ function Technologies() {
 	);
 }
 
-const stats = [
-	{ name: 'Lines of code', value: '4,398' },
-	{ name: 'Number of commits', value: '51' },
-	{ name: 'Average deploy time', value: '3.65', unit: 'mins' },
-	{ name: 'Number of servers', value: '3' },
-];
-
-function Stats() {
+function Stats(props: PropsWithChildren<{ stats: Project['stats'] }>) {
 	return (
-		<div className="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
-			{stats.map((stat) => (
+		<div className="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4">
+			{props.stats.map((stat) => (
 				<div
 					key={stat.name}
-					className="bg-gray-400/5 px-4 py-6 sm:px-6 lg:px-8 sm:rounded-2xl"
+					className="px-4 py-6 sm:px-6 lg:px-8 sm:rounded-2xl"
 				>
-					<p className="text-sm font-medium leading-6 text-black">
-						{stat.name}
-					</p>
+					<p className="text-sm font-medium leading-6">{stat.name}</p>
 					<p className="mt-2 flex items-baseline gap-x-2">
-						<span className="text-4xl font-semibold tracking-tight text-black">
+						<span className="text-4xl font-semibold tracking-tight">
 							{stat.value}
 						</span>
 						{stat.unit ? (
-							<span className="text-sm text-black">
-								{stat.unit}
-							</span>
+							<span className="text-sm">{stat.unit}</span>
 						) : null}
 					</p>
 				</div>
@@ -70,65 +62,66 @@ function Stats() {
 	);
 }
 
-function Info(props: PropsWithChildren) {
+function Info(props: PropsWithChildren<Project>) {
 	return (
-		<div className="overflow-hidden bg-white shadow sm:rounded-lg">
+		<div className="overflow-hidden shadow sm:rounded-lg">
 			<div className="px-4 py-6 sm:px-6">
-				<h3 className="text-base font-semibold leading-7 text-gray-900">
-					connorbray.net
+				<h3 className="text-base font-semibold leading-7">
+					{props.name}
 				</h3>
-				<p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
-					Suite of microservices including personal website.
+				<p className="mt-1 max-w-2xl text-sm leading-6">
+					{props.description}
 				</p>
 			</div>
-			<div className="border-t border-gray-100">
-				<dl className="divide-y divide-gray-100">
+			<div className="border-t border-primary-6">
+				<dl className="divide-y divide-primary-6">
 					<div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-						<dt className="text-sm font-medium text-gray-900">
-							About
-						</dt>
-						<dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-							Fugiat ipsum ipsum deserunt culpa aute sint do
-							nostrud anim incididunt cillum culpa consequat.
-							Excepteur qui ipsum aliquip consequat sint. Sit id
-							mollit nulla mollit nostrud in ea officia proident.
-							Irure nostrud pariatur mollit ad adipisicing
-							reprehenderit deserunt qui eu.
+						<dt className="text-sm font-medium">About</dt>
+						<dd className="mt-1 text-md leading-6 sm:col-span-2 sm:mt-0">
+							{props.about}
 						</dd>
 					</div>
 					<div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-						<dt className="text-sm font-medium text-gray-900">
-							Languages
-						</dt>
-						<dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-							TypeScript, Terraform, Go
+						<dt className="text-sm font-medium">Languages</dt>
+						<dd className="mt-1 text-md leading-6 sm:col-span-2 sm:mt-0">
+							{props.languages.map((language, index, arr) => (
+								<span key={index}>
+									{index !== arr.length - 1
+										? `${language.name}, `
+										: language.name}
+								</span>
+							))}
 						</dd>
 					</div>
 					<div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-						<dt className="text-sm font-medium text-gray-900">
-							Links
-						</dt>
-						<dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-							[Page]
-							<br />
-							[GitHub]
+						<dt className="text-sm font-medium">Links</dt>
+						<dd className="mt-1 text- leading-6 sm:col-span-2 sm:mt-0">
+							{props.links.map((link, index, arr) => {
+								return index != arr.length - 1 ? (
+									<>
+										<Link
+											to={link.href || '#'}
+											className={style.ProjectLink}
+										>
+											{link.name}
+										</Link>
+										<br />
+									</>
+								) : (
+									<Link
+										to={link.href || '#'}
+										className={style.ProjectLink}
+									>
+										{link.name}
+									</Link>
+								);
+							})}
 						</dd>
 					</div>
-					<div className="p-6">
-						<dt className="text-md font-medium text-gray-900 text-center">
-							Stats
-						</dt>
-					</div>
-					<Stats />
-					<div className="p-6">
-						<dt className="text-md font-medium text-gray-900 text-center">
-							Technologies
-						</dt>
-					</div>
-					<Technologies />
+					<Stats stats={props.stats} />
+					<Technologies technologies={props.technologies} />
 				</dl>
 			</div>
-			{/* {props.children} */}
 		</div>
 	);
 }

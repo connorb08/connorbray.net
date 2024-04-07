@@ -1,11 +1,11 @@
 type Project = {
-	id: string;
+	id: string | null | undefined;
 	name: string;
 	description: string;
 	about: string;
 	languages: {
 		name: string;
-		logoSrc: string;
+		logoSrc: string | null | undefined;
 	}[];
 	stats: {
 		name: string;
@@ -16,4 +16,10 @@ type Project = {
 		name: string;
 		logoSrc: string;
 	}[];
+	links: Partial<Link>[];
+};
+
+type Link = {
+	name: string;
+	href: string;
 };

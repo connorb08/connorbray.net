@@ -20,7 +20,8 @@
 				"austenc.tailwind-docs",
 				"dbaeumer.vscode-eslint",
 				"redhat.vscode-yaml",
-				"ms-vscode.makefile-tools"
+				"ms-vscode.makefile-tools",
+				"ms-python.python"
 			],
 			"settings": {
 				"editor.formatOnSave": true,

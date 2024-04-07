@@ -81,6 +81,7 @@ export const GetProjectByID = async (env: Env, projectId: string) => {
 					languages: 1,
 					stats: 1,
 					technologies: 1,
+					links: 1,
 				},
 			},
 			env

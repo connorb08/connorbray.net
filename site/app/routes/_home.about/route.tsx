@@ -6,7 +6,7 @@ import type {
 	LeadershipRoleProps,
 	ProjectProps,
 } from '~/components/About/types';
-import { json, type LoaderFunctionArgs } from '@remix-run/cloudflare';
+import { json } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 
 const leadership: LeadershipRoleProps[] = [
@@ -39,7 +39,7 @@ const aboutProps: AboutProps = {
 	projects,
 };
 
-export const loader = async ({ request }: LoaderFunctionArgs) => {
+export const loader = async () => {
 	const employment_data = fetch(
 		'https://api.connorbray.net/api/employment'
 	).then((res) => res.json());

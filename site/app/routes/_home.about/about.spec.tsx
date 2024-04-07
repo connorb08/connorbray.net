@@ -1,6 +1,6 @@
-import { test, it, describe } from 'vitest';
+import { it, describe } from 'vitest';
 import { createRemixStub } from '@remix-run/testing';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import About from './route';
 import { json } from '@remix-run/cloudflare';
 

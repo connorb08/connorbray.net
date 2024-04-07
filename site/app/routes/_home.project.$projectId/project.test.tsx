@@ -45,7 +45,7 @@ describe('Project loader', () => {
 			params: { projectId: '6610cdec02e34801eeac0716' },
 			context: {},
 		});
-		const data = await res.json();
-		expect(data.name).toEqual('connorbray.net');
+		const data = (await res.json()) as { project: Project };
+		expect(data.project.name).toEqual('connorbray.net');
 	});
 });

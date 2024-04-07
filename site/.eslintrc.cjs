@@ -3,5 +3,13 @@ module.exports = {
 	extends: ['@remix-run/eslint-config', '@remix-run/eslint-config/node'],
 	rules: {
 		'@typescript-eslint/consistent-type-imports': 'error',
+		'@typescript-eslint/no-unused-vars': [
+			'warn',
+			{
+				argsIgnorePattern: '^_',
+				varsIgnorePattern: '^_',
+				caughtErrorsIgnorePattern: '^_',
+			},
+		],
 	},
 };

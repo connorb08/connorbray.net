@@ -6,6 +6,10 @@ r2_buckets  = [
   { binding = "CONTENT", bucket_name = "content", preview_bucket_name="content-dev" }
 ]
 
+kv_namespaces = [
+  { binding = "KV", id = "fed94582e0984bf4870847f671c891b6" }
+]
+
 [site]
     bucket = "./public"
 

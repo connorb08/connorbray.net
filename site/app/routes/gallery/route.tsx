@@ -1,8 +1,8 @@
 // Imports
 import { useState } from 'react';
-import {
+import { json } from '@remix-run/cloudflare';
+import type {
 	MetaFunction,
-	json,
 	type LoaderFunctionArgs,
 } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
@@ -33,7 +33,6 @@ export const meta: MetaFunction = () => {
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
-	const ZONE_ID = 'e8496c1028b3218d304c07b74fe48c8d';
 
 	// Return test data if in dev mode
 	// @ts-ignore
@@ -58,9 +57,6 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 			.map((file) => {
 				return {
 					src: `https://connorbray.net/cdn-cgi/image/format=auto/https://content.connorbray.net/${file.key}`,
-					// src: `https://connorbray.net/cdn-cgi/image/format=auto/https://content.connorbray.net/${file.key}`,
-					// src: `https://content.connorbray.net/${file.key}`,
-					// src: `/content/${file.key}`,
 					height: Number(file.customMetadata?.height) || 0,
 					width: Number(file.customMetadata?.width) || 0,
 					srcSet: [

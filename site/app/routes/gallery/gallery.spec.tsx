@@ -1,4 +1,4 @@
-import { expect, test } from 'vitest';
+import { test } from 'vitest';
 import { createRemixStub } from '@remix-run/testing';
 import { render, screen } from '@testing-library/react';
 import { json } from '@remix-run/cloudflare';

@@ -1,10 +1,7 @@
 // Imports
 import { useState } from 'react';
 import { json } from '@remix-run/cloudflare';
-import type {
-	MetaFunction,
-	type LoaderFunctionArgs,
-} from '@remix-run/cloudflare';
+import type { MetaFunction, LoaderFunctionArgs } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 import PhotoAlbum, { type Photo } from 'react-photo-album';
 import Lightbox from 'yet-another-react-lightbox';

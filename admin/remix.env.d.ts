@@ -7,6 +7,9 @@ declare module '__STATIC_CONTENT_MANIFEST' {
 	export default manifest;
 }
 
-export interface Env {
+interface Env {
 	CONTENT: R2Bucket;
+	KV: KVNamespace;
+	MONGO_API_KEY: string;
+	DATABASE_ENDPOINT: string;
 }

@@ -9,4 +9,5 @@ declare module '__STATIC_CONTENT_MANIFEST' {
 
 interface Env {
 	CONTENT: R2Bucket;
+	KV: KVNamespace;
 }

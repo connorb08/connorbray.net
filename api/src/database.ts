@@ -91,3 +91,31 @@ export const GetProjectByID = async (env: Env, projectId: string) => {
 	const document = data.document as Project;
 	return document;
 };
+
+export const GetProjects = async (env: Env) => {
+	const response = await fetch(
+		BaseRequest(
+			'find',
+			{
+				collection: 'projects',
+				// filter: {
+				// 	_id: { $oid: projectId },
+				// },
+				projection: {
+					_id: 1,
+					name: 1,
+					description: 1,
+					about: 1,
+					languages: 1,
+					stats: 1,
+					technologies: 1,
+					links: 1,
+				},
+			},
+			env
+		)
+	);
+	const data: any = await response.json();
+	const documents = data.documents as Project[];
+	return documents;
+};

@@ -3,6 +3,7 @@ import {
 	GetEducationHistory,
 	GetEmploymentHistory,
 	GetProjectByID,
+	GetProjects,
 } from './database';
 import { GitHubData } from './github';
 
@@ -22,6 +23,11 @@ router.get('/api/employment', async (request, env: Env) => {
 
 router.get('/api/education', async (request, env: Env) => {
 	const data: Employment[] = await GetEducationHistory(env);
+	return new Response(JSON.stringify(data));
+});
+
+router.get('/api/projects', async (request, env: Env) => {
+	const data: Project = await GetProjects(env);
 	return new Response(JSON.stringify(data));
 });
 

@@ -9,10 +9,10 @@ export default function Index() {
 				<Link to="/content">Content</Link>
 			</Box>
 			<Box className={style.Box}>
-				<Link to="/content">Content</Link>
+				<Link to="/database">Database</Link>
 			</Box>
 			<Box className={style.Box}>
-				<Link to="/content">Content</Link>
+				<Link to="/projects">Projects</Link>
 			</Box>
 			<Box className={style.Box}>
 				<Link to="/content">Content</Link>

@@ -79,6 +79,7 @@ if process.returncode != 0:
     exit(1)
 else:
     print("cloc_write_database.js script executed successfully.")
+    print(stdout)
 
 
 # Connect to the MongoDB database

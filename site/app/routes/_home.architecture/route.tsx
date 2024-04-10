@@ -13,6 +13,7 @@ import '@radix-ui/colors/tomato.css';
 import '@radix-ui/colors/yellow.css';
 import '@radix-ui/colors/indigo.css';
 import '@radix-ui/colors/cyan.css';
+import { Link } from '@remix-run/react';
 
 export const meta: MetaFunction = () => {
 	return [
@@ -65,12 +66,15 @@ export default function Architecture() {
 							<p>NoSQL database to store site data.</p>
 						</div>
 					</div>
-					<div className={styles.Network + ' ' + styles.Circle}>
+					<Link
+						to="/project/6610cdec02e34801eeac0716"
+						className={styles.Network + ' ' + styles.Circle}
+					>
 						<div className={styles.Container}>
 							<h1>connorbray.net</h1>
 							<p>Network of services connected together.</p>
 						</div>
-					</div>
+					</Link>
 					<div className={styles.API + ' ' + styles.Circle}>
 						<div className={styles.Container}>
 							<h1>API</h1>

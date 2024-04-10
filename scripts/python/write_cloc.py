@@ -3,11 +3,6 @@ import os
 from subprocess import Popen, PIPE
 from dotenv import load_dotenv
 
-# from pymongo.mongo_client import MongoClient
-# from pymongo.server_api import ServerApi
-# from pymongo import timeout as pymongo_timeout
-# from bson.objectid import ObjectId
-
 # Get the directory of the script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -80,28 +75,3 @@ if process.returncode != 0:
 else:
     print("cloc_write_database.js script executed successfully.")
     print(stdout)
-
-
-# Connect to the MongoDB database
-
-# print("Connecting to database...")
-# client = MongoClient(DB_CONNECTION_STRING, server_api=ServerApi("1"))
-# try:
-#     client.admin.command("ping")
-#     print("Connected to database successfully.")
-# except Exception as e:
-#     print(e)
-
-# print("Updating lines of code...")
-# with pymongo_timeout(5):
-#     try:
-#         result = client.get_database("prod").get_collection("projects").update_one(
-#             {
-#                 "_id": ObjectId(MAIN_PROJECT_ID),
-#                 "stats": {"$elemMatch": {"name": "Lines of code"}},
-#             },
-#             {"$set": {"stats.$.value": total_lines_of_code}},
-#         )
-#         print("Lines of code updated successfully.")
-#     except Exception as e:
-#         print(e)

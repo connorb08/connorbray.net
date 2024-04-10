@@ -11,6 +11,8 @@ RUN apt install -y python3-pip
 # Install python packages
 RUN pip install typer
 RUN pip install pre-commit
+RUN pip install python-dotenv
+RUN pip install "pymongo[srv]"
 
 # Install BWS CLI
 WORKDIR /tmp
@@ -23,12 +25,12 @@ RUN rm bws-aarch64-unknown-linux-gnu-0.4.0.zip
 # RUN yes | unminimize
 
 # Install mongodb atlas CLI
-RUN apt install gnupg
-RUN wget -qO - https://pgp.mongodb.com/server-7.0.asc | apt-key add -
-RUN touch /etc/apt/sources.list.d/mongodb-org-7.0.list
-RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
-RUN apt update
-RUN apt install -y mongodb-atlas
+# RUN apt install gnupg
+# RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+# RUN touch /etc/apt/sources.list.d/mongodb-org-6.0.list
+# RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+# RUN apt update
+# RUN apt install -y mongocli
 
 # Install MongoDB Tools
 # https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-arm64-100.9.4.deb

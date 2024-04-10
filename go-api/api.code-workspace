@@ -5,8 +5,7 @@
 		}
 	],
 	"settings": {
-		"[go]": {
-		},
-		"go.formatTool": "gofmt",
+		"[go]": {},
+		"go.formatTool": "gofmt"
 	}
 }

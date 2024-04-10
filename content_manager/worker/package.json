@@ -1,17 +1,17 @@
 {
-  "name": "worker",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "deploy": "wrangler deploy",
-    "start": "wrangler dev"
-  },
-  "devDependencies": {
-    "@cloudflare/workers-types": "^4.20231025.0",
-    "typescript": "^5.0.4",
-    "wrangler": "^3.37.0"
-  },
-  "dependencies": {
-    "@tsndr/cloudflare-worker-router": "^3.1.0"
-  }
+	"name": "worker",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"start": "wrangler dev"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20231025.0",
+		"typescript": "^5.0.4",
+		"wrangler": "^3.37.0"
+	},
+	"dependencies": {
+		"@tsndr/cloudflare-worker-router": "^3.1.0"
+	}
 }

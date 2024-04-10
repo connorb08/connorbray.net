@@ -1,13 +1,13 @@
 .aboutSection {
-    text-align: center;
-    --tw-text-opacity: 1;
-    color: rgb(31 41 55 / var(--tw-text-opacity));
+	text-align: center;
+	--tw-text-opacity: 1;
+	color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 @media (min-width: 1024px) {
-    .lg\:text-left {
-        text-align: left;
-    }
+	.lg\:text-left {
+		text-align: left;
+	}
 }
 
 /* .infoSection {
@@ -15,14 +15,14 @@
 } */
 
 .infoHeader {
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-bottom: 1rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-bottom: 1rem;
 }
 
 .infoText {
-    --tw-text-opacity: 1;
-    color: rgb(107 114 128 / var(--tw-text-opacity));
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+	--tw-text-opacity: 1;
+	color: rgb(107 114 128 / var(--tw-text-opacity));
+	font-size: 1.125rem;
+	line-height: 1.75rem;
 }

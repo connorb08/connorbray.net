@@ -5,7 +5,7 @@ RUN go build -o out ./cmd/main.go
 
 # Run stage
 FROM alpine:3.16
-WORKDIR /app 
+WORKDIR /app
 COPY --from=builder /app/out .
 EXPOSE 8080
 CMD ["/app/out"]

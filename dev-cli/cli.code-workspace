@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "cli"
+		},
+		{
+			"path": "../",
+			"name": "connorbray.net"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"dev-cli": true
+		}
+	}
+}

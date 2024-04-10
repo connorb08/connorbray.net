@@ -6,6 +6,11 @@ RUN yarn set version stable
 
 # Install apt packages
 RUN apt install -y cloc
+RUN apt install -y python3-pip
+
+# Install python packages
+RUN pip install typer
+RUN pip install pre-commit
 
 # Install BWS CLI
 WORKDIR /tmp

@@ -3,10 +3,7 @@
 	"build": {
 		"dockerfile": "./Dockerfile"
 	},
-	"features": {
-		// "ghcr.io/devcontainers/features/go:1": {},
-		// "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-	},
+	"features": {},
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -21,12 +18,16 @@
 				"dbaeumer.vscode-eslint",
 				"redhat.vscode-yaml",
 				"ms-vscode.makefile-tools",
-				"ms-python.python"
+				"ms-python.python",
+				"ms-python.black-formatter"
 			],
 			"settings": {
 				"editor.formatOnSave": true,
 				"editor.formatOnPaste": true,
 				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"[python]": {
+					"editor.defaultFormatter": null
+				},
 				"files.exclude": {
 					"**/.git": true,
 					"**/.svn": true,
@@ -49,6 +50,5 @@
 				}
 			}
 		}
-	},
-	"postCreateCommand": "sudo ./scripts/link_scripts.sh"
+	}
 }

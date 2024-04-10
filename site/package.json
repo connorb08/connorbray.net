@@ -13,7 +13,8 @@
 		"e2e": "playwright test",
 		"coverage": "vitest --coverage",
 		"kv:list": "wrangler kv:key list --binding KV",
-		"kv:get": "wrangler kv:key get --binding KV"
+		"kv:get": "wrangler kv:key get --binding KV",
+		"vscode": "yarn dlx @yarnpkg/sdks vscode"
 	},
 	"dependencies": {
 		"@cloudflare/kv-asset-handler": "^0.1.3",

@@ -3,7 +3,6 @@ import { IconButton, Table } from '@radix-ui/themes';
 import type { LoaderFunctionArgs } from '@remix-run/cloudflare';
 import { json } from '@remix-run/cloudflare';
 import { Link, useLoaderData } from '@remix-run/react';
-import type { Env } from 'remix.env';
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
@@ -42,7 +41,7 @@ export default function Content() {
 							<Table.Cell>
 								{object.customMetadata?.width}
 							</Table.Cell>
-							<Table.Cell width={0}>
+							<Table.Cell width="0">
 								<span className="flex justify-end gap-2">
 									<IconButton color="amber" asChild>
 										<Link

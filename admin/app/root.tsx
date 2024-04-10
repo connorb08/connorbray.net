@@ -37,9 +37,9 @@ export default function App() {
 
 			<body className="h-full">
 				<Theme
-					appearance="dark"
-					accentColor="iris"
-					grayColor="mauve"
+					appearance="light"
+					accentColor="cyan"
+					grayColor="slate"
 					asChild
 				>
 					<div className="h-full">

@@ -34,7 +34,9 @@ export const GetEmploymentHistory = async (env: Env) => {
 			env
 		)
 	);
-	const data: any = await response.json();
+	const data = (await response.json()) as unknown as {
+		documents: Employment[];
+	};
 	const documents = data.documents as Employment[];
 	return documents.sort((a, b) => a.sort - b.sort);
 };
@@ -59,8 +61,10 @@ export const GetEducationHistory = async (env: Env) => {
 			env
 		)
 	);
-	const data: any = await response.json();
-	const documents = data.documents as Employment[];
+	const data = (await response.json()) as unknown as {
+		documents: Education[];
+	};
+	const documents = data.documents;
 	return documents;
 };
 
@@ -87,8 +91,8 @@ export const GetProjectByID = async (env: Env, projectId: string) => {
 			env
 		)
 	);
-	const data: any = await response.json();
-	const document = data.document as Project;
+	const data = (await response.json()) as unknown as { document: Project };
+	const document = data.document;
 	return document;
 };
 
@@ -98,9 +102,6 @@ export const GetProjects = async (env: Env) => {
 			'find',
 			{
 				collection: 'projects',
-				// filter: {
-				// 	_id: { $oid: projectId },
-				// },
 				projection: {
 					_id: 1,
 					name: 1,
@@ -115,7 +116,7 @@ export const GetProjects = async (env: Env) => {
 			env
 		)
 	);
-	const data: any = await response.json();
+	const data = (await response.json()) as unknown as { documents: Project[] };
 	const documents = data.documents as Project[];
 	return documents;
 };

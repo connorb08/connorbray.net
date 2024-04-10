@@ -7,22 +7,39 @@ interface Employment {
 	sort: number;
 }
 
-type Project = {
-	id: string;
+interface Education {
+	_id: string;
+	school: string;
+	degree: string;
+	description: string;
+	start_date: string;
+	end_date: string;
+	location: string;
+	icon_url: string;
+}
+
+interface Project {
+	_id?: string;
 	name: string;
 	description: string;
 	about: string;
 	languages: {
 		name: string;
-		logoSrc: string;
 	}[];
 	stats: {
 		name: string;
 		value: string;
-		unit: string | null | undefined;
+		unit?: string;
 	}[];
 	technologies: {
 		name: string;
 		logoSrc: string;
 	}[];
+	links: Link[];
+	hiddden?: boolean;
+}
+
+type Link = {
+	name: string;
+	href: string;
 };

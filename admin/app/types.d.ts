@@ -16,6 +16,7 @@ interface Project {
 		logoSrc: string;
 	}[];
 	links: Link[];
+	hidden?: boolean;
 }
 
 type Link = {

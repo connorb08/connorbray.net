@@ -17,17 +17,17 @@ router.get('/api/cfinfo', async (request) => {
 router.get('/api/ghinfo', GitHubData);
 
 router.get('/api/employment', async (request, env: Env) => {
-	const data: Employment[] = await GetEmploymentHistory(env);
+	const data = await GetEmploymentHistory(env);
 	return new Response(JSON.stringify(data));
 });
 
 router.get('/api/education', async (request, env: Env) => {
-	const data: Employment[] = await GetEducationHistory(env);
+	const data = await GetEducationHistory(env);
 	return new Response(JSON.stringify(data));
 });
 
 router.get('/api/projects', async (request, env: Env) => {
-	const data: Project = await GetProjects(env);
+	const data = await GetProjects(env);
 	return new Response(JSON.stringify(data));
 });
 

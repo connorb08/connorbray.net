@@ -39,7 +39,9 @@ export default {
 					},
 				}
 			);
-		} catch (error) {}
+		} catch (error) {
+			console.error(error);
+		}
 
 		try {
 			const loadContext: AppLoadContext = {

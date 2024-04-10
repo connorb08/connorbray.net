@@ -1,11 +1,11 @@
 import { json } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 import { useState } from 'react';
-import { Button, Dialog } from '@radix-ui/themes';
-import {
-	UpdateProjectButton,
-	UpdateProjectForm,
-} from '~/components/UpdateProject';
+import { Box, Card, Flex, Table } from '@radix-ui/themes';
+import { UpdateProjectButton } from '~/components/Projects/UpdateProject';
+import styles from './styles.module.css';
+import NewProjectButton from '~/components/Projects/NewProject/NewProjectButton';
+import { DeleteProjectButton } from '~/components/Projects/DeleteProject';
 
 export async function loader() {
 	try {
@@ -29,12 +29,65 @@ export default function Projects() {
 	}
 
 	return (
-		<>
-			Projects: {JSON.stringify(projects)}
-			<div className="flex justify-center">
-				<UpdateProjectButton project={projects[0]} />
-				<Button>Test</Button>
-			</div>
-		</>
+		<Flex
+			gap="8"
+			direction="column"
+			align="center"
+			justify="center"
+			className="flex-1"
+		>
+			<Box width="1024px">
+				<Card size="1">
+					<Table.Root>
+						<Table.Header>
+							<Table.Row>
+								<Table.ColumnHeaderCell>
+									Name
+								</Table.ColumnHeaderCell>
+								<Table.ColumnHeaderCell>
+									Description
+								</Table.ColumnHeaderCell>
+								<Table.ColumnHeaderCell>
+									ID
+								</Table.ColumnHeaderCell>
+								<Table.ColumnHeaderCell></Table.ColumnHeaderCell>
+							</Table.Row>
+						</Table.Header>
+						<Table.Body>
+							{projects.map((project, index) => (
+								<Table.Row key={project._id}>
+									<Table.RowHeaderCell
+										className={styles.TableCell}
+									>
+										{project.name}
+									</Table.RowHeaderCell>
+									<Table.Cell className={styles.TableCell}>
+										{project.description}
+									</Table.Cell>
+									<Table.Cell className={styles.TableCell}>
+										{project._id}
+									</Table.Cell>
+									<Table.Cell className={styles.TableCell}>
+										<span className="flex gap-2">
+											<UpdateProjectButton
+												project={projects[index]}
+											/>
+											<DeleteProjectButton
+												project={projects[index]}
+											/>
+										</span>
+									</Table.Cell>
+								</Table.Row>
+							))}
+						</Table.Body>
+					</Table.Root>
+				</Card>
+			</Box>
+			{/* <div className="flex-1 flex items-center justify-center"> */}
+			{/* <div className="flex-1 max-w-4xl"> */}
+			<NewProjectButton />
+			{/* </div> */}
+			{/* </div> */}
+		</Flex>
 	);
 }

@@ -33,6 +33,16 @@ with open("lines_of_code.csv", "r") as file:
 os.chdir("../site")
 
 # Push the total lines of code to KV storage
+process = Popen(["yarn", "install"], stdout=PIPE, stderr=PIPE)
+stdout, stderr = process.communicate()
+# Check for any errors
+if process.returncode != 0:
+    print("Error:", stderr.decode())
+    exit(1)
+else:
+    print("Site dependencies installed.")
+
+# Push the total lines of code to KV storage
 process = Popen(["yarn", "wrangler", "kv:key", "put", "LINES_OF_CODE", total_lines_of_code, "--binding", "KV" ], stdout=PIPE, stderr=PIPE)
 stdout, stderr = process.communicate()
 # Check for any errors

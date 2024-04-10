@@ -29,26 +29,65 @@ export async function PatchProject(
 	}
 }
 
-export const UpdateProjectStat = async (
-	env: Env,
-	projectId: string,
-	{ name, value, unit }: { name: string; value: string; unit: string }
-) => {
+// export const UpdateProjectStat = async (
+// 	env: Env,
+// 	projectId: string,
+// 	{ name, value, unit }: { name: string; value: string; unit: string }
+// ) => {
+// 	try {
+// 		const response = await fetch(
+// 			BaseRequest(
+// 				'updateOne',
+// 				{
+// 					collection: 'projects',
+// 					filter: {
+// 						_id: { $oid: projectId },
+// 						stats: { $elemMatch: { name } },
+// 					},
+// 					update: {
+// 						$set: {
+// 							'stats.$.value': value,
+// 							'stats.$.unit': unit,
+// 						},
+// 					},
+// 				},
+// 				env
+// 			)
+// 		);
+// 		const res = await response.json();
+// 		return res;
+// 	} catch (error) {
+// 		console.error(error);
+// 		return { error: 'Error updating stat' };
+// 	}
+// };
+
+export const InsertNewProject = async (env: Env, project: Project) => {
+	const response = await fetch(
+		BaseRequest(
+			'insertOne',
+			{
+				collection: 'projects',
+				document: {
+					...project,
+				},
+			},
+			env
+		)
+	);
+	const data = await response.json();
+	return data;
+};
+
+export const DeleteProject = async (env: Env, projectId: string) => {
 	try {
 		const response = await fetch(
 			BaseRequest(
-				'updateOne',
+				'deleteOne',
 				{
 					collection: 'projects',
 					filter: {
 						_id: { $oid: projectId },
-						stats: { $elemMatch: { name } },
-					},
-					update: {
-						$set: {
-							'stats.$.value': value,
-							'stats.$.unit': unit,
-						},
 					},
 				},
 				env
@@ -58,6 +97,6 @@ export const UpdateProjectStat = async (
 		return res;
 	} catch (error) {
 		console.error(error);
-		return { error: 'Error updating stat' };
+		return { error: 'Error deleting project' };
 	}
 };

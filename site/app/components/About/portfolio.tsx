@@ -1,28 +1,37 @@
-import type { ProjectProps } from './types';
+import type { PropsWithChildren } from 'react';
+import { Suspense } from 'react';
+import { Await, Link } from '@remix-run/react';
 
-const Portfolio = ({ projects }: { projects: ProjectProps[] }) => {
+const Portfolio = ({ projects }: { projects: Promise<Project[]> }) => {
 	const bottomBorder = <div className="border-b border-gray-8 mb-5" />;
-	const len = projects.length;
 
 	return (
 		<>
 			<div className="p-7 block-section">
 				<h2 className="block-title">Projects</h2>
 
-				{projects.map((project, index) => {
-					return (
-						<div key={index}>
-							<Project {...project} />
-							{index !== len - 1 ? bottomBorder : ''}
-						</div>
-					);
-				})}
+				<Suspense fallback={<div>loading...</div>}>
+					<Await resolve={projects}>
+						{(projectList) =>
+							projectList.map((project, index, arr) => {
+								return (
+									<div key={index}>
+										<Project {...project} />
+										{index !== arr.length - 1
+											? bottomBorder
+											: ''}
+									</div>
+								);
+							})
+						}
+					</Await>
+				</Suspense>
 			</div>
 		</>
 	);
 };
 
-const Project = (props: ProjectProps) => {
+const Project = (props: PropsWithChildren<Project>) => {
 	return (
 		<div className="mb-5 item-section">
 			<div className="company-logo bg-blue-500">
@@ -49,7 +58,7 @@ const Project = (props: ProjectProps) => {
 										d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
 									/>
 								</svg>
-								<span>{props.type}</span>
+								<span>Web Application</span>
 							</div>
 						</div>
 					</div>
@@ -58,8 +67,8 @@ const Project = (props: ProjectProps) => {
 					<p className="text-gray-600">{props.description}</p>
 				</div>
 				<span>
-					<a
-						href={props.url}
+					<Link
+						to={`/project/${props._id}`}
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -78,9 +87,9 @@ const Project = (props: ProjectProps) => {
 									d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
 								/>
 							</svg>
-							<span>{props.urlText}</span>
+							<span>More Info</span>
 						</button>
-					</a>
+					</Link>
 				</span>
 			</div>
 		</div>

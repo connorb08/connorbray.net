@@ -4,9 +4,8 @@ import type {
 	EducationProps,
 	JobProps,
 	LeadershipRoleProps,
-	ProjectProps,
 } from '~/components/About/types';
-import { json } from '@remix-run/cloudflare';
+import { defer } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 
 const leadership: LeadershipRoleProps[] = [
@@ -20,45 +19,54 @@ const leadership: LeadershipRoleProps[] = [
 	},
 ];
 
-const projects: ProjectProps[] = [
-	{
-		name: 'connorbray.net',
-		type: 'Web Application',
-		url: 'https://connorbray.net',
-		urlText: 'connorbray.net',
-		description: '',
-		img: '',
-	},
-];
+// const projects: ProjectProps[] = [
+// 	{
+// 		name: 'connorbray.net',
+// 		type: 'Web Application',
+// 		url: 'https://connorbray.net',
+// 		urlText: 'connorbray.net',
+// 		description: '',
+// 		img: '',
+// 	},
+// ];
 
 const aboutProps: AboutProps = {
 	jobs: [],
 	education: [],
 	employmentStatus: 1,
 	leadership,
-	projects,
+	projects: Promise.resolve([]),
 };
 
 export const loader = async () => {
+	const project_data = fetch('https://api.connorbray.net/api/projects').then(
+		(res) => res.json()
+	);
 	const employment_data = fetch(
 		'https://api.connorbray.net/api/employment'
 	).then((res) => res.json());
 	const education_data = fetch(
 		'https://api.connorbray.net/api/education'
 	).then((res) => res.json());
+
 	const result = await Promise.all([employment_data, education_data]);
-	return json(
-		{ employment_data: result[0], education_data: result[1] },
+	return defer(
+		{
+			employment_data: result[0],
+			education_data: result[1],
+			projects: project_data,
+		},
 		{ headers: { 'Cache-Control': 'public, max-age=3600' } }
 	);
 };
 
 export default function AboutPage() {
-	const { employment_data, education_data } = useLoaderData<
+	const { employment_data, education_data, projects } = useLoaderData<
 		typeof loader
 	>() as unknown as {
 		employment_data: JobProps[];
 		education_data: EducationProps[];
+		projects: Promise<Project[]>;
 	};
 
 	return (
@@ -67,6 +75,7 @@ export default function AboutPage() {
 				{...aboutProps}
 				jobs={employment_data}
 				education={education_data}
+				projects={projects}
 			/>
 		</div>
 	);

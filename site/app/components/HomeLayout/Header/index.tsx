@@ -12,7 +12,7 @@ export default function Header() {
 			</div>
 
 			<div className={style.Center}>
-				<Link to="/home">connorbray.net</Link>
+				<Link to="/">connorbray.net</Link>
 			</div>
 			<div className={style.End}></div>
 		</div>

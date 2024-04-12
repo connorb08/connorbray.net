@@ -57,6 +57,18 @@ describe('About Page Loader Data', async () => {
 							start_date: 'August 2019',
 						},
 					],
+					projects: [
+						{
+							_id: 'id',
+							name: 'test_name',
+							links: [],
+							description: 'description',
+							about: 'about',
+							technologies: [],
+							languages: [],
+							stats: [],
+						},
+					] as Project[],
 				});
 			},
 		},
@@ -74,7 +86,7 @@ describe('About Page Loader Data', async () => {
 			name: /Portfolio/,
 		});
 		portfolioTab.click();
-		await screen.findByText(/Web Application/);
+		await screen.findByText(/test_name/);
 	});
 
 	it('displays leadership data', async () => {

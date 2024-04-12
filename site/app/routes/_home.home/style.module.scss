@@ -14,14 +14,31 @@
 			@apply gap-3;
 
 			.Left {
-				@apply border-b border-gray-200 px-4 py-6 sm:px-6 lg:pl-8 xl:w-64 xl:shrink-0 xl:border-b-0 xl:border-r xl:pl-6;
-				@apply bg-primary-4;
+				@media (min-width: 1280px) {
+					writing-mode: vertical-rl;
+					text-orientation: upright;
+					letter-spacing: -0.1em;
+				}
+
+				@apply text-xl;
+				@apply font-bold;
+				@apply bg-primary-4 hover:bg-primary-5;
+				@apply hover:cursor-pointer;
 				@apply flex-1 xl:flex-none;
+				@apply px-4 py-6 sm:px-6 lg:pl-8 xl:w-64 xl:shrink-0 xl:pl-6;
+
+				p {
+					@apply flex flex-col;
+					@apply justify-center;
+					width: 100%;
+					height: 100%;
+				}
 			}
 
 			.Main {
+				@apply flex flex-col justify-around;
 				@apply px-4 py-6 sm:px-6 lg:pl-8 flex-1 xl:pl-6;
-				@apply bg-primary-6;
+				@apply bg-gray-6;
 			}
 		}
 
@@ -29,6 +46,37 @@
 			@apply flex-1 lg:flex-none;
 			@apply shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-96 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6;
 			@apply bg-primary-4;
+			// @apply hover:cursor-pointer;
+
+			h1 {
+				@apply text-xl;
+				@apply font-bold;
+			}
+		}
+	}
+}
+
+.LinkList {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	li {
+		@apply text-lg;
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 0%;
+
+		a {
+			flex: 1 1 0%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			&:hover {
+				background-color: var(--primary-5);
+			}
 		}
 	}
 }

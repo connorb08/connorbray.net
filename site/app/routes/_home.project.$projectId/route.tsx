@@ -34,7 +34,7 @@ export default function Project() {
 		<div className="h-full flex flex-col items-center justify-center">
 			<div className="bg-gray-3 shadow-2xl text-gray-12 overflow-hidden sm:rounded-lg max-w-7xl">
 				<ProjectOverview
-					id={project.id}
+					_id={project._id}
 					name={project.name}
 					description={project.description}
 					stats={project.stats}

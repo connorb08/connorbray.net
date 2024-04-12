@@ -38,7 +38,7 @@ export interface LeadershipRoleProps {
 export interface AboutProps {
 	employmentStatus: number;
 	jobs: JobProps[];
-	projects: ProjectProps[];
+	projects: Promise<Project[]>;
 	leadership: LeadershipRoleProps[];
 	education: EducationProps[];
 }

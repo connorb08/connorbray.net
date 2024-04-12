@@ -12,7 +12,7 @@ RUN apt install -y python3-pip
 RUN pip install typer
 RUN pip install pre-commit
 RUN pip install python-dotenv
-RUN pip install "pymongo[srv]"
+# RUN pip install "pymongo[srv]"
 
 # Install BWS CLI
 WORKDIR /tmp
@@ -22,7 +22,7 @@ RUN mv bws /usr/local/bin
 RUN rm bws-aarch64-unknown-linux-gnu-0.4.0.zip
 
 # Don't minimize container
-# RUN yes | unminimize
+RUN yes | unminimize
 
 # Install mongodb atlas CLI
 # RUN apt install gnupg

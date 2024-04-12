@@ -10,30 +10,37 @@ test('Renders loader data', async () => {
 			Component: Project,
 			loader: async () => {
 				return {
-					id: '6610cdec02e34801eeac0716',
-					name: 'connorbray.net',
-					description:
-						'Suite of microservices including personal website of Connor Bray.',
-					about: 'xxx',
-					languages: [{ name: 'TypeScript' }],
-					stats: [
-						{ name: 'lines of code', value: '4742', unit: 'lines' },
-					],
-					technologies: [
-						{
-							name: 'cloudflare',
-							logoSrc:
-								'https://upload.wikimedia.org/wikipedia/commons/4/4b/Cloudflare_Logo.svg',
-						},
-					],
-				} as Project;
+					project: {
+						_id: '6610cdec02e34801eeac0716',
+						name: 'connorbray.net',
+						description:
+							'Suite of microservices including personal website of Connor Bray.',
+						about: 'xxx',
+						languages: [{ name: 'TypeScript' }],
+						stats: [
+							{
+								name: 'lines of code',
+								value: '4742',
+								unit: 'lines',
+							},
+						],
+						technologies: [
+							{
+								name: 'cloudflare',
+								logoSrc:
+									'https://upload.wikimedia.org/wikipedia/commons/4/4b/Cloudflare_Logo.svg',
+							},
+						],
+						links: [],
+					},
+				};
 			},
 		},
 	]);
 
 	render(<RemixStub />);
 
-	await screen.findByAltText('Cloudflare');
+	await screen.findByText('TypeScript');
 });
 
 describe('Project loader', () => {

@@ -1,5 +1,5 @@
 type Project = {
-	id: string | null | undefined;
+	_id?: string;
 	name: string;
 	description: string;
 	about: string;

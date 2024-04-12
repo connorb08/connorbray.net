@@ -26,11 +26,7 @@ const nav = [
 	{
 		name: 'Projects',
 		icon: FolderIcon,
-		children: [
-			// { name: "Wonder App", href: "#" },
-			// { name: "Photo Manager", href: "#" },
-			// { name: "connorbray.net", href: "#" },
-		],
+		href: '/projects',
 	},
 	{ name: 'Resume', href: '#', icon: FileTextIcon },
 	{ name: 'Photography', href: '/gallery', icon: CameraIcon },
@@ -43,7 +39,6 @@ export default function Navigation(props: {
 	const [dropdownOpen, setDropdownOpen] = useState(
 		Array(nav.length).fill(false)
 	);
-	// const [sidebarOpen, setSidebarOpen] = useState(props.sidebarOpen);
 	const location = useLocation();
 
 	return (

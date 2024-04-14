@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
-        run: python -m pip install --upgrade pip python-dotenv
+        run: python -m pip install --upgrade pip python-dotenv requests
       - name: Fetch backend configuration
         id: backend
         run: echo "$DOT_ENV" > .env

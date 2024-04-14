@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import os
+from requests import post
+import json
 from subprocess import Popen, PIPE
 from dotenv import load_dotenv
 
@@ -57,21 +59,51 @@ with open("lines_of_code.csv", "r") as file:
 os.chdir("../scripts/js")
 
 # Run the update_lines_of_code.js script
-process = Popen(
-    ["node", "cloc_write_database.js", total_lines_of_code],
-    stdout=PIPE,
-    stderr=PIPE,
-    env={
-        "DATABASE_ENDPOINT": DATABASE_ENDPOINT,
-        "MONGO_API_KEY": MONGO_API_KEY,
-        "PROJECT_ID": MAIN_PROJECT_ID,
+
+# Update database
+headers = {
+    "apiKey": MONGO_API_KEY,
+    "Content-Type": "application/json",
+    "Access-Control-Request-Headers": "*",
+}
+
+body = {
+    "dataSource": "Cluster0",
+    "database": "prod",
+    "collection": "projects",
+    "filter": {
+        "_id": {"$oid": MAIN_PROJECT_ID},
+        "stats": {"$elemMatch": {"name": "Lines of code"}},
     },
+    "update": {
+        "$set": {
+            "stats.$.value": total_lines_of_code,
+        },
+    },
+}
+
+res = post(
+    f"{DATABASE_ENDPOINT}/action/updateOne", data=json.dumps(body), headers=headers
 )
-stdout, stderr = process.communicate()
-# Check for any errors
-if process.returncode != 0:
-    print("Error:", stderr.decode())
-    exit(1)
-else:
-    print("cloc_write_database.js script executed successfully.")
-    print(stdout)
+print(res)
+print(res.json())
+# exit(1)
+
+# process = Popen(
+#     ["node", "cloc_write_database.js", total_lines_of_code],
+#     stdout=PIPE,
+#     stderr=PIPE,
+#     env={
+#         "DATABASE_ENDPOINT": DATABASE_ENDPOINT,
+#         "MONGO_API_KEY": MONGO_API_KEY,
+#         "PROJECT_ID": MAIN_PROJECT_ID,
+#     },
+# )
+# stdout, stderr = process.communicate()
+# # Check for any errors
+# if process.returncode != 0:
+#     print("Error:", stderr.decode())
+#     exit(1)
+# else:
+#     print("cloc_write_database.js script executed successfully.")
+#     print(stdout)

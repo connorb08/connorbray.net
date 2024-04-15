@@ -29,39 +29,6 @@ export async function PatchProject(
 	}
 }
 
-// export const UpdateProjectStat = async (
-// 	env: Env,
-// 	projectId: string,
-// 	{ name, value, unit }: { name: string; value: string; unit: string }
-// ) => {
-// 	try {
-// 		const response = await fetch(
-// 			BaseRequest(
-// 				'updateOne',
-// 				{
-// 					collection: 'projects',
-// 					filter: {
-// 						_id: { $oid: projectId },
-// 						stats: { $elemMatch: { name } },
-// 					},
-// 					update: {
-// 						$set: {
-// 							'stats.$.value': value,
-// 							'stats.$.unit': unit,
-// 						},
-// 					},
-// 				},
-// 				env
-// 			)
-// 		);
-// 		const res = await response.json();
-// 		return res;
-// 	} catch (error) {
-// 		console.error(error);
-// 		return { error: 'Error updating stat' };
-// 	}
-// };
-
 export const InsertNewProject = async (env: Env, project: Project) => {
 	const response = await fetch(
 		BaseRequest(

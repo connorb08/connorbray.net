@@ -3,6 +3,7 @@ import { IconButton, Table } from '@radix-ui/themes';
 import type { LoaderFunctionArgs } from '@remix-run/cloudflare';
 import { json } from '@remix-run/cloudflare';
 import { Link, useLoaderData } from '@remix-run/react';
+import { DeleteContentButton } from '~/components/Content/DeleteContent';
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
@@ -55,9 +56,9 @@ export default function Content() {
 									<IconButton color="blue">
 										<Pencil1Icon />
 									</IconButton>
-									<IconButton color="ruby">
-										<TrashIcon />
-									</IconButton>
+									<DeleteContentButton
+										project={{} as Project}
+									/>
 								</span>
 							</Table.Cell>
 						</Table.Row>

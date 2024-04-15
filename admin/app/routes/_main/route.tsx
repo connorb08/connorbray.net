@@ -4,7 +4,7 @@ import Navbar from './navbar';
 import { useState } from 'react';
 
 export default function () {
-	const [navOpen, setNavOpen] = useState(true);
+	const [navOpen, setNavOpen] = useState(false);
 	const toggleNav = () => setNavOpen(!navOpen);
 
 	return (

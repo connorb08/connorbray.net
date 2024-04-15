@@ -87,23 +87,3 @@ res = post(
 )
 print(res)
 print(res.json())
-# exit(1)
-
-# process = Popen(
-#     ["node", "cloc_write_database.js", total_lines_of_code],
-#     stdout=PIPE,
-#     stderr=PIPE,
-#     env={
-#         "DATABASE_ENDPOINT": DATABASE_ENDPOINT,
-#         "MONGO_API_KEY": MONGO_API_KEY,
-#         "PROJECT_ID": MAIN_PROJECT_ID,
-#     },
-# )
-# stdout, stderr = process.communicate()
-# # Check for any errors
-# if process.returncode != 0:
-#     print("Error:", stderr.decode())
-#     exit(1)
-# else:
-#     print("cloc_write_database.js script executed successfully.")
-#     print(stdout)

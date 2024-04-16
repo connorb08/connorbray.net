@@ -7,6 +7,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -17,16 +18,18 @@ var (
 )
 
 func init() {
-	// err := godotenv.Load()
-	// if err != nil {
-	// 	// log.Fatal("Error loading .env file")
-	// 	log.Println("Error loading .env file")
-	// }
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
 	dns = os.Getenv("DB_CONNECTION_STRING")
+	if dns == "" {
+		log.Fatal("DB_CONNECTION_STRING is not set")
+	}
 }
 
-func Connect() (*mongo.Client, error) {
+func Connect() (*mongo.Database, error) {
 	clientOptions := options.Client().ApplyURI(dns)
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
@@ -46,5 +49,5 @@ func Connect() (*mongo.Client, error) {
 
 	fmt.Println("Connected to MongoDB!")
 	db = client.Database("prod")
-	return client, nil
+	return db, nil
 }

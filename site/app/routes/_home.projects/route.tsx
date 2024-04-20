@@ -1,8 +1,4 @@
-import {
-	EnvelopeIcon,
-	InformationCircleIcon,
-	PhoneIcon,
-} from '@heroicons/react/24/outline';
+import { InformationCircleIcon } from '@heroicons/react/24/outline';
 import { json } from '@remix-run/cloudflare';
 import { Link, useLoaderData } from '@remix-run/react';
 import { FaGithub } from 'react-icons/fa';

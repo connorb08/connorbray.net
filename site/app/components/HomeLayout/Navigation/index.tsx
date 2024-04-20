@@ -28,7 +28,7 @@ const nav = [
 		icon: FolderIcon,
 		href: '/projects',
 	},
-	{ name: 'Resume', href: '#', icon: FileTextIcon },
+	{ name: 'Resume', href: '/resume', icon: FileTextIcon },
 	{ name: 'Photography', href: '/gallery', icon: CameraIcon },
 ];
 

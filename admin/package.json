@@ -12,7 +12,8 @@
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
 		"pretty": "yarn prettier .",
-		"tail": "wrangler tail"
+		"tail": "wrangler tail",
+		"vscode": "yarn dlx @yarnpkg/sdks vscode"
 	},
 	"dependencies": {
 		"@cloudflare/kv-asset-handler": "^0.3.1",

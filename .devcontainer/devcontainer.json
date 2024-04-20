@@ -4,8 +4,6 @@
 		"dockerfile": "./Dockerfile"
 	},
 	"features": {
-		"ghcr.io/dhoeric/features/google-cloud-cli:1": {},
-		"ghcr.io/joshuanianji/devcontainer-features/gcloud-cli-persistence:1": {},
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
 		"ghcr.io/devcontainers/features/go:1": {}
 	},

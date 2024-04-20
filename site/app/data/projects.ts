@@ -20,7 +20,7 @@ const _crun: Partial<Project> = {
 };
 
 const _connorbraynet: Partial<Project> = {
-	id: '6610cdec02e34801eeac0716',
+	_id: '6610cdec02e34801eeac0716',
 	name: 'connorbray.net',
 	description:
 		'Suite of microservices including personal website of Connor Bray.',

@@ -7,7 +7,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
 # Install site dependencies
-os.chdir("../site")
+os.chdir("../../site")
 process = Popen(["yarn", "install"], stdout=PIPE, stderr=PIPE)
 stdout, stderr = process.communicate()
 

@@ -2,6 +2,9 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu
 RUN apt-get update
 
+# Don't minimize container
+RUN yes | unminimize
+
 # Install node and yarn
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && apt-get install -y nodejs
 RUN corepack enable
@@ -37,6 +40,3 @@ WORKDIR /tmp
 RUN wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-arm64-100.9.4.deb
 RUN apt install -y ./mongodb-database-tools-ubuntu2204-arm64-100.9.4.deb
 RUN rm mongodb-database-tools-ubuntu2204-arm64-100.9.4.deb
-
-# Don't minimize container
-RUN yes | unminimize

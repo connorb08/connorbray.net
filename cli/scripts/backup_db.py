@@ -82,4 +82,4 @@ if process.returncode != 0:
     print("Error:", stderr.decode())
     exit(1)
 else:
-    print("Backup file removed.")
+    print("Local backup file removed.")

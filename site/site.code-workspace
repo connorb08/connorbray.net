@@ -11,6 +11,7 @@
 	],
 	"settings": {
 		"typescript.tsdk": "site/.yarn/sdks/typescript/lib",
+		"typescript.preferences.autoImportFileExcludePatterns": ["node/test.d.ts"],
 		"eslint.nodePath": ".yarn/sdks",
 		"eslint.codeActionsOnSave.mode": "all",
 		"editor.codeActionsOnSave": {

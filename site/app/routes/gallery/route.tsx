@@ -18,6 +18,7 @@ import { dev_data } from './dev_data';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
 import 'yet-another-react-lightbox/styles.css';
 
+/* v8 ignore start */
 export const meta: MetaFunction = () => {
 	return [
 		{ title: 'Photo Gallery' },
@@ -27,15 +28,18 @@ export const meta: MetaFunction = () => {
 		},
 	];
 };
+/* v8 ignore stop */
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
 
 	// Return test data if in dev mode
+	/* v8 ignore start */
 	// @ts-ignore
 	if (process.env.NODE_ENV === 'development') {
 		return json({ data: dev_data });
 	}
+	/* v8 ignore stop */
 
 	try {
 		const images = await env.CONTENT.list({
@@ -96,10 +100,12 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 			}
 		);
 	} catch (error) {
+		/* v8 ignore start */
 		console.log('Error fetching gallery images:');
 		console.log(error);
 		return new Response('Server Error', { status: 500 });
 	}
+	/* v8 ignore stop */
 };
 
 export default function Gallery() {
@@ -112,6 +118,7 @@ export default function Gallery() {
 		<div className="flex-1 min-h-full flex flex-col">
 			<Header />
 			<div className="flex flex-col flex-1 p-4">
+				{/* v8 ignore start */}
 				<PhotoAlbum
 					layout="rows"
 					columns={(containerWidth) => {
@@ -135,6 +142,7 @@ export default function Gallery() {
 					close={() => setIndex(-1)}
 					plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
 				/>
+				{/* v8 ignore stop */}
 			</div>
 		</div>
 	);

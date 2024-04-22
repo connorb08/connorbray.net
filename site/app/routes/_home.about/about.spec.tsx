@@ -1,27 +1,8 @@
-import { it, describe } from 'vitest';
+import { it, describe, expect } from 'vitest';
 import { createRemixStub } from '@remix-run/testing';
 import { render, screen } from '@testing-library/react';
-import About from './route';
+import About, { loader } from './route';
 import { json } from '@remix-run/cloudflare';
-
-// test('displays my name', async () => {
-// 	const RemixStub = createRemixStub([
-// 		{
-// 			path: '/',
-// 			Component: About,
-// 			loader() {
-// 				return json({
-// 					employment_data: [],
-// 					education_data: [],
-// 				});
-// 			},
-// 		},
-// 	]);
-
-// 	render(<RemixStub />);
-
-// 	await waitFor(() => screen.findByText(/Connor Bray/));
-// });
 
 describe('About Page Loader Data', async () => {
 	const RemixStub = createRemixStub([
@@ -95,5 +76,16 @@ describe('About Page Loader Data', async () => {
 		});
 		leadershipTab.click();
 		await screen.findAllByText(/Board Member/);
+	});
+
+	it('Gets loader data', async () => {
+		const res = await loader();
+		const data = res.data;
+		const employment_data = data.employment_data;
+		const education_data = data.education_data;
+		const projects = await data.projects;
+		expect(employment_data[0].company).toBe('Tyler Technologies');
+		expect(education_data[0].school).toBe('University of Maine');
+		expect(projects[0].name).toBe('connorbray.net');
 	});
 });

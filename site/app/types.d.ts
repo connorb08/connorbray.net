@@ -23,3 +23,6 @@ type Link = {
 	name: string;
 	href: string;
 };
+
+type Employment = {};
+type Education = {};

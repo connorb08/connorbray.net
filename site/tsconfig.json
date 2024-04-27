@@ -1,6 +1,6 @@
 {
 	"include": ["remix.env.d.ts", "app/types.d.ts", "**/*.ts", "**/*.tsx"],
-	"exclude": ["node_modules", "server.ts"],
+	"exclude": ["node_modules", "server.ts", "**/*.spec.tsx"],
 	"compilerOptions": {
 		"lib": ["DOM", "DOM.Iterable", "ES2019"],
 		"isolatedModules": true,

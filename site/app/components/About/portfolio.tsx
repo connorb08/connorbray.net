@@ -34,15 +34,15 @@ const Portfolio = ({ projects }: { projects: Promise<Project[]> }) => {
 const Project = (props: PropsWithChildren<Project>) => {
 	return (
 		<div className="mb-5 item-section">
-			<div className="company-logo bg-blue-500">
+			{/* <div className="company-logo bg-blue-500">
 				<span className="text-2xl">S</span>
-			</div>
+			</div> */}
 
-			<div className="w-full space-y-5">
+			<div className="w-full space-y-2">
 				<div className="item-header">
 					<div className="space-y-1.5">
 						<div className="font-medium">{props.name}</div>
-						<div className="flex space-x-5">
+						{/* <div className="flex space-x-5">
 							<div className="item-header-info">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -60,18 +60,14 @@ const Project = (props: PropsWithChildren<Project>) => {
 								</svg>
 								<span>Web Application</span>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 				<div style={{ marginBottom: '0.875rem' }}>
 					<p className="text-gray-600">{props.description}</p>
 				</div>
 				<span>
-					<Link
-						to={`/project/${props._id}`}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
+					<Link to={`/project/${props._id}`}>
 						<button className="flex items-center space-x-3 px-3.5 py-1.5 rounded-lg group border border-third bg-white text-third text-sm font-medium transition duration-200 hover:border-third-10 hover:text-white hover:bg-third">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

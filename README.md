@@ -1,7 +1,15 @@
 # connorbray.net Source Code
 
-Site
+site: Main website using React and Remix
 
-Content Manager
+content_manager: Serverless API to serve content using a content delivery network
 
-Admin Dashboard
+admin: Admin dashboard to manage resources
+
+cli: Development tool to manage resources and dev workflow
+
+inf: Terraform configuration of cloud infrastructure
+
+scripts: scripts to manage project
+
+api: Serverless api to serve data

@@ -10,7 +10,13 @@
 		"**/.client/**/*.ts",
 		"**/.client/**/*.tsx"
 	],
-	"exclude": ["node_modules", "server.ts", "**/*.spec.tsx"],
+	"exclude": [
+		"node_modules",
+		"server.ts",
+		"**/*.spec.tsx",
+		"vite.config.ts",
+		"vitest.config.ts"
+	],
 	"compilerOptions": {
 		"lib": ["DOM", "DOM.Iterable", "ES2022"],
 		"isolatedModules": true,
@@ -27,9 +33,8 @@
 			"~/*": ["./app/*"]
 		},
 		"types": [
-			// "@cloudflare/workers-types/experimental",
+			"@cloudflare/workers-types/experimental",
 			"@remix-run/cloudflare",
-			"@cloudflare/workers-types",
 			"vite/client"
 		],
 		"skipLibCheck": true,

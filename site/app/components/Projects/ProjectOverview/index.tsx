@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import style from './style.module.css';
+import style from './style.module.scss';
 import { Link } from '@remix-run/react';
 
 export default function ProjectOverview(props: PropsWithChildren<Project>) {

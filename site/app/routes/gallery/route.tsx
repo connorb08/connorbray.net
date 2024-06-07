@@ -31,7 +31,7 @@ export const meta: MetaFunction = () => {
 /* v8 ignore stop */
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
-	const env = context.env as Env;
+	const env = context.cloudflare.env as Env;
 
 	// Return test data if in dev mode
 	/* v8 ignore start */

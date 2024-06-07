@@ -20,8 +20,8 @@
 		"files.exclude": {
 			"site": true,
 			".vscode": true,
-			"**/*.module.css": true,
-			"**/*.module.css.map": true,
+			// "**/*.module.css": true,
+			// "**/*.module.css.map": true,
 			// test outputs
 			"coverage/": true,
 			"playwright-report": true,

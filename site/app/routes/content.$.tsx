@@ -7,9 +7,10 @@ export const loader: LoaderFunction = async ({
 }: LoaderFunctionArgs) => {
 	try {
 		// Get context
-		const env = context.env as Env;
-		const ctx = context.ctx as ExecutionContext;
-		const cache = context.cf_cache as Cache;
+		// console.log(context);
+		const env = context.cloudflare.env as Env;
+		const ctx = context.cloudflare.ctx as ExecutionContext;
+		const cache = context.cloudflare.caches.default as Cache;
 
 		// Check cache
 		const url = new URL(request.url);

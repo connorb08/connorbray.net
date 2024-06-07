@@ -1,8 +1,6 @@
-import type { LinksFunction, MetaFunction } from '@remix-run/cloudflare';
-import { cssBundleHref } from '@remix-run/css-bundle';
+import type { MetaFunction } from '@remix-run/cloudflare';
 import {
 	Links,
-	LiveReload,
 	Meta,
 	Outlet,
 	PrefetchPageLinks,
@@ -15,10 +13,6 @@ import '@radix-ui/colors/grass.css';
 import '@radix-ui/colors/sage.css';
 import '@radix-ui/colors/blue.css';
 import '@radix-ui/colors/green-dark.css';
-
-export const links: LinksFunction = () => [
-	...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
-];
 
 export const meta: MetaFunction = () => {
 	return [
@@ -63,7 +57,6 @@ export default function App() {
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
-				<LiveReload />
 				<PrefetchPageLinks page="/gallery" />
 				<PrefetchPageLinks page="/about" />
 			</body>

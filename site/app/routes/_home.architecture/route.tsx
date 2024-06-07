@@ -4,7 +4,7 @@ import {
 	PhotoIcon,
 } from '@heroicons/react/24/outline';
 import type { MetaFunction } from '@remix-run/cloudflare';
-import styles from './style.module.css';
+import styles from './style.module.scss';
 
 // Colors:
 import '@radix-ui/colors/teal.css';

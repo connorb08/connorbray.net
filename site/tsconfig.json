@@ -1,14 +1,24 @@
 {
-	"include": ["remix.env.d.ts", "app/types.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": [
+		"worker-configuration.d.ts",
+		"env.d.ts",
+		"app/types.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"**/.server/**/*.ts",
+		"**/.server/**/*.tsx",
+		"**/.client/**/*.ts",
+		"**/.client/**/*.tsx"
+	],
 	"exclude": ["node_modules", "server.ts", "**/*.spec.tsx"],
 	"compilerOptions": {
-		"lib": ["DOM", "DOM.Iterable", "ES2019"],
+		"lib": ["DOM", "DOM.Iterable", "ES2022"],
 		"isolatedModules": true,
 		"esModuleInterop": true,
 		"jsx": "react-jsx",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
-		"target": "ES2019",
+		"target": "ES2022",
 		"strict": true,
 		"allowJs": true,
 		"forceConsistentCasingInFileNames": true,
@@ -16,7 +26,12 @@
 		"paths": {
 			"~/*": ["./app/*"]
 		},
-		"types": ["@cloudflare/workers-types/experimental"],
+		"types": [
+			// "@cloudflare/workers-types/experimental",
+			"@remix-run/cloudflare",
+			"@cloudflare/workers-types",
+			"vite/client"
+		],
 		"skipLibCheck": true,
 		// Remix takes care of building everything in `remix build`.
 		"noEmit": true,

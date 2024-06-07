@@ -1,6 +1,6 @@
 import { Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons';
 
-import style from './style.module.css';
+import style from './style.module.scss';
 import { useState } from 'react';
 import { Link } from '@remix-run/react';
 

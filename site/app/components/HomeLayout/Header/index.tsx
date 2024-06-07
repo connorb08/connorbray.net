@@ -1,5 +1,5 @@
 import { Link } from '@remix-run/react';
-import style from './style.module.css';
+import style from './style.module.scss';
 import MobileMenu from '~/components/MobileMenu';
 
 export default function Header() {

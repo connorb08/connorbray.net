@@ -17,7 +17,6 @@ export const GetGalleryImage: RouterHandler<
 		}
 
 		const objectKey = `gallery/${req.params.key}`;
-		console.log(objectKey);
 		const object = await env.CM.get(objectKey);
 		if (object === null) {
 			return new Response('NOT FOUND', { status: 404 });

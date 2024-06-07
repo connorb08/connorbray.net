@@ -9,7 +9,7 @@ import {
 } from '@radix-ui/react-icons';
 import { FolderIcon, HomeIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
-import style from './style.module.css';
+import style from './style.module.scss';
 import { Link, useLocation } from '@remix-run/react';
 
 const nav = [

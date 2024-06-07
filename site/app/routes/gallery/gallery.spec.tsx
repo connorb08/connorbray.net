@@ -27,21 +27,23 @@ describe('Gallery Page', () => {
 			request: new Request('https://connorbray.net/gallery'),
 			params: {},
 			context: {
-				env: {
-					CONTENT: {
-						list: async () => {
-							return {
-								objects: [
-									{
-										size: 1,
-										customMetadata: {
-											height: 1,
-											width: 1,
+				cloudflare: {
+					env: {
+						CONTENT: {
+							list: async () => {
+								return {
+									objects: [
+										{
+											size: 1,
+											customMetadata: {
+												height: 1,
+												width: 1,
+											},
+											key: 'gallery/1.jpg',
 										},
-										key: 'gallery/1.jpg',
-									},
-								],
-							};
+									],
+								};
+							},
 						},
 					},
 				},

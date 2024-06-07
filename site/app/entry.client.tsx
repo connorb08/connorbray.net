@@ -6,21 +6,21 @@
 
 import { RemixBrowser } from '@remix-run/react';
 import { startTransition, StrictMode } from 'react';
-// import { hydrateRoot } from "react-dom/client";
-import { hydrate } from 'react-dom';
+import { hydrateRoot } from 'react-dom/client';
+// import { hydrate } from 'react-dom';
 
 startTransition(() => {
-	// hydrateRoot(
-	// 	document,
-	// 	<StrictMode>
-	// 		<RemixBrowser />
-	// 	</StrictMode>
-	// );
-	// Reverting to hydrate from react-dom to fix hydration issue. App uses react 17 instead of 18.
-	hydrate(
+	hydrateRoot(
+		document,
 		<StrictMode>
 			<RemixBrowser />
-		</StrictMode>,
-		document
+		</StrictMode>
 	);
+	// Reverting to hydrate from react-dom to fix hydration issue. App uses react 17 instead of 18.
+	// hydrate(
+	// 	<StrictMode>
+	// 		<RemixBrowser />
+	// 	</StrictMode>,
+	// 	document
+	// );
 });

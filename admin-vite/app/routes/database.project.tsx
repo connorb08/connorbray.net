@@ -10,7 +10,7 @@ export async function loader() {
 }
 
 export async function action({ request, context }: ActionFunctionArgs) {
-	const env = context.env as Env;
+	const env = context.cloudflare.env as Env;
 	const method = request.method;
 
 	switch (method) {

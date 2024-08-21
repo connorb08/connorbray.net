@@ -6,7 +6,13 @@ import { Link, useLoaderData } from '@remix-run/react';
 import { DeleteContentButton } from '~/components/Content/DeleteContent';
 import PreviewContent from '~/components/Content/PreviewContent';
 
+import { dev_data } from './dev_data';
+
 export const loader = async ({ context }: LoaderFunctionArgs) => {
+	if (process.env.NODE_ENV === 'development') {
+		return json({ objects: dev_data });
+	}
+
 	const env = context.cloudflare.env as Env;
 	const content_bucket = env.CONTENT;
 	console.log(env);
@@ -50,7 +56,7 @@ export default function Content() {
 							</Table.Cell>
 							<Table.Cell width="0">
 								<span className="flex justify-end gap-2">
-									<PreviewContent img={object.key} />
+									<PreviewContent content={object.key} />
 									{/* <IconButton color="amber" asChild>
 										<Link
 											to={`https://content.connorbray.net/${object.key}`}

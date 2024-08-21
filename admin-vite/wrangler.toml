@@ -1,0 +1,15 @@
+name = "admin-dashboard"
+compatibility_date = "2023-05-18"
+
+r2_buckets = [
+  { binding = "CONTENT", bucket_name = "content", preview_bucket_name="content-preview" }
+]
+
+kv_namespaces = [
+  { binding = "KV", id = "fed94582e0984bf4870847f671c891b6" }
+]
+
+pages_build_output_dir = "./build/client"
+
+[vars]
+DATABASE_ENDPOINT = "https://us-east-1.aws.data.mongodb-api.com/app/data-mmwij/endpoint/data/v1"

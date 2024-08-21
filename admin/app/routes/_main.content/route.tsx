@@ -4,6 +4,7 @@ import type { LoaderFunctionArgs } from '@remix-run/cloudflare';
 import { json } from '@remix-run/cloudflare';
 import { Link, useLoaderData } from '@remix-run/react';
 import { DeleteContentButton } from '~/components/Content/DeleteContent';
+import PreviewContent from '~/components/Content/PreviewContent';
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
 	const env = context.env as Env;
@@ -44,7 +45,8 @@ export default function Content() {
 							</Table.Cell>
 							<Table.Cell width="0">
 								<span className="flex justify-end gap-2">
-									<IconButton color="amber" asChild>
+									<PreviewContent img={object.key} />
+									{/* <IconButton color="amber" asChild>
 										<Link
 											to={`https://content.connorbray.net/${object.key}`}
 											target="_blank"
@@ -52,7 +54,7 @@ export default function Content() {
 										>
 											<EyeOpenIcon />
 										</Link>
-									</IconButton>
+									</IconButton> */}
 									<IconButton color="blue">
 										<Pencil1Icon />
 									</IconButton>

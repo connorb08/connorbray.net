@@ -372,7 +372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/kv-asset-handler@npm:0.3.4":
+"@cloudflare/kv-asset-handler@npm:0.3.4, @cloudflare/kv-asset-handler@npm:^0.3.4":
   version: 0.3.4
   resolution: "@cloudflare/kv-asset-handler@npm:0.3.4"
   dependencies:
@@ -3277,6 +3277,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin-vite@workspace:."
   dependencies:
+    "@cloudflare/kv-asset-handler": "npm:^0.3.4"
     "@cloudflare/workers-types": "npm:^4.20240512.0"
     "@radix-ui/colors": "npm:^3.0.0"
     "@radix-ui/react-icons": "npm:^1.3.0"

@@ -1,8 +1,8 @@
 import { EyeOpenIcon, Pencil1Icon, TrashIcon } from '@radix-ui/react-icons';
-import { IconButton, Table } from '@radix-ui/themes';
+import { Flex, IconButton, Table } from '@radix-ui/themes';
 import type { LoaderFunctionArgs } from '@remix-run/cloudflare';
 import { json } from '@remix-run/cloudflare';
-import { Link, useLoaderData } from '@remix-run/react';
+import { useLoaderData } from '@remix-run/react';
 import { DeleteContentButton } from '~/components/Content/DeleteContent';
 import PreviewContent from '~/components/Content/PreviewContent';
 
@@ -16,7 +16,6 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
 
 	const env = context.cloudflare.env as Env;
 	const content_bucket = env.CONTENT;
-	console.log(env);
 	if (!content_bucket) {
 		return json({ objects: [] });
 	}
@@ -31,8 +30,10 @@ export default function Content() {
 	const { objects } = useLoaderData<typeof loader>();
 
 	return (
-		<>
-			<UploadImage />
+		<Flex direction="column" gap="3" className="mt-3">
+			<Flex className="ml-3">
+				<UploadImage />
+			</Flex>
 			<Table.Root>
 				<Table.Header>
 					<Table.Row>
@@ -81,6 +82,6 @@ export default function Content() {
 					})}
 				</Table.Body>
 			</Table.Root>
-		</>
+		</Flex>
 	);
 }

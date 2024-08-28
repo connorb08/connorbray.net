@@ -1,4 +1,4 @@
-import { Button, Dialog } from '@radix-ui/themes';
+import { Button, Dialog, Flex, Select } from '@radix-ui/themes';
 import { Form } from '@remix-run/react';
 import { FormEvent } from 'react';
 
@@ -42,13 +42,30 @@ export function UploadImage() {
 	return (
 		<Dialog.Root>
 			<Dialog.Trigger>
-				<Button>Upload</Button>
+				<Button>Upload Image</Button>
 			</Dialog.Trigger>
 			<Dialog.Content>
 				<Dialog.Title>Upload an image</Dialog.Title>
 				<Form onSubmit={handleSubmit}>
-					<input name="file" type="file" accept=".png, .jpg" />
-					<Button type="submit">Upload</Button>
+					<Flex direction={'column'} gap="3">
+						<input name="file" type="file" accept=".png, .jpg" />
+						<Select.Root defaultValue="gallery" name="category">
+							<Select.Trigger />
+							<Select.Content>
+								<Select.Group>
+									<Select.Label>Category</Select.Label>
+									<Select.Item value="gallery">
+										Gallery
+									</Select.Item>
+									<Select.Item value="images">
+										Images
+									</Select.Item>
+									<Select.Item value="dist">Dist</Select.Item>
+								</Select.Group>
+							</Select.Content>
+						</Select.Root>
+						<Button type="submit">Upload</Button>
+					</Flex>
 				</Form>
 			</Dialog.Content>
 		</Dialog.Root>

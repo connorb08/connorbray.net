@@ -13,7 +13,7 @@ import type { PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
 
 export function DeleteContentButton(
-	props: PropsWithChildren<{ project: Project }>
+	props: PropsWithChildren<{ content: string }>
 ) {
 	const fetcher = useFetcher();
 	const [open, setOpen] = useState(false);
@@ -40,8 +40,8 @@ export function DeleteContentButton(
 				<AlertDialog.Content>
 					<AlertDialog.Title>Delete File</AlertDialog.Title>
 					<AlertDialog.Description size="2">
-						Are you sure? File <Strong>{'filename'}</Strong> will be
-						permanently deleted.
+						Are you sure? File <Strong>{props.content}</Strong> will
+						be permanently deleted.
 					</AlertDialog.Description>
 					<Flex gap="3" mt="4" direction="column">
 						{error ? (

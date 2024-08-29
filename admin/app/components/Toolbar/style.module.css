@@ -1,5 +1,0 @@
-.Toolbar {
-	@apply flex flex-row;
-	@apply p-5;
-	@apply gap-5;
-}

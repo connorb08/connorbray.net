@@ -18,7 +18,7 @@ const Leadership = ({ roles }: { roles: LeadershipRoleProps[] }) => {
 					);
 				})}
 			</div>
-			<div className="p-7 block-section">
+			{/* <div className="p-7 block-section">
 				<h2 className="block-title">Awards</h2>
 
 				{roles.map((role, index) => {
@@ -29,7 +29,7 @@ const Leadership = ({ roles }: { roles: LeadershipRoleProps[] }) => {
 						</div>
 					);
 				})}
-			</div>
+			</div> */}
 		</>
 	);
 };

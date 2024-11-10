@@ -13,7 +13,7 @@ const Information = () => {
 				<div className="flex justify-between">
 					<div className="text-gray-11">Experience</div>
 					<div className="font-medium text-right text-gray-11">
-						8+ years
+						3+ years
 					</div>
 				</div>
 			</div>

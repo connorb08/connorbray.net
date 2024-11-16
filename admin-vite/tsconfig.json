@@ -6,6 +6,7 @@
 		"**/.server/**/*.tsx",
 		"**/.client/**/*.ts",
 		"**/.client/**/*.tsx",
+		"app/types.d.ts",
 		"worker-configuration.d.ts"
 	],
 	"compilerOptions": {

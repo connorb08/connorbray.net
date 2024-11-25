@@ -1,5 +1,5 @@
 // Imports
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { json } from '@remix-run/cloudflare';
 import type { MetaFunction, LoaderFunctionArgs } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
@@ -112,6 +112,17 @@ export default function Gallery() {
 	const { data } = useLoaderData<typeof loader>() as unknown as {
 		data: Photo[];
 	};
+
+	const photos = useMemo(() => {
+		const shuffled = [...data];
+		// Fisher-Yates shuffle
+		for (let i = shuffled.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+		}
+		return shuffled;
+	}, [data]);
+
 	const [index, setIndex] = useState(-1);
 
 	return (
@@ -126,7 +137,7 @@ export default function Gallery() {
 						if (containerWidth < 800) return 3;
 						return 4;
 					}}
-					photos={data}
+					photos={photos}
 					onClick={({ index }) => setIndex(index)}
 					componentsProps={() => ({
 						imageProps: {
@@ -136,7 +147,7 @@ export default function Gallery() {
 					})}
 				/>
 				<Lightbox
-					slides={data}
+					slides={photos}
 					open={index >= 0}
 					index={index}
 					close={() => setIndex(-1)}

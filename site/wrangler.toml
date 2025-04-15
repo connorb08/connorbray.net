@@ -17,3 +17,7 @@ command = "yarn build"
 [[routes]]
 pattern = "connorbray.net"
 custom_domain = true
+
+[[routes]]
+pattern = "www.connorbray.net"
+custom_domain = true
